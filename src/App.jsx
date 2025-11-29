@@ -3,6 +3,7 @@ import OpenPageAnimation from './OpenPageAnimation/OpenPageAnimation.jsx'
 import Nav from './Nav/Nav.jsx'
 import { Header } from './Header/Header.jsx'
 import { Body } from './Body/Body.jsx'
+import { MostPopular } from './MostPopular/MostPopular.jsx'
 
 
 function App() {
@@ -15,6 +16,8 @@ function App() {
       <Nav/>
 
       <Header/>
+
+      <MostPopular/>
 
       <Body/>
 

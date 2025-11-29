@@ -13,6 +13,7 @@
     align-items: center;
     justify-content: space-between;
     overflow: visible;
+    z-index: 100000;
   }
 
   .header-logo {
@@ -104,6 +105,15 @@
     opacity: 1;
     pointer-events: all;
   }
+
+  /* ------------- */
+
+  .navbar.scrolled {
+  background: var(--button-color--);          
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: background 0.7s ease-in-out;
+
+}
 }
 
 /* Tablet Portrait - 768px to 991px */
@@ -281,6 +291,9 @@
     display: flex;
     justify-content: space-between;
     padding: 0rem 4rem;
+    align-items: center;
+    top: 0;
+    z-index: 1000000;
   }
 
   .desktop-menu {
@@ -289,6 +302,14 @@
     gap: 1.5rem;
     font-family: var(--fonts--);
   }
+
+  .desktop-view.scrolled {
+  background: var(--button-color--);          
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.463);
+  transition: background 0.7s ease-in-out;
+  top: 0;
+border-bottom: 1px solid black;
+}
 
   .desktop-menu a {
     text-decoration: none;
@@ -351,6 +372,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+      top: 0;
+    z-index: 1000000;
   }
 
   .header-logo {

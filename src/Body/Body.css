@@ -1,3 +1,54 @@
-div{
-    height: 1000px;
+@media screen and (max-width: 767px) {
+  .body {
+    margin-top: 3rem;
+    min-height: 140vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .body-top {
+    height: 70vh;
+    position: relative;
+  }
+
+  .body-top-text,
+  .body-bottom-text {
+    position: absolute;
+    top: 80%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 50px;
+    text-transform: capitalize;
+    line-height: 3.5rem;
+    font-family: var(--fonts--);
+  }
+
+  .body-top img,
+  .body-bottom img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .body-bottom {
+    height: 70vh;
+    /* overflow: hidden; */
+    position: relative;
+    margin-top: -0.1rem;
+  }
+
+  /* .body-bottom:hover {
+    cursor: pointer;
+    transform: scale(1.03);
+    transition: all 0.3s ease-in-out;
+  } */
+
+
+  button{
+     background: var(--button-color--);
+     padding: 1rem;
+     border: none;
+     text-transform: capitalize;
+  }
 }

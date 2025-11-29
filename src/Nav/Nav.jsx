@@ -1,5 +1,5 @@
 import "./Nav.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Search } from "./Search";
 import { CheckoutPage } from "./CartItems";
 
@@ -8,10 +8,43 @@ const Nav = () => {
 
   const [showCheckout, setShowCheckout] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [scrolledDesktop, setScrolledDesktop] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+     if (window.scrollY > 870) {    
+        setScrolled(true);
+
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // cleanup
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+     if (window.scrollY > 440) {    
+        setScrolledDesktop(true);
+      } else {
+        setScrolledDesktop(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // cleanup
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <>
-      <nav>
+      <nav className={`navbar ${scrolled ? 'scrolled' : 'transparent'}`} >
         {/* HAMBURGER ICON */}
         <div
           className={`hamburger ${open ? "open" : ""}`}
@@ -46,7 +79,7 @@ const Nav = () => {
 
       {/* desktop menu */}
 
-      <div className="desktop-view">
+      <div className={`desktop-view ${scrolledDesktop ? 'scrolled': null}`}>
         <div className="desktop-menu">
           <a href="#">Men</a>
           <a href="#">Women</a>
