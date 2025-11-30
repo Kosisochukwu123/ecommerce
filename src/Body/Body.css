@@ -15,7 +15,7 @@
   .body-bottom-text {
     position: absolute;
     top: 80%;
-    left: 30%;
+    left: 32%;
     transform: translate(-50%, -50%);
     color: white;
     font-size: 50px;
@@ -50,56 +50,7 @@
      padding: 1rem;
      border: none;
      text-transform: capitalize;
-  }
-}
-
-/* Extra small devices (portrait phones, less than 576px) */
-@media screen and (max-width: 575px) {
-  .body {
-    margin-top: 2rem;
-    min-height: 130vh;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .body-top {
-    height: 60vh;
-    position: relative;
-  }
-
-  .body-top-text,
-  .body-bottom-text {
-    position: absolute;
-    top: 80%;
-    left: 30%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-size: 35px;
-    text-transform: capitalize;
-    line-height: 2.5rem;
-    font-family: var(--fonts--);
-    padding: 0 1rem;
-  }
-
-  .body-top img,
-  .body-bottom img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .body-bottom {
-    height: 60vh;
-    position: relative;
-    margin-top: -0.1rem;
-  }
-
-  button {
-    background: var(--button-color--);
-    padding: 0.8rem;
-    border: none;
-    text-transform: capitalize;
-    font-size: 14px;
+     color: white;
   }
 }
 
@@ -149,6 +100,7 @@
     border: none;
     text-transform: capitalize;
     font-size: 15px;
+     color: white;
   }
 }
 
@@ -205,6 +157,7 @@
   button:hover {
     opacity: 0.9;
     transform: translateY(-2px);
+     color: white;
   }
 }
 
@@ -262,6 +215,7 @@
     font-size: 17px;
     cursor: pointer;
     transition: all 0.3s ease;
+     color: white;
   }
 
   button:hover {
@@ -327,6 +281,7 @@
     cursor: pointer;
     transition: all 0.3s ease;
     font-weight: 500;
+     color: white;
   }
 
   button:hover {
@@ -397,6 +352,7 @@
     cursor: pointer;
     transition: all 0.3s ease;
     font-weight: 500;
+     color: white;
   }
 
   button:hover {

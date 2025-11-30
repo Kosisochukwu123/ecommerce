@@ -4,6 +4,8 @@ import Nav from './Nav/Nav.jsx'
 import { Header } from './Header/Header.jsx'
 import { Body } from './Body/Body.jsx'
 import { MostPopular } from './MostPopular/MostPopular.jsx'
+import { About } from './About/About.jsx'
+import { Socials } from './Socials/Socials.jsx'
 
 
 function App() {
@@ -20,6 +22,12 @@ function App() {
       <MostPopular/>
 
       <Body/>
+
+      <Socials/>
+     
+      <About/>
+
+
 
   
     </>

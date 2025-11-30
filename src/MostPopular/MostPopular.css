@@ -18,8 +18,12 @@
 
   .Most-popular-top h2 {
     font-size: 40px;
+    margin: 0 auto;
     margin-top: 1.5rem;
+    width: 80%;
+    text-transform: capitalize;
     font-family: var(--fonts--);
+    
   }
 
   .Most-popular-body {
@@ -48,6 +52,7 @@
     font-size: 17px;
     text-transform: capitalize;
     font-family: var(--fonts--);
+     margin-top: 0.5rem;
   }
 
   .amount {
@@ -228,10 +233,11 @@
 
   .Most-popular-top h2 {
     font-size: 55px;
-    margin-top: 2.5rem;
-    width: 40%;
+    width: 50%;
     margin: 0 auto;
+    margin-top: 2.5rem;
     text-transform: capitalize;
+    font-family: var(--fonts--);  
   }
 
   .Most-popular-body {
