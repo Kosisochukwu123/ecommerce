@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./PullDown.css";
+import loadingSpinner from "../images/laoding-spinner.png";
 
 export default function OpenPageAnimation() {
   const [showIntro, setShowIntro] = useState(true);
@@ -16,7 +17,7 @@ export default function OpenPageAnimation() {
     <>
       {/* Pull-down intro container */}
       <div className={`intro-panel ${showIntro ? "open" : "close"}`}>
-        <p>Loading your experience...</p>
+        <p><span><img src={loadingSpinner} alt="image-spinner"/></span>Loading your experience...</p>
       </div>
       
     </>
