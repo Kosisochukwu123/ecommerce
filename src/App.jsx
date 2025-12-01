@@ -6,6 +6,7 @@ import { Body } from './Body/Body.jsx'
 import { MostPopular } from './MostPopular/MostPopular.jsx'
 import { About } from './About/About.jsx'
 import { Socials } from './Socials/Socials.jsx'
+import { Footer } from './Footer/Footer.jsx'
 
 
 function App() {
@@ -27,9 +28,9 @@ function App() {
      
       <About/>
 
+      <Footer/>
 
 
-  
     </>
   )
 }

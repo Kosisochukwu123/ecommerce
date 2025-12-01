@@ -49,7 +49,7 @@
   }
 
   section img {
-    height: auto%;
+    height: auto;
     width: 100%;
     object-fit: cover;
   }
@@ -104,7 +104,7 @@
   .about-text {
     position: absolute;
     top: 55%;
-    left: 45%;
+    left: 42%;
     transform: translate(-50%, -50%);
     color: white;
     text-transform: capitalize;
@@ -227,11 +227,11 @@
   .about-text {
     position: absolute;
     top: 50%;
-    left: 40%;
+    left: 42%;
     transform: translate(-50%, -50%);
     color: white;
     text-transform: capitalize;
-    width: 65%;
+    width: 75%;
     font-family: var(--fonts--);
     z-index: 2;
   }

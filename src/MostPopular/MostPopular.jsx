@@ -7,8 +7,8 @@ export const MostPopular = () => {
     <div className='Most-popular'>
 
       <div className='Most-popular-top'>
-        <p>(BestSellers)</p>
-        <h2>Our Most popular pieces this season</h2>
+        <h2>(BestSellers)</h2>
+        <p>Our Most popular pieces this season</p>
       </div>
 
       <div className='Most-popular-body'>

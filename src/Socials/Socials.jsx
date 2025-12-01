@@ -1,6 +1,9 @@
 import React from "react";
 import "./Socials.css";
-import img3 from "../images/header_image3.jpg";
+import body1 from "../images/body1.jpg";
+import body2 from "../images/body2.jpg";
+import body3 from "../images/body3.jpg";
+import body4 from "../images/body4.jpg";
 
 export const Socials = () => {
   return (
@@ -11,16 +14,16 @@ export const Socials = () => {
       </p>
       <div className="image-scroller">
         <div className="image-track">
-          <img src={img3} alt="" />
-          <img src={img3} alt="" />
-          <img src={img3} alt="" />
-          <img src={img3} alt="" />
+          <img src={body1} alt="" />
+          <img src={body2} alt="" />
+          <img src={body3} alt="" />
+          <img src={body4} alt="" />
 
           {/* duplicate to make infinite loop */}
-          <img src={img3} alt="" />
-          <img src={img3} alt="" />
-          <img src={img3} alt="" />
-          <img src={img3} alt="" />
+          <img src={body1} alt="" />
+          <img src={body2} alt="" />
+          <img src={body3} alt="" />
+          <img src={body4} alt="" />
         </div>
       </div>
     </div>

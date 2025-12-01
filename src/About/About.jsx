@@ -4,15 +4,14 @@ import AboutImage from "../images/About-image.jpg";
 
 export const About = () => {
 return (
-    <section>
-        <img src={AboutImage} alt="About" />
-
+    <section className="about-section">
+        <img src={AboutImage} alt="About Brandi" />
         <div className="about-text">
             <h2>(About Brandi)</h2>
             <p>
-                Brandi offers high-quality men's fashion that 
+                Quality products, unforgettable experiences, pure excellence.
             </p>
-            <button>Our Story</button>
+            <button>Learn Our Story</button>
         </div>
     </section>
 );

@@ -1,29 +1,27 @@
 @media screen and (max-width: 767px) {
   .Most-popular {
-    /* border: 2px solid red; */
     min-height: 160vh;
     margin-top: 8rem;
   }
 
   .Most-popular-top {
-    /* border: 2px solid blue; */
     height: auto;
     text-align: center;
   }
 
   .Most-popular-top p {
-    font-size: 15px;
-    font-family: var(--brand-font--);
+    font-size: 50px;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 2.5rem;
+    text-transform: capitalize;
+    font-family: var(--fonts--);
+    font-weight: none;
   }
 
   .Most-popular-top h2 {
-    font-size: 40px;
-    margin: 0 auto;
-    margin-top: 1.5rem;
-    width: 80%;
-    text-transform: capitalize;
-    font-family: var(--fonts--);
-    
+    font-size: 16px;
+    font-family: var(--brand-font--);
   }
 
   .Most-popular-body {
@@ -52,7 +50,7 @@
     font-size: 17px;
     text-transform: capitalize;
     font-family: var(--fonts--);
-     margin-top: 0.5rem;
+    margin-top: 0.5rem;
   }
 
   .amount {
@@ -65,7 +63,7 @@
 }
 
 /* Extra small devices (portrait phones, less than 576px) */
-@media screen and (max-width: 575px) {
+/* @media screen and (max-width: 575px) {
   .Most-popular {
     min-height: 150vh;
     margin-top: 6rem;
@@ -92,7 +90,7 @@
   .amount {
     font-size: 16px;
   }
-}
+} */
 
 /* Small devices (landscape phones, 576px to 767px) */
 @media screen and (min-width: 576px) and (max-width: 767px) {
@@ -102,12 +100,18 @@
   }
 
   .Most-popular-top p {
-    font-size: 15px;
-    font-family: var(--brand-font--);
+    font-size: 50px;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 2.5rem;
+    text-transform: capitalize;
+    font-family: var(--fonts--);
+    font-weight: none;
   }
 
   .Most-popular-top h2 {
-    font-size: 38px;
+    font-size: 16px;
+    font-family: var(--brand-font--);
   }
 
   .image img {
@@ -124,17 +128,18 @@
   }
 
   .Most-popular-top p {
-    font-size: 16px;
-    font-family: var(--brand-font--);
+    font-size: 50px;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 2.5rem;
+    text-transform: capitalize;
+    font-family: var(--fonts--);
+    font-weight: none;
   }
 
   .Most-popular-top h2 {
-    font-size: 45px;
-    font-family: var(--fonts--);
-    text-transform: capitalize;
-    width: 60%;
-    margin: 0 auto;
-    margin-top: 1rem;
+    font-size: 16px;
+    font-family: var(--brand-font--);
   }
 
   .Most-popular-body {
@@ -186,13 +191,18 @@
   }
 
   .Most-popular-top p {
-    font-size: 17px;
-    font-family: var(--brand-font--);
+    font-size: 50px;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 2.5rem;
+    text-transform: capitalize;
+    font-family: var(--fonts--);
+    font-weight: none;
   }
 
   .Most-popular-top h2 {
-    font-size: 50px;
-    margin-top: 2rem;
+    font-size: 16px;
+    font-family: var(--brand-font--);
   }
 
   .container {
@@ -227,17 +237,22 @@
   }
 
   .Most-popular-top p {
-    font-size: 18px;
-    font-family: var(--brand-font--);
+    font-size: 70px;
+    text-align: center;
+    font-family: var(--fonts--);
+    width: 75%;
+    margin: 0 auto;
+    margin-top: 2rem;
+    line-height: 4.5rem;
+    font-weight: 600;
   }
 
   .Most-popular-top h2 {
-    font-size: 55px;
-    width: 50%;
-    margin: 0 auto;
-    margin-top: 2.5rem;
-    text-transform: capitalize;
-    font-family: var(--fonts--);  
+    text-align: center;
+    font-family: var(--brand-font--);
+    font-size: 19px;
+    letter-spacing: 2.5px;
+    font-weight: 400;
   }
 
   .Most-popular-body {
@@ -295,7 +310,7 @@
   }
 
   .Most-popular-top h2 {
-    font-size: 60px;
+    font-size: 20px;
   }
 
   .container {
