@@ -7,17 +7,6 @@ export default function OpenPageAnimation() {
 
   useEffect(() => {
 
-    const alreadyShown = sessionStorage.getItem("intro_shown");
-
-    if (alreadyShown) {
-      setShowIntro(false);
-      return;
-    }
-    sessionStorage.setItem("intro_shown", "true");
-    // document.body.classList.add("no-scroll");
-
-
-
     const timer = setTimeout(() => {
       setShowIntro(false);
     }, 2000); // panel stays for 2 second

@@ -5,11 +5,14 @@ import WomenPage from './pages/WomensPage/Womens.jsx'
 import OurStoryPage from './pages/OurStoryPage/OurStoryPage.jsx'
 import ContactPage from './pages/ContactPage/ContactPage.jsx'
 import {Routes, Route} from 'react-router'
+import OpenPageAnimation from "./components/OpenPageAnimation/OpenPageAnimation"
 
 function App() {
 
   return (
     <>
+
+    <OpenPageAnimation />
 
     <Routes>
       <Route path="/" element={<Home />} />
