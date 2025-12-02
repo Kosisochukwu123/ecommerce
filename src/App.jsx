@@ -1,38 +1,27 @@
-import './App.css'
-import OpenPageAnimation from './OpenPageAnimation/OpenPageAnimation.jsx'
-import Nav from './Nav/Nav.jsx'
-import { Header } from './Header/Header.jsx'
-import { Body } from './Body/Body.jsx'
-import { MostPopular } from './MostPopular/MostPopular.jsx'
-import { About } from './About/About.jsx'
-import { Socials } from './Socials/Socials.jsx'
-import { Footer } from './Footer/Footer.jsx'
-
+import "./App.css";
+import Home from "./pages/Home.jsx";
+import MenPage from './pages/MensPage/Mens.jsx'
+import WomenPage from './pages/WomensPage/Womens.jsx'
+import OurStoryPage from './pages/OurStoryPage/OurStoryPage.jsx'
+import ContactPage from './pages/ContactPage/ContactPage.jsx'
+import {Routes, Route} from 'react-router'
 
 function App() {
- 
 
   return (
     <>
-      <OpenPageAnimation />
 
-      <Nav/>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/For-Men" element={ <MenPage/>} />
+      <Route path="/For-Women" element={ <WomenPage/>} />
+      <Route path="/Our-Story" element={ <OurStoryPage/>} />
+      <Route path="/Contact" element={ <ContactPage/>} />
+    </Routes>
 
-      <Header/>
-
-      <MostPopular/>
-
-      <Body/>
-
-      <Socials/>
      
-      <About/>
-
-      <Footer/>
-
-
     </>
-  )
+  );
 }
 
-export default App
+export default App;

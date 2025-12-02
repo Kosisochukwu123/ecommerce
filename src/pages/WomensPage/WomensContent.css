@@ -1,0 +1,47 @@
+@media screen and (max-width: 767px) {
+.header-image-women {
+    height: 70vh;
+    background: url(../../images/body-image-women.jpg);
+    background-position: top;
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+  }
+
+  .header-image-women p {
+    color: white;
+    position: absolute;
+    top: 80%;
+    left: 3%;
+    font-size: 50px;
+    text-transform: capitalize;
+    font-family: var(--fonts--);
+  }
+
+  .womens-links {
+    padding-left: 1rem;
+    margin-top: 6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .womens-links a {
+    color: black;
+    text-transform: capitalize;
+    font-size: 28px;
+    color: gray;
+    font-family: var(--fonts--);
+    text-decoration: none;
+  }
+
+  .womens-links a:active {
+    color: black;
+  }
+
+  .contents {
+    min-height: 100vh;
+    margin-top: 3rem;
+  }
+}
