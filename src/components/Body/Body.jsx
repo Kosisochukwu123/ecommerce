@@ -1,4 +1,4 @@
-import React from "react";
+import {Link} from 'react-router-dom';
 import "./Body.css";
 import bodytop from "../../images/body-image-men.jpg";
 import bodybottom from "../../images/body-image-women.jpg";
@@ -11,7 +11,7 @@ export const Body = () => {
 
         <div className="body-top-text">
           <p>men's <br/> collection</p>
-          <button>shop now</button>
+          <Link to="/For-Men"><button>shop now</button></Link>
         </div>
       </div>
 
@@ -20,7 +20,7 @@ export const Body = () => {
 
         <div className="body-bottom-text">
           <p>women's <br/> collection</p>
-          <button>shop now</button>
+          <Link to="/For-Women"><button>shop now</button></Link>
         </div>
 
       </div>

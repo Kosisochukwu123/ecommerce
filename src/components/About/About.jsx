@@ -1,4 +1,4 @@
-import React from "react";
+import {Link} from 'react-router-dom';
 import "./About.css";
 import AboutImage from "../../images/About-image.jpg";
 
@@ -9,9 +9,9 @@ return (
         <div className="about-text">
             <h2>(About Brandi)</h2>
             <p>
-                Quality products, unforgettable experiences, pure excellence.
+                every Crafted design had a story and ours is no different.
             </p>
-            <button>Learn Our Story</button>
+            <Link to="/our-story"><button>Learn Our Story</button></Link>
         </div>
     </section>
 );

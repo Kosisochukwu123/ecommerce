@@ -33,7 +33,6 @@
 
   .body-bottom {
     height: 70vh;
-    /* overflow: hidden; */
     position: relative;
     margin-top: -0.1rem;
   }
@@ -44,13 +43,16 @@
     transition: all 0.3s ease-in-out;
   } */
 
+  button {
+    background: var(--button-color--);
+    padding: 1rem;
+    border: none;
+    text-transform: capitalize;
+  }
 
-  button{
-     background: var(--button-color--);
-     padding: 1rem;
-     border: none;
-     text-transform: capitalize;
-     color: white;
+  button a {
+    color: white;
+    text-decoration: none;
   }
 }
 
@@ -100,7 +102,7 @@
     border: none;
     text-transform: capitalize;
     font-size: 15px;
-     color: white;
+    color: white;
   }
 }
 
@@ -154,10 +156,15 @@
     transition: all 0.3s ease;
   }
 
+  button a {
+    color: white;
+    text-decoration: none;
+  }
+
   button:hover {
     opacity: 0.9;
     transform: translateY(-2px);
-     color: white;
+    color: white;
   }
 }
 
@@ -215,7 +222,12 @@
     font-size: 17px;
     cursor: pointer;
     transition: all 0.3s ease;
-     color: white;
+    color: white;
+  }
+
+  button a {
+    color: white;
+    text-decoration: none;
   }
 
   button:hover {
@@ -281,7 +293,12 @@
     cursor: pointer;
     transition: all 0.3s ease;
     font-weight: 500;
-     color: white;
+    color: white;
+  }
+
+  button a {
+    color: white;
+    text-decoration: none;
   }
 
   button:hover {
@@ -352,7 +369,12 @@
     cursor: pointer;
     transition: all 0.3s ease;
     font-weight: 500;
-     color: white;
+    color: white;
+  }
+
+  button a {
+    color: white;
+    text-decoration: none;
   }
 
   button:hover {

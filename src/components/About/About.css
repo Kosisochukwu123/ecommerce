@@ -41,7 +41,7 @@
 /* Medium devices (tablets, 768px to 991px) */
 @media screen and (min-width: 768px) and (max-width: 991px) {
   section {
-    height: 75vh;
+    height: 85vh;
     overflow: hidden;
     margin-top: 8rem;
     position: relative;
@@ -96,7 +96,7 @@
 /* Large devices (desktops, 992px to 1199px) */
 @media screen and (min-width: 992px) and (max-width: 1199px) {
   section {
-    height: 80vh;
+    height: 90vh;
     margin-top: 9rem;
     position: relative;
     overflow: hidden;
@@ -159,7 +159,7 @@
 /* Extra large devices (large desktops, 1200px to 1399px) */
 @media screen and (min-width: 1200px) and (max-width: 1399px) {
   section {
-    height: 85vh;
+    height: 100vh;
     margin-top: 10rem;
     position: relative;
     overflow: hidden;
@@ -225,7 +225,7 @@
 /* Ultra-wide screens (1400px and up) */
 @media screen and (min-width: 1400px) {
   section {
-    height: 90vh;
+    height: 100vh;
     margin-top: 12rem;
     position: relative;
     overflow: hidden;
@@ -294,7 +294,7 @@
 /* 4K and larger screens (1920px and up) */
 @media screen and (min-width: 1920px) {
   section {
-    height: 95vh;
+    height: 100vh;
     margin-top: 14rem;
     max-width: 2000px;
   }

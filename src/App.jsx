@@ -6,6 +6,7 @@ import OurStoryPage from './pages/OurStoryPage/OurStoryPage.jsx'
 import ContactPage from './pages/ContactPage/ContactPage.jsx'
 import {Routes, Route} from 'react-router'
 import OpenPageAnimation from "./components/OpenPageAnimation/OpenPageAnimation"
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
     <>
 
     <OpenPageAnimation />
+    <ScrollToTop />
 
     <Routes>
       <Route path="/" element={<Home />} />

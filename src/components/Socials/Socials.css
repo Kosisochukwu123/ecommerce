@@ -177,10 +177,6 @@
     transition: transform 0.3s ease;
   }
 
-  .image-track img:hover {
-    transform: scale(1.05);
-  }
-
   @keyframes scroll-left {
     0% {
       transform: translateX(0);
@@ -239,21 +235,12 @@
     animation: scroll-left 20s linear infinite;
   }
 
-  .image-track:hover {
-    animation-play-state: paused;
-  }
-
   .image-track img {
     width: 420px;
     height: 420px;
     object-fit: cover;
     border-radius: 8px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .image-track img:hover {
-    transform: scale(1.08);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   }
 
   @keyframes scroll-left {
@@ -335,21 +322,12 @@
     animation: scroll-left 37s linear infinite;
   }
 
-  .image-track:hover {
-    animation-play-state: paused;
-  }
-
   .image-track img {
     width: 460px;
     height: 400px;
     object-fit: cover;
     border-radius: 10px;
     transition: transform 0.4s ease, box-shadow 0.4s ease;
-  }
-
-  .image-track img:hover {
-    transform: scale(1.1);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
   }
 
   @keyframes scroll-left {
@@ -431,22 +409,12 @@
     animation: scroll-left 25s linear infinite;
   }
 
-  .image-track:hover {
-    animation-play-state: paused;
-  }
-
   .image-track img {
     width: 500px;
     height: 500px;
     object-fit: cover;
     border-radius: 12px;
     transition: transform 0.5s ease, box-shadow 0.5s ease;
-  }
-
-  .image-track img:hover {
-    transform: scale(1.12);
-    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.3);
-    z-index: 1;
   }
 
   @keyframes scroll-left {

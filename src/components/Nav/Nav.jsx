@@ -72,7 +72,7 @@ const Nav = () => {
         <div className={`mobile-menu ${open ? "show" : ""}`}>
           <Link to= "/For-Men" > Men </Link>
           <Link to= "/For-Women" > Women </Link>
-          <a href="#">Kids</a>
+          <a href="#" aria-disabled="true">Kids</a>
           <Link to= "/Our-Story" > Our story </Link>
           <Link to= "/Contact" > Contact </Link>
         </div>
@@ -85,7 +85,7 @@ const Nav = () => {
         <div className="desktop-menu">
           <Link to= "/For-Men" > Men </Link>
           <Link to= "/For-Women" > Women </Link>
-          <a href="#">Kids</a>
+          <a href="#" aria-disabled="true">Kids</a>
           <Link to= "/Our-Story" > Our story </Link>
           <Link to= "/Contact" > Contact </Link>
         </div>

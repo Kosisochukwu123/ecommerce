@@ -1,5 +1,6 @@
 import React from "react";
 import "./Footer.css";
+import {Link} from "react-router-dom";
 import mastercardImage from "../../images/apple-pay_5968209.png";
 import card from "../../images/card_16174534.png";
 import paypal from "../../images/paypal_888870.png";
@@ -11,68 +12,67 @@ export const Footer = () => {
         
       <div className="footer-top">
         <div className="box">
-          <i class="fa-solid fa-box-open"></i>
+          <i className="fa-solid fa-box-open"></i>
           <p>
-            Free shipping from <br /> <span>$200</span>{" "}
+            Free shipping from <br /> <span>$200</span>
           </p>
         </div>
         <div className="box">
-          <i class="fa-solid fa-arrow-right-arrow-left"></i>
+          <i className="fa-solid fa-arrow-right-arrow-left"></i>
           <p>
-            Easy returns within <br /> <span>30 days</span>{" "}
+            Easy returns within <br /> <span>30 days</span>
           </p>
         </div>
         <div className="box">
-          <i class="fa-solid fa-lock"></i>
+          <i className="fa-solid fa-lock"></i>
           <p>
-            Secure payments <br /> <span>online</span>{" "}
+            Secure payments <br /> <span>online</span>
           </p>
         </div>
         <div className="box">
-          <i class="fa-solid fa-user-shield"></i>
+          <i className="fa-solid fa-user-shield"></i>
           <p>
-            24/7 customer <br /> <span>support</span>{" "}
+            24/7 customer <br /> <span>support</span>
           </p>
         </div>
       </div>
 
       <div className="footer-middle">
         <div className="content">
-          <h2>(Navigation)</h2>
+          <h2>Navigation</h2>
           <div className="links">
-            <a href="">Home</a>
-            <a href="">Men</a>
-            <a href="">Women</a>
-            <a href="">Kids</a>
-            <a href="">Our Story</a>
+            <Link to="/">Home</Link>
+            <Link to="/For-Men">Men</Link>
+            <Link to="/For-Women">Women</Link>
+            <Link to="/kids">Kids</Link>
+            <Link to="/Our-Story">Our Story</Link>
           </div>
         </div>
         <div className="content">
-          <h2>(Legal)</h2>
-
+          <h2>Legal</h2>
           <div className="links">
-            <a href="">Privacy Policy</a>
-            <a href="">Terms of services</a>
+            <Link to="/privacy-policy">Privacy Policy</Link>
+            <Link to="/terms-of-service">Terms of services</Link>
           </div>
         </div>
 
         <div className="content">
-          <h2>(Help)</h2>
+          <h2>Help</h2>
           <div className="links">
-            <a href="">Contact</a>
-            <a href="">FAQ</a>
+            <Link to="/Contact">Contact</Link>
+            <Link to="/Contact">FAQ</Link>
           </div>
         </div>
       </div>
 
       <div className="footer-bottom">
         <h3>Brandi</h3>
-        <p>&nbps All copy right Reserved</p>
+        <p>&copy; All rights reserved</p>
         <span>
-          <img src={mastercardImage} alt="" srcset="" />
-          <img src={card} alt="" srcset="" />
-          <img src={paypal} alt="" srcset="" />
-          <img src={visa} alt="" srcset="" />
+          <img src={mastercardImage} alt="Mastercard" />
+          <img src={card} alt="Card" />
+          <img src={paypal} alt="PayPal" />
+          <img src={visa} alt="Visa" />
         </span>
       </div>
 
