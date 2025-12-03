@@ -3,13 +3,14 @@ import Nav from "../../components/Nav/Nav.jsx";
 import Footer from "../../components/Footer/Footer.jsx";
 import Socials from "../../components/Socials/Socials.jsx";
 import ContactPageContent from "./ContactPageContent";
+import FAQ from '../../components/FAQ/FAQ.jsx'
 
 const ContactPage = () => {
   return (
     <>
       <Nav />
       <ContactPageContent />
-
+      <FAQ/>
       <Socials />
       <Footer />
     </>

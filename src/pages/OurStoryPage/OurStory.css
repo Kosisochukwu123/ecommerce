@@ -61,3 +61,727 @@
     height: 10%;
   }
 }
+
+/* Extra small devices (portrait phones, less than 576px) - Portrait */
+@media screen and (max-width: 575px) and (orientation: portrait) {
+  article {
+    height: fit-content;
+  }
+
+  .contact-header {
+    height: 65vh;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-bg-about {
+    position: absolute;
+    inset: 0;
+    background: url(../../images/About-image.jpg) center/cover no-repeat;
+    will-change: transform;
+  }
+
+  .contact-header p {
+    position: absolute;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    font-family: var(--fonts--);
+    top: 80%;
+    left: 5%;
+    font-size: 40px;
+    text-transform: capitalize;
+    line-height: 2.5rem;
+  }
+
+  .ourstory-content {
+    margin-top: 5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .paragraph {
+    margin-top: 2rem;
+    border: 1px solid gray;
+    padding-bottom: 2.5rem;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+  }
+
+  .paragraph h2 {
+    font-size: 35px;
+    text-transform: capitalize;
+    margin-bottom: 1.5rem;
+    font-family: var(--fonts--);
+    line-height: 2.2rem;
+  }
+
+  .paragraph p {
+    font-family: var(--fonts--);
+    font-size: 16px;
+    margin-bottom: 1.8rem;
+    line-height: 1.8rem;
+  }
+
+  .paragraph img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+}
+
+/* Extra small devices - Landscape */
+@media screen and (max-width: 575px) and (orientation: landscape) {
+  article {
+    height: fit-content;
+  }
+
+  .contact-header {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-bg-about {
+    position: absolute;
+    inset: 0;
+    background: url(../../images/About-image.jpg) center/cover no-repeat;
+    will-change: transform;
+  }
+
+  .contact-header p {
+    position: absolute;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    font-family: var(--fonts--);
+    top: 70%;
+    left: 3%;
+    font-size: 35px;
+    text-transform: capitalize;
+    line-height: 2rem;
+  }
+
+  .ourstory-content {
+    margin-top: 4rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .paragraph {
+    margin-top: 2rem;
+    border: 1px solid gray;
+    padding-bottom: 2.5rem;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+  }
+
+  .paragraph h2 {
+    font-size: 32px;
+    text-transform: capitalize;
+    margin-bottom: 1.5rem;
+    font-family: var(--fonts--);
+  }
+
+  .paragraph p {
+    font-family: var(--fonts--);
+    font-size: 16px;
+    margin-bottom: 1.8rem;
+    line-height: 1.8rem;
+  }
+
+  .paragraph img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+}
+
+/* Small devices (landscape phones, 576px to 767px) - Portrait */
+@media screen and (min-width: 576px) and (max-width: 767px) and (orientation: portrait) {
+  article {
+    height: fit-content;
+  }
+
+  .contact-header {
+    height: 68vh;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-bg-about {
+    position: absolute;
+    inset: 0;
+    background: url(../../images/About-image.jpg) center/cover no-repeat;
+    will-change: transform;
+  }
+
+  .contact-header p {
+    position: absolute;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    font-family: var(--fonts--);
+    top: 80%;
+    left: 4%;
+    font-size: 48px;
+    text-transform: capitalize;
+    line-height: 3rem;
+  }
+
+  .ourstory-content {
+    margin-top: 6rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .paragraph {
+    margin-top: 2rem;
+    border: 1px solid gray;
+    padding-bottom: 2.8rem;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+  }
+
+  .paragraph h2 {
+    font-size: 38px;
+    text-transform: capitalize;
+    margin-bottom: 1.8rem;
+    font-family: var(--fonts--);
+    line-height: 2.4rem;
+  }
+
+  .paragraph p {
+    font-family: var(--fonts--);
+    font-size: 17px;
+    margin-bottom: 2rem;
+    line-height: 1.9rem;
+  }
+
+  .paragraph img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 6px;
+  }
+}
+
+/* Small devices - Landscape */
+@media screen and (min-width: 576px) and (max-width: 767px) and (orientation: landscape) {
+  article {
+    height: fit-content;
+  }
+
+  .contact-header {
+    height: 110vh;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-bg-about {
+    position: absolute;
+    inset: 0;
+    background: url(../../images/About-image.jpg) center/cover no-repeat;
+    will-change: transform;
+  }
+
+  .contact-header p {
+    position: absolute;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    font-family: var(--fonts--);
+    top: 75%;
+    left: 3%;
+    font-size: 42px;
+    text-transform: capitalize;
+    line-height: 2.5rem;
+  }
+
+  .ourstory-content {
+    margin-top: 5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .paragraph {
+    margin-top: 2rem;
+    border: 1px solid gray;
+    padding-bottom: 2.8rem;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+  }
+
+  .paragraph h2 {
+    font-size: 36px;
+    text-transform: capitalize;
+    margin-bottom: 1.8rem;
+    font-family: var(--fonts--);
+  }
+
+  .paragraph p {
+    font-family: var(--fonts--);
+    font-size: 17px;
+    margin-bottom: 2rem;
+    line-height: 1.9rem;
+  }
+
+  .paragraph img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+}
+
+/* Medium devices (tablets, 768px to 991px) - Portrait */
+@media screen and (min-width: 768px) and (max-width: 991px) and (orientation: portrait) {
+  article {
+    height: fit-content;
+  }
+
+  .contact-header {
+    height: 75vh;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-bg-about {
+    position: absolute;
+    inset: 0;
+    background: url(../../images/About-image.jpg) center/cover no-repeat;
+    will-change: transform;
+  }
+
+  .contact-header p {
+    position: absolute;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    font-family: var(--fonts--);
+    top: 78%;
+    left: 4%;
+    font-size: 60px;
+    text-transform: capitalize;
+    line-height: 3.5rem;
+  }
+
+  .ourstory-content {
+    margin-top: 7rem;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+
+  .paragraph {
+    margin-top: 2.5rem;
+    border: 1px solid gray;
+    padding-bottom: 3.5rem;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    transition: border-color 0.3s ease;
+  }
+
+  .paragraph:hover {
+    border-color: #555;
+  }
+
+  .paragraph h2 {
+    font-size: 48px;
+    text-transform: capitalize;
+    margin-bottom: 2rem;
+    font-family: var(--fonts--);
+    line-height: 3rem;
+  }
+
+  .paragraph p {
+    font-family: var(--fonts--);
+    font-size: 19px;
+    margin-bottom: 2.2rem;
+    line-height: 2.2rem;
+  }
+
+  .paragraph img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+  }
+
+  .paragraph img:hover {
+    transform: scale(1.02);
+  }
+}
+
+/* Medium devices (tablets) - Landscape */
+@media screen and (min-width: 768px) and (max-width: 991px) and (orientation: landscape) {
+  article {
+    height: fit-content;
+  }
+
+  .contact-header {
+    height: 90vh;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-bg-about {
+    position: absolute;
+    inset: 0;
+    background: url(../../images/About-image.jpg) center/cover no-repeat;
+    will-change: transform;
+  }
+
+  .contact-header p {
+    position: absolute;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    font-family: var(--fonts--);
+    top: 70%;
+    left: 4%;
+    font-size: 55px;
+    text-transform: capitalize;
+    line-height: 3.2rem;
+  }
+
+  .ourstory-content {
+    margin-top: 6rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
+  .paragraph {
+    margin-top: 2.5rem;
+    border: 1px solid gray;
+    padding-bottom: 3.5rem;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+  }
+
+  .paragraph h2 {
+    font-size: 46px;
+    text-transform: capitalize;
+    margin-bottom: 2rem;
+    font-family: var(--fonts--);
+    line-height: 2.8rem;
+  }
+
+  .paragraph p {
+    font-family: var(--fonts--);
+    font-size: 19px;
+    margin-bottom: 2.2rem;
+    line-height: 2.2rem;
+  }
+
+  .paragraph img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+}
+
+/* Large devices (desktops, 992px to 1199px) */
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  article {
+    height: fit-content;
+  }
+
+  .contact-header {
+    height: 80vh;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-bg-about {
+    position: absolute;
+    inset: 0;
+    background: url(../../images/About-image.jpg) center/cover no-repeat;
+    will-change: transform;
+    transition: transform 0.5s ease-out;
+  }
+
+  .contact-header:hover .contact-bg-about {
+    transform: scale(1.05);
+  }
+
+  .contact-header p {
+    position: absolute;
+    color: white;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+    font-family: var(--fonts--);
+    top: 75%;
+    left: 5%;
+    font-size: 70px;
+    text-transform: capitalize;
+    line-height: 4rem;
+    z-index: 2;
+  }
+
+  .ourstory-content {
+    margin-top: 8rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+
+  .paragraph {
+    margin-top: 3rem;
+    border: 1px solid gray;
+    padding-bottom: 4rem;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    transition: border-color 0.3s ease;
+  }
+
+  .paragraph:hover {
+    border-color: #444;
+  }
+
+  .paragraph h2 {
+    font-size: 55px;
+    text-transform: capitalize;
+    margin-bottom: 2.5rem;
+    font-family: var(--fonts--);
+    line-height: 3.5rem;
+  }
+
+  .paragraph p {
+    font-family: var(--fonts--);
+    font-size: 20px;
+    margin-bottom: 2.5rem;
+    line-height: 2.5rem;
+  }
+
+  .paragraph img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .paragraph img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Extra large devices (large desktops, 1200px to 1399px) */
+@media screen and (min-width: 1200px) and (max-width: 1399px) {
+  article {
+    height: fit-content;
+  }
+
+  .contact-header {
+    height: 85vh;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-bg-about {
+    position: absolute;
+    inset: 0;
+    background: url(../../images/About-image.jpg) center/cover no-repeat;
+    will-change: transform;
+    transition: transform 0.6s ease-out;
+  }
+
+  .contact-header p {
+    position: absolute;
+    color: white;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+    font-family: var(--fonts--);
+    top: 72%;
+    left: 6%;
+    font-size: 80px;
+    text-transform: capitalize;
+    line-height: 4.5rem;
+    z-index: 2;
+    font-weight: 500;
+  }
+
+  .ourstory-content {
+    margin-top: 9rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+   
+  }
+
+  .paragraph {
+    margin-top: 3.5rem;
+   border: 1px solid gray;
+   border-top: none;
+    border-left: none;
+    border-right: none;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+
+  .paragraph h2 {
+    font-size: 55px;
+    text-transform: capitalize;
+    margin-bottom: 3rem;
+    font-family: var(--fonts--);
+  }
+
+  .paragraph p {
+    font-family: var(--fonts--);
+    font-size: 15px;
+    margin-bottom: 3rem;
+    line-height: 1.8rem;
+  }
+
+  .paragraph img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    /* border-radius: 12px; */
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+}
+
+/* Ultra-wide screens (1400px and up) */
+@media screen and (min-width: 1400px) {
+  article {
+    height: fit-content;
+  }
+
+  .contact-header {
+    height: 90vh;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-bg-about {
+    position: absolute;
+    inset: 0;
+    background: url(../../images/About-image.jpg) center/cover no-repeat;
+    will-change: transform;
+    transition: transform 0.7s ease-out;
+  }
+
+  .contact-header:hover .contact-bg-about {
+    transform: scale(1.1);
+  }
+
+  .contact-header p {
+    position: absolute;
+    color: white;
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.8);
+    font-family: var(--fonts--);
+    top: 70%;
+    left: 7%;
+    font-size: 90px;
+    text-transform: capitalize;
+    line-height: 5rem;
+    z-index: 2;
+    font-weight: 500;
+  }
+
+  .ourstory-content {
+    margin-top: 10rem;
+    padding-left: 6rem;
+    padding-right: 6rem;
+    max-width: 1600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .paragraph {
+    margin-top: 4rem;
+    border: 1px solid gray;
+    padding-bottom: 5rem;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    transition: border-color 0.3s ease, padding-left 0.3s ease;
+  }
+
+  .paragraph:hover {
+    border-color: #222;
+    padding-left: 15px;
+  }
+
+  .paragraph h2 {
+    font-size: 75px;
+    text-transform: capitalize;
+    margin-bottom: 3.5rem;
+    font-family: var(--fonts--);
+    line-height: 4.5rem;
+  }
+
+  .paragraph p {
+    font-family: var(--fonts--);
+    font-size: 22px;
+    margin-bottom: 3.5rem;
+    line-height: 3rem;
+  }
+
+  .paragraph img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 14px;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+  }
+
+  .paragraph img:hover {
+    transform: scale(1.08);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* 4K and larger screens (1920px and up) */
+@media screen and (min-width: 1920px) {
+  article {
+    height: fit-content;
+  }
+
+  .contact-header {
+    height: 95vh;
+    max-width: 1800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .contact-header p {
+    font-size: 100px;
+    line-height: 5.5rem;
+    left: 8%;
+  }
+
+  .ourstory-content {
+    margin-top: 12rem;
+    padding-left: 8rem;
+    padding-right: 8rem;
+    max-width: 1800px;
+  }
+
+  .paragraph {
+    margin-top: 5rem;
+    padding-bottom: 6rem;
+  }
+
+  .paragraph h2 {
+    font-size: 85px;
+    margin-bottom: 4rem;
+    line-height: 5rem;
+  }
+
+  .paragraph p {
+    font-size: 24px;
+    margin-bottom: 4rem;
+    line-height: 3.2rem;
+  }
+
+  .paragraph img {
+    border-radius: 16px;
+  }
+}

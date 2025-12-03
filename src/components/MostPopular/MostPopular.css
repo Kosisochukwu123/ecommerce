@@ -62,35 +62,24 @@
   }
 }
 
-/* Extra small devices (portrait phones, less than 576px) */
-/* @media screen and (max-width: 575px) {
-  .Most-popular {
-    min-height: 150vh;
-    margin-top: 6rem;
-  }
-
-  .Most-popular-top p {
-    font-size: 14px;
-    font-family: var(--brand-font--);
-  }
-
-  .Most-popular-top h2 {
-    font-size: 32px;
-    margin-top: 1rem;
-  }
-
+@media screen and (max-width: 1000px) and (orientation: landscape) {
   .image img {
-    height: 50vh;
+    height: 100vh !important;
+  }
+}
+
+@media screen and (max-width: 669px) and (orientation: landscape) {
+  .Most-popular-body {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
   }
 
-  .name {
-    font-size: 16px;
+  .image {
+    height: fit-content !important;
   }
-
-  .amount {
-    font-size: 16px;
-  }
-} */
+}
 
 /* Small devices (landscape phones, 576px to 767px) */
 @media screen and (min-width: 576px) and (max-width: 767px) {

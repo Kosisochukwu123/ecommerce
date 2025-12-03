@@ -38,6 +38,45 @@
   }
 }
 
+@media screen and (max-width: 1000px) and (orientation: landscape) {
+  section {
+    margin-top: 5rem !important;
+    height: 100vh !important;
+  }
+
+  section img {
+    height: 100vh !important;
+  }
+
+
+}
+
+@media screen and (max-width: 669px) and (orientation: landscape) {
+  section {
+    margin-top: 4rem !important;
+    position: relative;
+    height: 90vh !important;
+  }
+
+  section img {
+    height: 90vh !important;
+    width: 100% !important;
+  }
+
+
+  .about-text p {
+    font-size: 32px;
+    text-transform: capitalize;
+    font-family: var(--fonts--);
+    margin-top: 0.5rem;
+    width: 60%;
+  }
+
+}
+
+
+
+
 /* Medium devices (tablets, 768px to 991px) */
 @media screen and (min-width: 768px) and (max-width: 991px) {
   section {

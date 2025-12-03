@@ -1,31 +1,32 @@
-@media screen and (max-width: 767px) {
-.contact-header {
-  height: 70vh;
-  position: relative;
-  overflow: hidden;
-}
+/* Extra small devices (portrait phones, less than 576px) - Portrait */
+@media screen and (max-width: 575px) and (orientation: portrait) {
+  .contact-header {
+    height: 65vh;
+    position: relative;
+    overflow: hidden;
+  }
 
-.contact-bg {
-  position: absolute;
-  inset: 0;
-  background: url(../../images/contact-header.jpg) center/cover no-repeat;
-  will-change: transform;
-}
-
-
+  .contact-bg {
+    position: absolute;
+    inset: 0;
+    background: url(../../images/contact-header.jpg) center/cover no-repeat;
+    will-change: transform;
+  }
 
   .contact-bg p {
     color: white;
     position: absolute;
     top: 80%;
-    left: 3%;
-    font-size: 50px;
+    left: 5%;
+    font-size: 40px;
     text-transform: capitalize;
     font-family: var(--fonts--);
+    line-height: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
   }
 
   .contact-top {
-    margin-top: 4rem;
+    margin-top: 3rem;
     padding-left: 1rem;
     padding-right: 1rem;
   }
@@ -33,18 +34,89 @@
   .contact-top h2 {
     font-family: var(--brand-font--);
     color: gray;
-    font-size: 16px;
+    font-size: 14px;
     text-transform: capitalize;
-    margin-top: 3rem;
-    margin-bottom: 1rem;
+    margin-top: 2.5rem;
+    margin-bottom: 0.8rem;
+    letter-spacing: 1px;
   }
 
   .contact-top h1 {
-    font-size: 40px;
+    font-size: 35px;
     margin-top: 0.5rem;
     font-family: var(--fonts--);
     font-weight: 400;
-    line-height: 2.5rem;
+    line-height: 2.2rem;
+  }
+
+  .contact-top a {
+    text-decoration: none;
+    color: black;
+    font-family: var(--fonts--);
+    transition: color 0.3s ease;
+  }
+
+  .contact-top a:hover {
+    color: #333;
+  }
+
+  .contact-top img {
+    height: 25vh;
+    width: 100%;
+    margin-top: 2.5rem;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+}
+
+/* Extra small devices - Landscape */
+@media screen and (max-width: 575px) and (orientation: landscape) {
+  .contact-header {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-bg {
+    position: absolute;
+    inset: 0;
+    background: url(../../images/contact-header.jpg) center/cover no-repeat;
+    will-change: transform;
+  }
+
+  .contact-bg p {
+    color: white;
+    position: absolute;
+    top: 70%;
+    left: 3%;
+    font-size: 35px;
+    text-transform: capitalize;
+    font-family: var(--fonts--);
+    line-height: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  }
+
+  .contact-top {
+    margin-top: 3rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .contact-top h2 {
+    font-family: var(--brand-font--);
+    color: gray;
+    font-size: 14px;
+    text-transform: capitalize;
+    margin-top: 2rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .contact-top h1 {
+    font-size: 32px;
+    margin-top: 0.5rem;
+    font-family: var(--fonts--);
+    font-weight: 400;
+    line-height: 2rem;
   }
 
   .contact-top a {
@@ -54,8 +126,617 @@
   }
 
   .contact-top img {
-    height: 30vh;
+    height: 50vh;
+    width: 100%;
+    margin-top: 2rem;
+    object-fit: cover;
+  }
+}
+
+/* Small devices (landscape phones, 576px to 767px) - Portrait */
+@media screen and (min-width: 576px) and (max-width: 767px) and (orientation: portrait) {
+  .contact-header {
+    height: 68vh;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-bg {
+    position: absolute;
+    inset: 0;
+    background: url(../../images/contact-header.jpg) center/cover no-repeat;
+    will-change: transform;
+  }
+
+  .contact-bg p {
+    color: white;
+    position: absolute;
+    top: 80%;
+    left: 4%;
+    font-size: 48px;
+    text-transform: capitalize;
+    font-family: var(--fonts--);
+    line-height: 3rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  }
+
+  .contact-top {
+    margin-top: 3.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .contact-top h2 {
+    font-family: var(--brand-font--);
+    color: gray;
+    font-size: 15px;
+    text-transform: capitalize;
+    margin-top: 2.8rem;
+    margin-bottom: 1rem;
+    letter-spacing: 1.2px;
+  }
+
+  .contact-top h1 {
+    font-size: 38px;
+    margin-top: 0.5rem;
+    font-family: var(--fonts--);
+    font-weight: 400;
+    line-height: 2.4rem;
+  }
+
+  .contact-top a {
+    text-decoration: none;
+    color: black;
+    font-family: var(--fonts--);
+    transition: color 0.3s ease;
+  }
+
+  .contact-top a:hover {
+    color: #444;
+  }
+
+  .contact-top img {
+    height: 28vh;
+    width: 100%;
+    margin-top: 2.8rem;
+    object-fit: cover;
+    border-radius: 6px;
+  }
+}
+
+/* Small devices - Landscape */
+@media screen and (min-width: 576px) and (max-width: 767px) and (orientation: landscape) {
+  .contact-header {
+    height: 110vh;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-bg {
+    position: absolute;
+    inset: 0;
+    background: url(../../images/contact-header.jpg) center/cover no-repeat;
+    will-change: transform;
+  }
+
+  .contact-bg p {
+    color: white;
+    position: absolute;
+    top: 75%;
+    left: 3%;
+    font-size: 42px;
+    text-transform: capitalize;
+    font-family: var(--fonts--);
+    line-height: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  }
+
+  .contact-top {
+    margin-top: 3.5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .contact-top h2 {
+    font-family: var(--brand-font--);
+    color: gray;
+    font-size: 15px;
+    text-transform: capitalize;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .contact-top h1 {
+    font-size: 36px;
+    margin-top: 0.5rem;
+    font-family: var(--fonts--);
+    font-weight: 400;
+    line-height: 2.2rem;
+  }
+
+  .contact-top a {
+    text-decoration: none;
+    color: black;
+    font-family: var(--fonts--);
+  }
+
+  .contact-top img {
+    height: 55vh;
+    width: 100%;
+    margin-top: 2.5rem;
+    object-fit: cover;
+  }
+}
+
+/* Medium devices (tablets, 768px to 991px) - Portrait */
+@media screen and (min-width: 768px) and (max-width: 991px) and (orientation: portrait) {
+  .contact-header {
+    height: 75vh;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-bg {
+    position: absolute;
+    inset: 0;
+    background: url(../../images/contact-header.jpg) center/cover no-repeat;
+    will-change: transform;
+  }
+
+  .contact-bg p {
+    color: white;
+    position: absolute;
+    top: 78%;
+    left: 4%;
+    font-size: 60px;
+    text-transform: capitalize;
+    font-family: var(--fonts--);
+    line-height: 3.5rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  }
+
+  .contact-top {
+    margin-top: 5rem;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+
+  .contact-top h2 {
+    font-family: var(--brand-font--);
+    color: gray;
+    font-size: 17px;
+    text-transform: capitalize;
+    margin-top: 3.5rem;
+    margin-bottom: 1.2rem;
+    letter-spacing: 1.5px;
+  }
+
+  .contact-top h1 {
+    font-size: 50px;
+    margin-top: 0.5rem;
+    font-family: var(--fonts--);
+    font-weight: 400;
+    line-height: 3rem;
+  }
+
+  .contact-top a {
+    text-decoration: none;
+    color: black;
+    font-family: var(--fonts--);
+    transition: color 0.3s ease;
+    font-size: 17px;
+  }
+
+  .contact-top a:hover {
+    color: #555;
+  }
+
+  .contact-top img {
+    height: 25vh;
+    width: 100%;
+    margin-top: 2.5rem;
+    object-fit: cover;
+  }
+}
+
+/* Medium devices (tablets) - Landscape */
+@media screen and (min-width: 768px) and (max-width: 991px) and (orientation: landscape) {
+  .contact-header {
+    height: 90vh;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-bg {
+    position: absolute;
+    inset: 0;
+    background: url(../../images/contact-header.jpg) center/cover no-repeat;
+    will-change: transform;
+  }
+
+  .contact-bg p {
+    color: white;
+    position: absolute;
+    top: 70%;
+    left: 4%;
+    font-size: 55px;
+    text-transform: capitalize;
+    font-family: var(--fonts--);
+    line-height: 3.2rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  }
+
+  .contact-top {
+    margin-top: 4.5rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
+  .contact-top h2 {
+    font-family: var(--brand-font--);
+    color: gray;
+    font-size: 17px;
+    text-transform: capitalize;
+    margin-top: 3rem;
+    margin-bottom: 1.2rem;
+    letter-spacing: 1.5px;
+  }
+
+  .contact-top h1 {
+    font-size: 48px;
+    margin-top: 0.5rem;
+    font-family: var(--fonts--);
+    font-weight: 400;
+    line-height: 2.8rem;
+  }
+
+  .contact-top a {
+    text-decoration: none;
+    color: black;
+    font-family: var(--fonts--);
+    font-size: 17px;
+  }
+
+  .contact-top img {
+    height: 60vh;
     width: 100%;
     margin-top: 3rem;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+}
+
+/* Large devices (desktops, 992px to 1199px) */
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  .contact-header {
+    height: 80vh;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-bg {
+    position: absolute;
+    inset: 0;
+    background: url(../../images/contact-header.jpg) center/cover no-repeat;
+    will-change: transform;
+    transition: transform 0.5s ease-out;
+  }
+
+  .contact-header:hover .contact-bg {
+    transform: scale(1.05);
+  }
+
+  .contact-bg p {
+    color: white;
+    position: absolute;
+    top: 75%;
+    left: 5%;
+    font-size: 70px;
+    text-transform: capitalize;
+    font-family: var(--fonts--);
+    line-height: 4rem;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+    z-index: 2;
+  }
+
+  .contact-top {
+    margin-top: 6rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+
+  .contact-top h2 {
+    font-family: var(--brand-font--);
+    color: gray;
+    font-size: 18px;
+    text-transform: capitalize;
+    margin-top: 4rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 2px;
+  }
+
+  .contact-top h1 {
+    font-size: 60px;
+    margin-top: 0.5rem;
+    font-family: var(--fonts--);
+    font-weight: 400;
+    line-height: 3.5rem;
+  }
+
+  .contact-top a {
+    text-decoration: none;
+    color: black;
+    font-family: var(--fonts--);
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    font-size: 18px;
+    border-bottom: 2px solid transparent;
+  }
+
+  .contact-top a:hover {
+    color: #666;
+    border-bottom: 2px solid #666;
+  }
+
+  .contact-top img {
+    height: 45vh;
+    width: 100%;
+    margin-top: 4rem;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .contact-top img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Extra large devices (large desktops, 1200px to 1399px) */
+@media screen and (min-width: 1200px) and (max-width: 1399px) {
+  .contact-header {
+    height: 85vh;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-bg {
+    position: absolute;
+    inset: 0;
+    background: url(../../images/contact-header.jpg) center/cover no-repeat;
+    will-change: transform;
+    transition: transform 0.6s ease-out;
+  }
+
+  .contact-header:hover .contact-bg {
+    transform: scale(1.08);
+  }
+
+  .contact-bg p {
+    color: white;
+    position: absolute;
+    top: 72%;
+    left: 6%;
+    font-size: 80px;
+    text-transform: capitalize;
+    font-family: var(--fonts--);
+    line-height: 4.5rem;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+    z-index: 2;
+    font-weight: 500;
+  }
+
+  .contact-top {
+    margin-top: 7rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+
+  .contact-top h2 {
+    font-family: var(--brand-font--);
+    color: gray;
+    font-size: 10px;
+    text-transform: capitalize;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    letter-spacing: 1.5px;
+  }
+
+  .contact-top h1 {
+    font-size: 50px;
+    margin-top: 0.5rem;
+    font-family: var(--fonts--);
+  }
+
+  .contact-top a {
+    text-decoration: none;
+    color: black;
+    font-family: var(--fonts--);
+    transition: color 0.3s ease;
+    font-size: 16px;
+    position: relative;
+  }
+
+  .contact-top a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -3px;
+    left: 0;
+    background-color: black;
+    transition: width 0.3s ease;
+  }
+
+  .contact-top a:hover {
+    color: #777;
+  }
+
+  .contact-top a:hover::after {
+    width: 100%;
+  }
+
+  .contact-top img {
+    height: 50vh;
+    width: 100%;
+    margin-top: 2.5rem;
+    object-fit: cover;
+}
+}
+
+/* Ultra-wide screens (1400px and up) */
+@media screen and (min-width: 1400px) {
+  .contact-header {
+    height: 90vh;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-bg {
+    position: absolute;
+    inset: 0;
+    background: url(../../images/contact-header.jpg) center/cover no-repeat;
+    will-change: transform;
+    transition: transform 0.7s ease-out;
+  }
+
+  .contact-header:hover .contact-bg {
+    transform: scale(1.1);
+  }
+
+  .contact-bg p {
+    color: white;
+    position: absolute;
+    top: 70%;
+    left: 7%;
+    font-size: 90px;
+    text-transform: capitalize;
+    font-family: var(--fonts--);
+    line-height: 5rem;
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.8);
+    z-index: 2;
+    font-weight: 500;
+  }
+
+  .contact-top {
+    margin-top: 8rem;
+    padding-left: 6rem;
+    padding-right: 6rem;
+    max-width: 1600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .contact-top h2 {
+    font-family: var(--brand-font--);
+    color: gray;
+    font-size: 20px;
+    text-transform: capitalize;
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+    letter-spacing: 3px;
+  }
+
+  .contact-top h1 {
+    font-size: 80px;
+    margin-top: 0.5rem;
+    font-family: var(--fonts--);
+    font-weight: 400;
+    line-height: 4.5rem;
+  }
+
+  .contact-top a {
+    text-decoration: none;
+    color: black;
+    font-family: var(--fonts--);
+    transition: color 0.3s ease;
+    font-size: 20px;
+    position: relative;
+  }
+
+  .contact-top a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: -5px;
+    left: 0;
+    background-color: black;
+    transition: width 0.3s ease;
+  }
+
+  .contact-top a:hover {
+    color: #888;
+  }
+
+  .contact-top a:hover::after {
+    width: 100%;
+  }
+
+  .contact-top img {
+    height: 55vh;
+    width: 100%;
+    margin-top: 5rem;
+    object-fit: cover;
+    border-radius: 14px;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+  }
+
+  .contact-top img:hover {
+    transform: scale(1.08);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* 4K and larger screens (1920px and up) */
+@media screen and (min-width: 1920px) {
+  .contact-header {
+    height: 95vh;
+    max-width: 1800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .contact-bg p {
+    font-size: 100px;
+    line-height: 5.5rem;
+    left: 8%;
+  }
+
+  .contact-top {
+    margin-top: 10rem;
+    padding-left: 8rem;
+    padding-right: 8rem;
+    max-width: 1800px;
+  }
+
+  .contact-top h2 {
+    font-size: 22px;
+    letter-spacing: 3.5px;
+    margin-top: 6rem;
+  }
+
+  .contact-top h1 {
+    font-size: 90px;
+    line-height: 5rem;
+  }
+
+  .contact-top a {
+    font-size: 22px;
+  }
+
+  .contact-top img {
+    height: 60vh;
+    margin-top: 6rem;
+    border-radius: 16px;
   }
 }

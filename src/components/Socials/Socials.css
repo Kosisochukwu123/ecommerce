@@ -9,7 +9,7 @@
   }
 
   .socials p {
-    font-size: 50px;
+    font-size: var(--phone-size-text-head--);
     text-align: center;
     font-family: var(--fonts--);
     width: 90%;
@@ -54,69 +54,6 @@
       transform: translateX(
         -260%
       ); /* moves half because images are duplicated */
-    }
-  }
-}
-
-/* Small devices (landscape phones, 576px to 767px) */
-@media screen and (min-width: 576px) and (max-width: 767px) {
-  .socials {
-    margin-top: 4.5rem;
-  }
-
-  .socials h2 {
-    text-align: center;
-    font-family: var(--brand-font--);
-    font-size: 15px;
-    letter-spacing: 1.2px;
-  }
-
-  .socials p {
-    font-size: 45px;
-    text-align: center;
-    font-family: var(--fonts--);
-    width: 92%;
-    margin: 0 auto;
-    margin-top: 1.8rem;
-    line-height: 3rem;
-  }
-
-  .socials p a {
-    color: gray;
-    transition: color 0.3s ease;
-  }
-
-  .socials p a:hover {
-    color: #555;
-  }
-
-  .image-scroller {
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-    padding: 18px 0;
-    margin-top: 2.8rem;
-  }
-
-  .image-track {
-    display: flex;
-    gap: 9px;
-    animation: scroll-left 20s linear infinite;
-  }
-
-  .image-track img {
-    width: 320px;
-    height: 320px;
-    object-fit: cover;
-    border-radius: 4px;
-  }
-
-  @keyframes scroll-left {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-200%);
     }
   }
 }
@@ -271,10 +208,10 @@
   }
 
   .socials p {
-    font-size: 70px;
+    font-size: 50px;
     text-align: center;
     font-family: var(--fonts--);
-    width: 75%;
+    width: 55%;
     margin: 0 auto;
     margin-top: 2rem;
     line-height: 4.5rem;

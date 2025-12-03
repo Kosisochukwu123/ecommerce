@@ -1,5 +1,5 @@
 /* Extra small devices (portrait phones, 380px to 575px) */
-@media screen and (min-width: 380px) and (max-width: 575px) {
+@media screen and (min-width: 360px) and (max-width: 575px) {
   footer {
     margin-top: 7rem;
     padding-top: 3rem;
@@ -555,7 +555,7 @@
     font-family: var(--fonts--);
     text-decoration: none;
     color: white;
-    font-size: 17px;
+    font-size: 15px;
     transition: color 0.3s ease, padding-left 0.3s ease;
     position: relative;
   }

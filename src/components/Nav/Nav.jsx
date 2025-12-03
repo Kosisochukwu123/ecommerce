@@ -69,7 +69,7 @@ const Nav = () => {
         </div>
 
         {/* MOBILE MENU */}
-        <div className={`mobile-menu ${open ? "show" : ""}`}>
+        <div className={`mobile-menu ${open ? "show" : null}`}>
           <Link to= "/For-Men" > Men </Link>
           <Link to= "/For-Women" > Women </Link>
           <a href="#" aria-disabled="true">Kids</a>

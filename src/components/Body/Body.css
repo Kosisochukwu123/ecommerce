@@ -50,9 +50,63 @@
     text-transform: capitalize;
   }
 
-  button a {
+  a button {
     color: white;
     text-decoration: none;
+  }
+}
+
+@media screen and (max-width: 1000px) and (orientation: landscape) {
+  .body-top {
+    height: 100vh !important;
+  }
+
+  .body-top img,
+  .body-bottom img {
+    height: 100% !important;
+  }
+
+  .body-top-text,
+  .body-bottom-text {
+    top: 60% !important;
+    left: 15% !important;
+    transform: translate(-50%, -50%) !important;
+  }
+
+  .body-bottom img {
+    height: 100% !important;
+    width: 100% !important;
+  }
+
+  .body-bottom {
+    height: 100vh !important;
+  }
+}
+
+@media screen and (max-width: 669px) and (orientation: landscape) {
+   .body-top {
+    height: 100vh !important;
+  }
+
+  .body-top img,
+  .body-bottom img {
+    height: 100% !important;
+  }
+
+  .body-top-text,
+  .body-bottom-text {
+    top: 60% !important;
+    left: 20% !important;
+    transform: translate(-50%, -50%) !important;
+  }
+
+  .body-bottom img {
+    height: 100% !important;
+    width: 100% !important;
+  }
+
+  .body-bottom {
+    height: 100vh !important;
   }
 }
 
@@ -103,6 +157,11 @@
     text-transform: capitalize;
     font-size: 15px;
     color: white;
+  }
+
+  a button {
+    color: white;
+    text-decoration: none;
   }
 }
 
@@ -156,7 +215,7 @@
     transition: all 0.3s ease;
   }
 
-  button a {
+  a button {
     color: white;
     text-decoration: none;
   }
@@ -225,7 +284,7 @@
     color: white;
   }
 
-  button a {
+  a button {
     color: white;
     text-decoration: none;
   }
@@ -296,7 +355,7 @@
     color: white;
   }
 
-  button a {
+  a button {
     color: white;
     text-decoration: none;
   }
@@ -372,7 +431,7 @@
     color: white;
   }
 
-  button a {
+  a button {
     color: white;
     text-decoration: none;
   }
