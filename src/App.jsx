@@ -7,6 +7,8 @@ import ContactPage from './pages/ContactPage/ContactPage.jsx'
 import {Routes, Route} from 'react-router'
 import OpenPageAnimation from "./components/OpenPageAnimation/OpenPageAnimation"
 import ScrollToTop from "./components/ScrollToTop";
+import PrivacyPolicy from "./components/PrivacyPolicy";
+import Terms from "./components/Terms";
 // import CursorFollower from "./components/CursorFollower";
 
 function App() {
@@ -24,6 +26,8 @@ function App() {
       <Route path="/For-Women" element={ <WomenPage/>} />
       <Route path="/Our-Story" element={ <OurStoryPage/>} />
       <Route path="/Contact" element={ <ContactPage/>} />
+      <Route path="/Privacy-Policy" element={ <PrivacyPolicy/>} />
+      <Route path="/Terms" element={ <Terms/>} />
     </Routes>
 
      

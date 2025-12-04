@@ -44,15 +44,15 @@ export const Footer = () => {
             <Link to="/">Home</Link>
             <Link to="/For-Men">Men</Link>
             <Link to="/For-Women">Women</Link>
-            <Link to="/kids">Kids</Link>
+            {/* <Link to="/kids">Kids</Link> */}
             <Link to="/Our-Story">Our Story</Link>
           </div>
         </div>
         <div className="content">
           <h2>Legal</h2>
           <div className="links">
-            <Link to="/privacy-policy">Privacy Policy</Link>
-            <Link to="/terms-of-service">Terms of services</Link>
+            <Link to="/Privacy-Policy">Privacy Policy</Link>
+            <Link to="/Terms">Terms of services</Link>
           </div>
         </div>
 
