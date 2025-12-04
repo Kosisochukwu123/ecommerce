@@ -7,6 +7,7 @@ import ContactPage from './pages/ContactPage/ContactPage.jsx'
 import {Routes, Route} from 'react-router'
 import OpenPageAnimation from "./components/OpenPageAnimation/OpenPageAnimation"
 import ScrollToTop from "./components/ScrollToTop";
+import CursorFollower from "./components/CursorFollower";
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
 
     <OpenPageAnimation />
     <ScrollToTop />
+    <CursorFollower />
 
     <Routes>
       <Route path="/" element={<Home />} />
