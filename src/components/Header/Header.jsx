@@ -3,6 +3,7 @@ import "./Header.css"; // import the css
 import img1 from "../../images/header_image1.jpg";
 import img2 from "../../images/header_image2.jpg";
 import img3 from "../../images/header_image3.jpg";
+import { Link } from "react-router-dom";
 
 export const Header = () => {
   const images = [img1, img2, img3];
@@ -44,30 +45,32 @@ export const Header = () => {
 
       <p className={`slide-text ${"active"}`}>{texts[index]}</p>
 
-      <button className={`btn active`}>
-        <span className="icon">
-          <svg
-            viewBox="0 0 64 64"
-            width="40"
-            height="40"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-          >
-            <path
-              d="M48 18h-4a8 8 0 00-16 0h-4a4 4 0 00-4 4v24a4 4 0 004 4h28a4 4 0 004-4V22a4 4 0 00-4-4z"
-              fill="#f0f0f0"
-            />
-            <path
-              d="M24 18a8 8 0 0116 0"
-              fill="none"
-              stroke="#ffffff"
-              strokeWidth="3"
-              strokeLinecap="round"
-            />
-          </svg>
-        </span>
-        <span className="text">{buttons[index]}</span>
-      </button>
+      <Link to="/For-Men">
+        <button className={`btn active`}>
+          <span className="icon">
+            <svg
+              viewBox="0 0 64 64"
+              width="40"
+              height="40"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                d="M48 18h-4a8 8 0 00-16 0h-4a4 4 0 00-4 4v24a4 4 0 004 4h28a4 4 0 004-4V22a4 4 0 00-4-4z"
+                fill="#f0f0f0"
+              />
+              <path
+                d="M24 18a8 8 0 0116 0"
+                fill="none"
+                stroke="#ffffff"
+                strokeWidth="3"
+                strokeLinecap="round"
+              />
+            </svg>
+          </span>
+          <span className="text">{buttons[index]}</span>
+        </button>
+      </Link>
 
       <div className="black"></div>
     </div>
