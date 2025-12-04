@@ -8,7 +8,7 @@ import FAQ from '../../components/FAQ/FAQ.jsx'
 const ContactPage = () => {
   return (
     <>
-      <Nav />
+      <Nav scrolledDesktopDistance={400} />
       <ContactPageContent />
       <FAQ/>
       <Socials />

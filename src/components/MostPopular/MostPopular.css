@@ -181,9 +181,10 @@
 
   .Most-popular-top p {
     font-size: 50px;
-    width: 90%;
+    width: 50%;
+    text-align: center;
     margin: 0 auto;
-    margin-top: 2.5rem;
+    margin-top: 3rem;
     text-transform: capitalize;
     font-family: var(--fonts--);
     font-weight: none;
@@ -192,25 +193,38 @@
   .Most-popular-top h2 {
     font-size: 16px;
     font-family: var(--brand-font--);
+    text-align: center;
+  }
+
+  .Most-popular-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
 
   .container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    margin: 2rem auto;
   }
 
   .image img {
-    height: 40vh;
+    height: 60vh;
+    width: 100%;
   }
 
   .name {
     font-size: 19px;
+    font-family: var(--fonts--);
+    text-transform: capitalize;
+    margin-top: 0.5rem;
   }
 
   .amount {
     font-size: 18px;
+    font-family: var(--brand-font--);
+    color: gray;
+    margin-top: 0.5rem;
   }
 }
 
@@ -226,10 +240,10 @@
   }
 
   .Most-popular-top p {
-    font-size: 70px;
+    font-size: 50px;
     text-align: center;
     font-family: var(--fonts--);
-    width: 75%;
+    width: 45%;
     margin: 0 auto;
     margin-top: 2rem;
     line-height: 4.5rem;

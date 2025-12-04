@@ -589,17 +589,13 @@
   }
 
   .contact-header p {
-    position: absolute;
     color: white;
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
-    font-family: var(--fonts--);
-    top: 72%;
-    left: 6%;
-    font-size: 80px;
+    position: absolute;
+    top: 80%;
+    left: 2% !important;
+    font-size: 58px;
     text-transform: capitalize;
-    line-height: 4.5rem;
-    z-index: 2;
-    font-weight: 500;
+    font-family: var(--fonts--);
   }
 
   .ourstory-content {

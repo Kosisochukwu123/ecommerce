@@ -4,7 +4,7 @@
   }
   nav {
     position: fixed;
-    z-index: 1000;
+    z-index: 1000000;
     padding: 1rem 1rem;
     width: 100%;
     height: 60px;
@@ -121,7 +121,7 @@
 
   nav {
     position: fixed;
-    z-index: 1000;
+    z-index: 100000;
     padding: 1.25rem 2rem;
     width: 100%;
     height: 70px;
@@ -222,13 +222,18 @@
 @media screen and (min-width: 992px) and (max-width: 1199px) {
   nav {
     position: fixed;
-    z-index: 1000;
+    z-index: 1000000;
     padding: 1.5rem 3rem;
     width: 100%;
     height: 80px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+  }
+
+  .rotate-ipad-view{
+    border: 20px solid blue !important;
+    flex-direction: row-reverse;
   }
 
   .desktop-view {
@@ -261,23 +266,12 @@
     display: none;
   }
 
-  .mobile-menu {
-    /* Show as horizontal nav or hide completely */
-    position: static;
-    transform: none;
-    opacity: 1;
-    pointer-events: all;
-    flex-direction: row;
-    background: transparent;
-    padding: 0;
-    gap: 2rem;
-  }
-
   .mobile-menu a {
     padding: 0.5rem 1rem;
     font-size: 1rem;
     color: white;
     font-family: var(--fonts--);
+    text-decoration: none;
   }
 
   .navbar.scrolled {
@@ -292,7 +286,7 @@
   }
 
   .desktop-view {
-    z-index: 1000;
+    z-index: 100000;
     height: 10vh;
     position: fixed;
     top: 20px;
@@ -374,7 +368,7 @@
 @media screen and (min-width: 1440px) {
   nav {
     position: fixed;
-    z-index: 1000;
+    z-index: 1000000;
     padding: 1.75rem 5rem;
     width: 100%;
     height: 90px;
@@ -440,6 +434,7 @@
   nav {
     padding: 2rem 8rem;
     height: 100px;
+    z-index: 100000;
   }
 
   .desktop-view {

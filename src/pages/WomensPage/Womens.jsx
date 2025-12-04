@@ -6,7 +6,7 @@ import WomensSection from "./WomensContent.jsx";
 const Womens = () => {
   return (
     <div>
-      <Nav />
+      <Nav scrolledDesktopDistance={400} />
       <WomensSection />
       <Socials />
       <Footer />

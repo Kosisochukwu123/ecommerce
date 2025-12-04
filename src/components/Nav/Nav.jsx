@@ -4,19 +4,37 @@ import { Search } from "./Search";
 import { CheckoutPage } from "./CartItems";
 import { Link } from "react-router-dom";
 
-const Nav = () => {
+const Nav = ({ scrolledDesktopDistance = 440, scrollDistance }) => {
   const [open, setOpen] = useState(false);
 
   const [showCheckout, setShowCheckout] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [scrolledDesktop, setScrolledDesktop] = useState(false)
+  const [scrolledDesktop, setScrolledDesktop] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-     if (window.scrollY > 870) {    
-        setScrolled(true);
+    // mobile screens
+    if (window.innerWidth <= 480) {
+      scrollDistance = 450; // change earlier on small screens
+    }
+    // tablets
+    else if (window.innerWidth <= 768) {
+      scrollDistance = 700;
+    } else if (window.innerWidth <= 820) {
+      scrollDistance = 800;
+    }
+    // small laptops
+    else if (window.innerWidth <= 1024) {
+      scrollDistance = 1100;
+    }
+    // desktops
+    else {
+      scrollDistance = 1300;
+    }
 
+    const handleScroll = () => {
+      if (window.scrollY > scrollDistance) {
+        setScrolled(true);
       } else {
         setScrolled(false);
       }
@@ -30,10 +48,15 @@ const Nav = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-     if (window.scrollY > 440) {    
+      if (window.scrollY > scrolledDesktopDistance) {
         setScrolledDesktop(true);
       } else {
         setScrolledDesktop(false);
+      }
+
+      if (window.innerWidth <= 1180) {
+        scrolledDesktopDistance = 300
+        setScrolledDesktop(true);
       }
     };
 
@@ -45,7 +68,7 @@ const Nav = () => {
 
   return (
     <>
-      <nav className={`navbar ${scrolled ? 'scrolled' : 'transparent'}`} >
+      <nav className={`navbar ${scrolled ? "scrolled" : "transparent"}`}>
         {/* HAMBURGER ICON */}
         <div
           className={`hamburger ${open ? "open" : ""}`}
@@ -70,24 +93,27 @@ const Nav = () => {
 
         {/* MOBILE MENU */}
         <div className={`mobile-menu ${open ? "show" : null}`}>
-          <Link to= "/For-Men" > Men </Link>
-          <Link to= "/For-Women" > Women </Link>
-          <a href="#" aria-disabled="true">Kids</a>
-          <Link to= "/Our-Story" > Our story </Link>
-          <Link to= "/Contact" > Contact </Link>
+          <Link to="/For-Men"> Men </Link>
+          <Link to="/For-Women"> Women </Link>
+          <a href="#" aria-disabled="true">
+            Kids
+          </a>
+          <Link to="/Our-Story"> Our story </Link>
+          <Link to="/Contact"> Contact </Link>
         </div>
-
       </nav>
 
       {/* desktop menu */}
 
-      <div className={`desktop-view ${scrolledDesktop ? 'scrolled': null}`}>
+      <div className={`desktop-view ${scrolledDesktop ? "scrolled" : null}`}>
         <div className="desktop-menu">
-          <Link to= "/For-Men" > Men </Link>
-          <Link to= "/For-Women" > Women </Link>
-          <a href="#" aria-disabled="true">Kids</a>
-          <Link to= "/Our-Story" > Our story </Link>
-          <Link to= "/Contact" > Contact </Link>
+          <Link to="/For-Men"> Men </Link>
+          <Link to="/For-Women"> Women </Link>
+          <a href="#" aria-disabled="true">
+            Kids
+          </a>
+          <Link to="/Our-Story"> Our story </Link>
+          <Link to="/Contact"> Contact </Link>
         </div>
 
         <div className="header-logo-desktop">Brandi</div>

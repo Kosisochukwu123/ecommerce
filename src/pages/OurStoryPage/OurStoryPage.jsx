@@ -6,7 +6,7 @@ import OurStoryContent from "./OurStoryContent.jsx";
 const AboutPage = () => {
   return (
     <div>
-      <Nav />
+      <Nav scrolledDesktopDistance={400}  />
       <OurStoryContent/>
       <Socials />
       <Footer />

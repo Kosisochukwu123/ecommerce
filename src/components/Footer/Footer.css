@@ -1,5 +1,5 @@
 /* Extra small devices (portrait phones, 380px to 575px) */
-@media screen and (min-width: 360px) and (max-width: 575px) {
+@media screen and (min-width: 334px) and (max-width: 575px) {
   footer {
     margin-top: 7rem;
     padding-top: 3rem;

@@ -5,7 +5,7 @@ import MensSection from "./MensContent.jsx";
 const Mens = () => {
   return (
     <div>
-      <Nav />
+      <Nav scrolledDesktopDistance={400} />
       <MensSection />
       <Socials />
       <Footer />

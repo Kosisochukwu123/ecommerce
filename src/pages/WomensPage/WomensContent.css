@@ -1,5 +1,66 @@
-@media screen and (max-width: 767px) {
-   .contact-header {
+/* Small Mobile (up to 480px) */
+@media screen and (max-width: 480px) {
+  .contact-header {
+    height: 65vh;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-bg-women {
+    position: absolute;
+    inset: 0;
+    background: url(../../images/body-image-women.jpg) center/cover no-repeat;
+    will-change: transform;
+  }
+
+  .contact-bg-women p {
+    color: white;
+    position: absolute;
+    top: 80%;
+    left: 3%;
+    font-size: 38px;
+    text-transform: capitalize;
+    font-family: var(--fonts--);
+  }
+
+  .womens-links {
+    padding-left: 1rem;
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .womens-links a {
+    color: gray;
+    text-transform: capitalize;
+    font-size: 26px;
+    text-decoration: none;
+    font-family: var(--fonts--);
+    transition: 0.3s ease;
+    width: fit-content;
+  }
+
+  /* Active button style */
+  .womens-links .active-link {
+    color: black;
+    font-weight: 700;
+    border-bottom: 2px solid black;
+  }
+
+  .womens-links a:hover {
+    cursor: pointer;
+  }
+
+  .contents {
+    min-height: 100vh;
+    margin-top: 2.5rem;
+  }
+}
+
+/* Medium Mobile (481px - 767px) */
+@media screen and (min-width: 481px) and (max-width: 767px) {
+  .contact-header {
     height: 70vh;
     position: relative;
     overflow: hidden;
@@ -31,9 +92,197 @@
   }
 
   .womens-links a {
+    color: gray;
+    text-transform: capitalize;
+    font-size: 26px;
+    text-decoration: none;
+    font-family: var(--fonts--);
+    transition: 0.3s ease;
+    width: fit-content;
+  }
+
+  /* Active button style */
+  .womens-links .active-link {
+    color: black;
+    font-weight: 700;
+    border-bottom: 2px solid black;
+  }
+
+  .womens-links a:hover {
+    cursor: pointer;
+  }
+
+  .contents {
+    min-height: 100vh;
+    margin-top: 3rem;
+  }
+}
+
+/* Tablet (768px - 1024px) */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .contact-header {
+    height: 65vh;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-bg-women {
+    position: absolute;
+    inset: 0;
+    background: url(../../images/body-image-women.jpg) center/cover no-repeat;
+    will-change: transform;
+  }
+
+  .contact-bg-women p {
+    color: white;
+    position: absolute;
+    top: 80%;
+    left: 3% !important;
+    font-size: 56px;
+    text-transform: capitalize;
+    font-family: var(--fonts--);
+  }
+
+  .womens-links {
+    padding-left: 1.8rem;
+    margin-top: 4.5rem;
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+
+  .womens-links a {
+    color: gray;
+    text-transform: capitalize;
+    font-size: 26px;
+    text-decoration: none;
+    font-family: var(--fonts--);
+    transition: 0.3s ease;
+    width: fit-content;
+  }
+
+  /* Active button style */
+  .womens-links .active-link {
+    color: black;
+    font-weight: 700;
+    border-bottom: 2px solid black;
+  }
+
+  .womens-links a:hover {
+    cursor: pointer;
+  }
+
+  .contents {
+    min-height: 100vh;
+    margin-top: 3.2rem;
+  }
+}
+
+/* Large Tablet / Small Desktop (1025px - 1280px) */
+@media screen and (min-width: 1025px) and (max-width: 1280px) {
+  .contact-header {
+    height: 60vh;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-bg-women {
+    position: absolute;
+    inset: 0;
+    background: url(../../images/body-image-women.jpg) center/cover no-repeat;
+    will-change: transform;
+  }
+
+  .contact-bg-women p {
+    color: white;
+    position: absolute;
+    top: 80%;
+    left: 4% !important;
+    font-size: 62px;
+    text-transform: capitalize;
+    font-family: var(--fonts--);
+  }
+
+  .womens-links {
+    padding-left: 2.5rem;
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+
+  .womens-links a {
+    color: gray;
+    text-transform: capitalize;
+    font-size: 26px;
+    text-decoration: none;
+    font-family: var(--fonts--);
+    transition: 0.3s ease;
+  }
+
+  /* Active button style */
+  .womens-links .active-link {
+    color: black;
+    font-weight: 700;
+    border-bottom: 2px solid black;
+  }
+
+  .womens-links a:hover {
+    cursor: pointer;
+  }
+
+  .contents {
+    min-height: 100vh;
+    margin-top: 3.5rem;
+    padding: 2rem;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr 1fr !important;
+    row-gap: 4rem !important;
+  }
+
+  .contents .container {
+    width: 100%;
+    height: 70vh;
+  }
+}
+
+/* Desktop (1281px - 1440px) */
+@media screen and (min-width: 1281px) and (max-width: 1440px) {
+  .contact-header {
+    height: 58vh;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-bg-women {
+    position: absolute;
+    inset: 0;
+    background: url(../../images/body-image-women.jpg) center/cover no-repeat;
+    will-change: transform;
+  }
+
+  .contact-bg-women p {
+    color: white;
+    position: absolute;
+    top: 80%;
+    left: 6%;
+    font-size: 68px;
+    text-transform: capitalize;
+    font-family: var(--fonts--);
+  }
+
+  .womens-links {
+    padding-left: 3rem;
+    margin-top: 3.8rem;
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+
+  .womens-links a {
     color: black;
     text-transform: capitalize;
-    font-size: 28px;
+    font-size: 36px;
     color: gray;
     font-family: var(--fonts--);
     text-decoration: none;
@@ -45,6 +294,58 @@
 
   .contents {
     min-height: 100vh;
-    margin-top: 3rem;
+    margin-top: 4rem;
+  }
+}
+
+/* Large Desktop (1441px and above) */
+@media screen and (min-width: 1441px) {
+  .contact-header {
+    height: 55vh;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-bg-women {
+    position: absolute;
+    inset: 0;
+    background: url(../../images/body-image-women.jpg) center/cover no-repeat;
+    will-change: transform;
+  }
+
+  .contact-bg-women p {
+    color: white;
+    position: absolute;
+    top: 80%;
+    left: 7%;
+    font-size: 72px;
+    text-transform: capitalize;
+    font-family: var(--fonts--);
+  }
+
+  .womens-links {
+    padding-left: 3.5rem;
+    margin-top: 3.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .womens-links a {
+    color: black;
+    text-transform: capitalize;
+    font-size: 38px;
+    color: gray;
+    font-family: var(--fonts--);
+    text-decoration: none;
+  }
+
+  .womens-links a:active {
+    color: black;
+  }
+
+  .contents {
+    min-height: 100vh;
+    margin-top: 4.5rem;
   }
 }
