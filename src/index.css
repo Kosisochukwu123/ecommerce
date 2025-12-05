@@ -17,6 +17,16 @@ body {
   scrollbar-width: none; 
   -ms-overflow-style: none; /* Internet Explorer 10+ */
   overflow-x: hidden !important;
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch !important; /* Required */
+}
+
+.lenis {
+  height: auto !important;
+}
+
+.lenis-smooth {
+  scroll-behavior: auto !important;
 }
 
 

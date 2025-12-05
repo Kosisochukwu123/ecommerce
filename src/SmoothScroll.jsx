@@ -8,6 +8,8 @@ function SmoothScroll() {
       smooth: true,
       lerp: 0.09,       // smoothness
       wheelMultiplier: 1,
+      smoothTouch: true,    // IMPORTANT for iPhone
+      touchMultiplier: 1.5, // Fix for iPhone scroll resistance
     })
 
     function raf(time) {
