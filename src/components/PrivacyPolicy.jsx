@@ -6,7 +6,7 @@ import Socials from "./Socials/Socials";
 export default function PrivacyPolicy() {
   return (
     <div>
-      <Nav />
+      <Nav alwaysScrolled={true} />
       <div className="policy-container">
         <h1>Privacy Policy</h1>
 

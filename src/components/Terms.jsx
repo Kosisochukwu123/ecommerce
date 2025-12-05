@@ -6,7 +6,7 @@ import Socials from "./Socials/Socials";
 export default function Terms() {
   return (
     <>
-      <Nav />
+      <Nav alwaysScrolled={true}  />
 
       <div className="terms-container">
         <h1>Terms & Services</h1>

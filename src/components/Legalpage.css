@@ -4,6 +4,7 @@
   .policy-container {
     width: 100%;
     padding: 1.5rem;
+    padding-top: 5rem;
     border-radius: 12px;
     line-height: 1.6;
     font-family: var(--fonts--);

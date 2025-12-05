@@ -4,7 +4,7 @@ import { Search } from "./Search";
 import { CheckoutPage } from "./CartItems";
 import { Link } from "react-router-dom";
 
-const Nav = ({ scrolledDesktopDistance = 440, scrollDistance }) => {
+const Nav = ({ scrolledDesktopDistance = 440, scrollDistance, alwaysScrolled = false }) => {
   const [open, setOpen] = useState(false);
 
   const [showCheckout, setShowCheckout] = useState(false);
@@ -13,6 +13,13 @@ const Nav = ({ scrolledDesktopDistance = 440, scrollDistance }) => {
   const [scrolledDesktop, setScrolledDesktop] = useState(false);
 
   useEffect(() => {
+
+   if (alwaysScrolled) {
+      setScrolled(true);       // force scrolled state on this page
+      return;                  // skip scroll logic
+    }
+
+
     // mobile screens
     if (window.innerWidth <= 480) {
       scrollDistance = 450; // change earlier on small screens
