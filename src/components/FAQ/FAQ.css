@@ -11,6 +11,7 @@
   .faq-title {
     font-size: calc(var(--phone-size-text-head--) * 0.8);
     margin-bottom: 10px;
+        color: #000 !important;
   }
 
   .faq-question {
@@ -41,6 +42,7 @@
   .faq-title {
     font-size: calc(var(--phone-size-text-head--) * 0.9);
     margin-bottom: 12px;
+    color: #000;
   }
 
   .faq-question {
@@ -74,7 +76,9 @@
     font-size: var(--phone-size-text-head--);
     font-family: var(--fonts--);
     font-weight: 100;
-    margin-bottom: 15px;
+    margin-bottom: 15px;  
+    color: #000 !important;
+
   }
 
   .faq-item {
@@ -147,6 +151,7 @@
     font-weight: 100 !important;
     width: 40%;
     padding-left: 0.6rem;
+      color: #000 !important;
   }
 
   .faq-item {
@@ -218,6 +223,7 @@
     margin-bottom: 25px;
     font-family: var(--fonts--);
     font-weight: 100;
+      color: #000 !important;
   }
 
   .faq-item {
@@ -433,6 +439,7 @@
     background: white;
     padding: 5px 0;
     z-index: 10;
+      color: #000 !important;
   }
 
   .faq-item {
@@ -464,6 +471,7 @@
   }
 
   .faq-title {
+      color: #000 !important;
     font-size: calc(var(--phone-size-text-head--) * 1.15);
   }
 
