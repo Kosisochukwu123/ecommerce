@@ -1,4 +1,5 @@
-import "./CartItems.css";
+import "./CartItems.css"; 
+import hoodie from "../../images/Top-Piece2.png";
 
 export const CheckoutPage = ({ showCheckout, setShowCheckout }) => {
   return (
@@ -16,7 +17,30 @@ export const CheckoutPage = ({ showCheckout, setShowCheckout }) => {
           </div>
 
           <div className="cartItem-body">
-            <p>cart item is empty</p>
+
+            <div className="cartItem-container">
+
+              <div className="cartItem-image">
+                <img src={hoodie} alt="" srcset="" />
+              </div>
+
+              <div className="cartItem-content">
+
+                <div className="cartItem-content-top">
+                  <p>Americana di na hoddie</p>
+                  <span>$0</span>
+                </div>
+
+                <div className="cartItem-content-bottom">
+                  <p>quantity: 0</p>
+                  <button>X</button>
+                </div>
+
+              </div>
+
+
+            </div>
+
           </div>
 
           <div className="cartItem-bottom">

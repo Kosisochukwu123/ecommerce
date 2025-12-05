@@ -32,14 +32,22 @@
     color: white;
   }
 
+  .header-icon span:nth-child(1) i {
+    position: relative;
+  }
+  .header-icon span:nth-child(1) i p {
+    position: absolute;
+    left: 90%;
+    font-size: 12px;
+    bottom: -5px;
+  }
+
   .hamburger-menu,
   .header-logo,
   .header-icon {
     display: flex;
     align-items: center;
   }
-
-  /* ------------------- */
 
   /* HAMBURGER ICON */
   .hamburger {
@@ -147,6 +155,15 @@
     color: white;
   }
 
+  .header-icon span:nth-child(1) i {
+    position: relative;
+  }
+  .header-icon span:nth-child(1) i p {
+    position: absolute;
+    left: 90%;
+    font-size: 12px;
+    bottom: -5px;
+  }
   .hamburger-menu,
   .header-logo,
   .header-icon {
@@ -231,7 +248,7 @@
     justify-content: space-between;
   }
 
-  .rotate-ipad-view{
+  .rotate-ipad-view {
     border: 20px solid blue !important;
     flex-direction: row-reverse;
   }
@@ -259,6 +276,16 @@
     gap: 1.5rem;
     font-size: 1.15rem;
     color: white;
+  }
+
+  .header-icon span:nth-child(1) i {
+    position: relative;
+  }
+  .header-icon span:nth-child(1) i p {
+    position: absolute;
+    left: 90%;
+    font-size: 12px;
+    bottom: -5px;
   }
 
   /* Hide hamburger on larger screens if you have desktop nav */
@@ -344,6 +371,16 @@
     height: auto;
   }
 
+  .header-icon span:nth-child(1) i {
+    position: relative;
+  }
+  .header-icon span:nth-child(1) i p {
+    position: absolute;
+    left: 90%;
+    font-size: 12px;
+    bottom: -5px;
+  }
+
   .header-icon:hover {
     cursor: pointer;
   }
@@ -397,6 +434,16 @@
     color: white;
   }
 
+  .header-icon span:nth-child(1) i {
+    position: relative;
+  }
+  .header-icon span:nth-child(1) i p {
+    position: absolute;
+    left: 90%;
+    font-size: 12px;
+    bottom: -5px;
+  }
+
   .hamburger {
     display: none;
   }
@@ -448,6 +495,16 @@
   .header-icon {
     gap: 2.5rem;
     font-size: 1.35rem;
+  }
+
+  .header-icon span:nth-child(1) i {
+    position: relative;
+  }
+  .header-icon span:nth-child(1) i p {
+    position: absolute;
+    left: 90%;
+    font-size: 12px;
+    bottom: -5px;
   }
 
   .mobile-menu {

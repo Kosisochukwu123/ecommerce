@@ -2,6 +2,7 @@
   section {
     margin-top: 6rem !important;
     position: relative;
+    overflow: hidden;
   }
 
   section img {

@@ -116,7 +116,7 @@ const Nav = ({scrolledDesktopDistance = 440, alwaysScrolled = false,
 
         <div className="header-icon">
           <span onClick={() => setShowCheckout(true)}>
-            <i className="fa-solid fa-cart-arrow-down"></i>
+            <i className="fa-solid fa-cart-arrow-down"> <p>0</p> </i>
           </span>
 
           <span onClick={() => setShowSearch(true)}>
@@ -146,6 +146,7 @@ const Nav = ({scrolledDesktopDistance = 440, alwaysScrolled = false,
       {/* desktop menu */}
 
       <div className={`desktop-view ${scrolledDesktop ? "scrolled" : null}`}>
+        
         <div className="desktop-menu">
           <Link to="/For-Men"> Men </Link>
           <Link to="/For-Women"> Women </Link>
@@ -166,14 +167,16 @@ const Nav = ({scrolledDesktopDistance = 440, alwaysScrolled = false,
         <div className="header-logo-desktop">Brandi</div>
 
         <div className="header-icon">
+
           <span onClick={() => setShowCheckout(true)}>
-            <i className="fa-solid fa-cart-arrow-down"></i>
+            <i className="fa-solid fa-cart-arrow-down"><p>0</p></i>
           </span>
 
           <span onClick={() => setShowSearch(true)}>
             <i className="fa-solid fa-magnifying-glass"></i>
           </span>
         </div>
+
       </div>
 
       <CheckoutPage

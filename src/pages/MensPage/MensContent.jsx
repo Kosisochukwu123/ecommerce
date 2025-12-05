@@ -1,5 +1,6 @@
 import "./MensContent.css";
 import { useEffect, useState } from "react";
+import {Link} from "react-router-dom";
 import piece2 from "../../images/Top-Piece2.png";
 import mensTop1 from "../../images/mens-top1.png";
 import mensTop2 from "../../images/mens-top2.png";
@@ -56,7 +57,8 @@ const MensContent = () => {
 
       {selectedCategory === "all" && (
         <div className="contents">
-          <div className="container">
+
+          <Link to="/products" className="container">
             <div className="image">
               <img src={piece2} alt="americana di na hoodie" />
             </div>
@@ -67,7 +69,7 @@ const MensContent = () => {
             <div className="amount">
               <p>$300</p>
             </div>
-          </div>
+          </Link>
 
           <div className="container">
             <div className="image">
@@ -107,6 +109,7 @@ const MensContent = () => {
               <p>$300</p>
             </div>
           </div>
+          
         </div>
       )}
 

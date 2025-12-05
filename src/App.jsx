@@ -9,6 +9,7 @@ import OpenPageAnimation from "./components/OpenPageAnimation/OpenPageAnimation"
 import ScrollToTop from "./components/ScrollToTop";
 import PrivacyPolicy from "./components/PrivacyPolicy";
 import Terms from "./components/Terms";
+import { ProductCheckout } from "./pages/ProductsCheckout/ProductCheckout.jsx";
 
 import { useEffect } from "react";
 import AOS from "aos";
@@ -42,6 +43,7 @@ function App() {
         <Route path="/Contact" element={<ContactPage />} />
         <Route path="/Privacy-Policy" element={<PrivacyPolicy />} />
         <Route path="/Terms" element={<Terms />} />
+        <Route path="/products" element={<ProductCheckout />} />
       </Routes>
     </>
   );

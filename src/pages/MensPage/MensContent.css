@@ -40,6 +40,12 @@ So the styles their also have control here */
     min-height: 100vh;
     margin-top: 2.5rem;
   }
+
+   .contents .container{
+    height: fit-content;
+    text-decoration: none !important;
+    color: black;
+  }
 }
 
 /* Medium Mobile (481px - 767px) */
@@ -78,6 +84,12 @@ So the styles their also have control here */
   .contents {
     min-height: 100vh;
     margin-top: 3rem;
+  }
+
+    .contents .container{
+    height: fit-content;
+    text-decoration: none !important;
+    color: black;
   }
 }
 
@@ -168,11 +180,15 @@ So the styles their also have control here */
     display: grid !important;
     grid-template-columns: 1fr 1fr 1fr !important;
     row-gap:  0.1rem !important;
+    
   }
 
   .contents .container{
     height: fit-content;
+    text-decoration: none !important;
+    color: black;
   }
+
 }
 
 /* Desktop (1281px - 1440px) */

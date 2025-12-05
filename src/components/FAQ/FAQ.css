@@ -5,6 +5,7 @@
     max-width: 100%;
     margin: auto;
     margin-top: 4rem;
+    overflow: hidden;
   }
 
   .faq-title {
@@ -34,6 +35,7 @@
     max-width: 100%;
     margin: auto;
     margin-top: 5rem;
+     overflow: hidden;
   }
 
   .faq-title {
@@ -62,7 +64,9 @@
     padding: 20px;
     max-width: 600px;
     margin: auto;
-    margin-top: 6rem;
+    margin-top: 6rem; 
+    overflow: hidden;
+
   }
 
   .faq-title {
