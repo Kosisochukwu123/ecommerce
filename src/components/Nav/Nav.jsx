@@ -3,8 +3,10 @@ import { useState, useEffect } from "react";
 import { Search } from "./Search";
 import { CheckoutPage } from "./CartItems";
 import { Link } from "react-router-dom";
+import {useLocation} from 'react-router-dom';
 
-const Nav = ({ scrolledDesktopDistance = 440, scrollDistance, alwaysScrolled = false }) => {
+const Nav = ({scrolledDesktopDistance = 440, alwaysScrolled = false,
+}) => {
   const [open, setOpen] = useState(false);
 
   const [showCheckout, setShowCheckout] = useState(false);
@@ -12,27 +14,48 @@ const Nav = ({ scrolledDesktopDistance = 440, scrollDistance, alwaysScrolled = f
   const [scrolled, setScrolled] = useState(false);
   const [scrolledDesktop, setScrolledDesktop] = useState(false);
 
+  const location = useLocation();
+
   useEffect(() => {
 
-   if (alwaysScrolled) {
-      setScrolled(true);       // force scrolled state on this page
-      return;                  // skip scroll logic
+    let scrollDistance;
+    
+    if (alwaysScrolled) {
+      setScrolled(true); // force scrolled state on this page
+      return; // skip scroll logic
     }
-
 
     // mobile screens
-    if (window.innerWidth <= 480) {
-      scrollDistance = 450; // change earlier on small screens
+    if (window.innerWidth <= 480 && location.pathname === "/") {
+      scrollDistance = 820; 
+    }
+
+    else if (window.innerWidth <= 480) {
+      scrollDistance = 450;
     }
     // tablets
+
+      else if (window.innerWidth <= 768 && location.pathname === "/") {
+      scrollDistance = 1000; 
+    }
+    
+
     else if (window.innerWidth <= 768) {
       scrollDistance = 700;
-    } else if (window.innerWidth <= 820) {
+    }
+
+     else if (window.innerWidth <= 820 && location.pathname === "/") {
+      scrollDistance = 1150; 
+    }
+
+      else if (window.innerWidth <= 820) {
       scrollDistance = 800;
     }
+
+  
     // small laptops
-    else if (window.innerWidth <= 1024) {
-      scrollDistance = 1100;
+     else if (window.innerWidth <= 1024) {
+      scrollDistance = 500;
     }
     // desktops
     else {
@@ -53,17 +76,20 @@ const Nav = ({ scrolledDesktopDistance = 440, scrollDistance, alwaysScrolled = f
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+
   useEffect(() => {
+  
+   if (alwaysScrolled) {
+      setScrolledDesktop(true); // force scrolled state on this page
+      return; // skip scroll logic
+    }
+
     const handleScroll = () => {
-      if (window.scrollY > scrolledDesktopDistance) {
+
+  if (window.scrollY > scrolledDesktopDistance) {
         setScrolledDesktop(true);
       } else {
         setScrolledDesktop(false);
-      }
-
-      if (window.innerWidth <= 1180) {
-        scrolledDesktopDistance = 300;
-        setScrolledDesktop(true);
       }
     };
 

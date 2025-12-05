@@ -12,7 +12,7 @@ const Home = () => {
     <div>
       {/* <OpenPageAnimation /> */}
 
-      <Nav />
+      <Nav/>
 
       <Header />
 
