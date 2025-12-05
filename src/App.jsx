@@ -15,11 +15,14 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 // import CursorFollower from "./components/CursorFollower";
 
+
+import SmoothScroll from "./SmoothScroll.jsx";
+
 function App() {
   useEffect(() => {
     AOS.init({
       duration: 800,
-      once: false,
+      once: true,
     });
   }, []);
 
@@ -27,6 +30,8 @@ function App() {
     <>
       <OpenPageAnimation />
       <ScrollToTop />
+      <SmoothScroll />
+
       {/* <CursorFollower /> */}
 
       <Routes>
