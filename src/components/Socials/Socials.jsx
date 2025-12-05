@@ -9,8 +9,8 @@ import body5 from "../../images/hoodie1.jpg";
 export const Socials = () => {
   return (
     <div className="socials">
-      <h2>(Socials)</h2>
-      <p>
+      <h2 data-aos="zoom-in">(Socials)</h2>
+      <p data-aos="zoom-in">
         Follow us on social <a>@Brandi</a> for updates
       </p>
       <div className="image-scroller">

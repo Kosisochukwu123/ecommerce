@@ -1,17 +1,25 @@
-import {Link} from 'react-router-dom';
+import { Link } from "react-router-dom";
 import "./Body.css";
 import bodytop from "../../images/body-image-men.jpg";
 import bodybottom from "../../images/body-image-women.jpg";
 
+
+
 export const Body = () => {
+
+
   return (
     <div className="body">
       <div className="body-top">
         <img src={bodytop} alt="body-top" />
 
-        <div className="body-top-text">
-          <p>men's <br/> collection</p>
-          <Link to="/For-Men"><button>shop now</button></Link>
+        <div className="body-top-text" >
+          <p data-aos="fade-up">
+            men's <br /> collection
+          </p>
+          <Link to="/For-Men" data-aos="fade-up">
+            <button>shop now</button>
+          </Link>
         </div>
       </div>
 
@@ -19,10 +27,13 @@ export const Body = () => {
         <img src={bodybottom} alt="body-bottom" />
 
         <div className="body-bottom-text">
-          <p>women's <br/> collection</p>
-          <Link to="/For-Women"><button>shop now</button></Link>
+          <p data-aos="fade-up">
+            women's <br /> collection
+          </p>
+          <Link to="/For-Women" data-aos="fade-up">
+            <button>shop now</button>
+          </Link>
         </div>
-
       </div>
     </div>
   );

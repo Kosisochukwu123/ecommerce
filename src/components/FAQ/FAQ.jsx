@@ -33,10 +33,10 @@ export default function FAQ() {
 
   return (
     <div className="faq-container">
-      <h2 className="faq-title">Frequently Asked Questions</h2>
+      <h2 className="faq-title" data-aos="fade-up-right">Frequently Asked Questions</h2>
       <div>
         {faqData.map((item, index) => (
-          <div className="faq-item" key={index}>
+          <div className="faq-item" key={index} data-aos="fade-up-left">
             <button className="faq-question" onClick={() => toggleFAQ(index)}>
               {item.question}
               <span className={`arrow ${openIndex === index ? "open" : ""}`}>
