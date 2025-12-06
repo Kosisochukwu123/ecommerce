@@ -1,9 +1,9 @@
 import React from "react";
 import "./ProductCheckout.css";
-import Footer from "../../components/Footer/Footer";
-import { About } from "../../components/About/About";
-import FAQ from "../../components/FAQ/FAQ";
-import Nav from "../../components/Nav/Nav";
+import Footer from "../../components/Footer/Footer.jsx";
+import { About } from "../../components/About/About.jsx";
+import FAQ from "../../components/FAQ/FAQ.jsx";
+import Nav from "../../components/Nav/NavBar/Nav.jsx";
 import piece2 from "../../images/Top-Piece2.png";
 
 export const ProductCheckout = () => {
@@ -32,7 +32,7 @@ export const ProductCheckout = () => {
 
           <div className="product-question-faq"></div>
         </div>
-        
+
       </div>
 
       <FAQ />

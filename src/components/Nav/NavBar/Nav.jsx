@@ -1,7 +1,7 @@
 import "./Nav.css";
 import { useState, useEffect } from "react";
-import { Search } from "./Search";
-import { CheckoutPage } from "./CartItems";
+import { Search } from "../Search/Search.jsx";
+import { CheckoutPage } from "../Cart/CartItems.jsx";
 import { Link } from "react-router-dom";
 import {useLocation} from 'react-router-dom';
 
@@ -98,6 +98,8 @@ const Nav = ({scrolledDesktopDistance = 440, alwaysScrolled = false,
     // cleanup
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+
 
   return (
     <>

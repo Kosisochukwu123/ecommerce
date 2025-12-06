@@ -16,9 +16,12 @@ body {
   background-color: white;
   scrollbar-width: none; 
   -ms-overflow-style: none; /* Internet Explorer 10+ */
-  overflow-x: hidden !important;
+  /* overflow-x: hidden !important; */
+  height: auto !important;
+  overflow: visible !important;
   overscroll-behavior: none;
-  -webkit-overflow-scrolling: touch !important; /* Required */
+  -webkit-overflow-scrolling: touch !important;
+   /* touch-action: pan-y !important; */
 }
 
 .lenis {
@@ -26,8 +29,10 @@ body {
 }
 
 .lenis-smooth {
-  scroll-behavior: auto !important;
+  scroll-behavior: auto !important; 
 }
+
+
 
 
 

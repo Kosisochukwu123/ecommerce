@@ -1,7 +1,7 @@
 import "./Legalpage.css";
-import Footer from "./Footer/Footer";
-import Nav from "./Nav/Nav";
-import Socials from "./Socials/Socials";
+import Footer from "./Footer/Footer.jsx";
+import Nav from "./Nav/NavBar/Nav.jsx";
+import Socials from "./Socials/Socials.jsx";
 
 export default function PrivacyPolicy() {
   return (

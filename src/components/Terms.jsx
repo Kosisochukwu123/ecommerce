@@ -1,6 +1,6 @@
 import "./Legalpage.css";
 import Footer from "./Footer/Footer";
-import Nav from "./Nav/Nav";
+import Nav from "./Nav/NavBar/Nav";
 import Socials from "./Socials/Socials";
 
 export default function Terms() {

@@ -1,5 +1,5 @@
 import React from "react";
-import Nav from "../../components/Nav/Nav.jsx";
+import Nav from "../../components/Nav/NavBar/Nav.jsx";
 import Footer from "../../components/Footer/Footer.jsx";
 import Socials from "../../components/Socials/Socials.jsx";
 import ContactPageContent from "./ContactPageContent";
