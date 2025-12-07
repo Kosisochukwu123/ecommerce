@@ -9,8 +9,10 @@
     flex-direction: column;
     font-family: var(--fonts--);
     z-index: 11999990 !important;
-    overflow: scroll !important;
+    /* overflow: scroll !important; */
     height: 100vh !important;
+    padding-bottom: 3rem;
+
 
     /* start off-screen to the right and slide in */
     transform: translateX(100%);
@@ -56,7 +58,7 @@
 
   /* --------------------- */
   .cartItem-body {
-    min-height: 70vh;
+    height: 70vh !important;
     overflow-y: scroll !important;
     /* z-index: 11990000000000000 !important; */
 
