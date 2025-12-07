@@ -133,6 +133,7 @@
     font-size: 20px;
     text-transform: capitalize;
     font-family: var(--fonts--);
+    height: 20vh !important;
   }
 
   .cartItem-shipping,
@@ -165,6 +166,7 @@
     border: none;
     font-size: 15px;
     text-transform: capitalize;
+    color: black;
   }
 }
 
