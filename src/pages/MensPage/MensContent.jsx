@@ -1,9 +1,7 @@
 import "./MensContent.css";
 import { useEffect, useState } from "react";
-import {Link} from "react-router-dom";
-import piece2 from "../../images/Top-Piece2.png";
-import mensTop1 from "../../images/mens-top1.png";
-import mensTop2 from "../../images/mens-top2.png";
+import { Link } from "react-router-dom";
+import { products } from "../../../backend/products/product";
 
 const MensContent = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -57,119 +55,111 @@ const MensContent = () => {
 
       {selectedCategory === "all" && (
         <div className="contents">
+          {products.map((product) => {
+            return (
+              <Link
+                key={product.id}
+                className="container"
+                to={`/products/${product.id}`}
+                state={{ product }}
+              >
+                <div className="image">
+                  <img src={product.image} alt="Product-Image" />
+                </div>
+                <div className="name">
+                  <p>{product.name}</p>
+                </div>
 
-          <Link to="/products" className="container">
-            <div className="image">
-              <img src={piece2} alt="americana di na hoodie" />
-            </div>
-            <div className="name">
-              <p>americana di na hoodie</p>
-            </div>
-
-            <div className="amount">
-              <p>$300</p>
-            </div>
-          </Link>
-
-          <div className="container">
-            <div className="image">
-              <img src={mensTop1} alt="americana di na hoodie" />
-            </div>
-            <div className="name">
-              <p>americana di na hoodie</p>
-            </div>
-
-            <div className="amount">
-              <p>$300</p>
-            </div>
-          </div>
-
-          <div className="container">
-            <div className="image">
-              <img src={mensTop2} alt="americana di na hoodie" />
-            </div>
-            <div className="name">
-              <p>americana di na hoodie</p>
-            </div>
-
-            <div className="amount">
-              <p>$300</p>
-            </div>
-          </div>
-
-          <div className="container">
-            <div className="image">
-              <img src={piece2} alt="americana di na hoodie" />
-            </div>
-            <div className="name">
-              <p>americana di na hoodie</p>
-            </div>
-
-            <div className="amount">
-              <p>$300</p>
-            </div>
-          </div>
-          
+                <div className="amount">
+                  <p>${(product.priceCents / 100).toFixed(2)}</p>
+                </div>
+              </Link>
+            );
+          })}
         </div>
       )}
 
       {selectedCategory === "hoodies" && (
         <div className="contents">
-          <div className="container">
-            <div className="image">
-              <img src={piece2} alt="hoodie" />
-            </div>
-            <div className="name">
-              <p>Hoodie Product</p>
-            </div>
-            <div className="amount">
-              <p>$220</p>
-            </div>
-          </div>
+          {products
+            .filter((product) => product.category === "hoodies")
+            .map((product) => {
+              return (
+                <Link
+                  key={product.id}
+                  to={`/products/${product.id}`}
+                  state={{ product }}
+                  className="container"
+                >
+                  <div className="image">
+                    <img src={product.image} alt="Product-Image" />
+                  </div>
+                  <div className="name">
+                    <p>{product.name}</p>
+                  </div>
+
+                  <div className="amount">
+                    <p>${(product.priceCents / 100).toFixed(2)}</p>
+                  </div>
+                </Link>
+              );
+            })}
         </div>
       )}
 
       {selectedCategory === "t-shirt" && (
         <div className="contents">
-          <div className="container">
-            <div className="image">
-              <img src={mensTop1} alt="t-shirt" />
-            </div>
-            <div className="name">
-              <p>T-Shirt Product</p>
-            </div>
-            <div className="amount">
-              <p>$120</p>
-            </div>
-          </div>
+          {products
+            .filter((product) => product.category === "t-shirt")
+            .map((product) => {
+              return (
+                <Link
+                  key={product.id}
+                  to={`/products/${product.id}`}
+                  state={{ product }}
+                  className="container"
+                >
+                  <div className="image">
+                    <img src={product.image} alt="Product-Image" />
+                  </div>
+                  <div className="name">
+                    <p>{product.name}</p>
+                  </div>
 
-          <div className="container">
-            <div className="image">
-              <img src={mensTop2} alt="t-shirt" />
-            </div>
-            <div className="name">
-              <p>T-Shirt Product</p>
-            </div>
-            <div className="amount">
-              <p>$120</p>
-            </div>
-          </div>
+                  <div className="amount">
+                    <p>${(product.priceCents / 100).toFixed(2)}</p>
+                  </div>
+                </Link>
+              );
+            })}
         </div>
       )}
 
       {selectedCategory === "pants" && (
         <div className="contents">
-          <div className="container">
-            <div className="image">
-              <img src={piece2} alt="pants" />
-            </div>
-            <div className="name">
-              <p>Pants Product</p>
-            </div>
-            <div className="amount">
-              <p>$180</p>
-            </div>
-          </div>
+          {products
+            .filter((product) => product.category === "pants")
+            .map((product) => {
+              return (
+                <Link
+                  key={product.id}
+                  to={`/products/${product.id}`}
+                  state={{ product }}
+                  className="container"
+                >
+                  <div className="image">
+                    <img src={product.image} alt="Product-Image" />
+                  </div>
+                  <div className="name">
+                    <p>{product.name}</p>
+                  </div>
+
+                  <div className="amount">
+                    <p>${(product.priceCents / 100).toFixed(2)}</p>
+                  </div>
+                </Link>
+              );
+            })}
         </div>
       )}
     </div>

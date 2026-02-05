@@ -11,7 +11,7 @@ export const Header = () => {
   const texts = [
     "Women wears — empower and flattering.",
     "Men's refined — smart everyday look.",
-    "Kid's favorites — durable, playful pieces.",
+    "Kid's favorites — durable, playful pieces."
   ];
 
   const buttons = ["Shop Now", "Shop Now", "Shop Now"];
@@ -40,39 +40,40 @@ export const Header = () => {
           />
         ))}
       </div>
-
       <p className={`slide-number ${"active"}`}>{numbers[index]}</p>
-
       <p className={`slide-text ${"active"}`}>{texts[index]}</p>
 
-      <Link to="/For-Men">
-        <button className={`btn active`}>
-          <span className="icon">
-            <svg
-              viewBox="0 0 64 64"
-              width="40"
-              height="40"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true"
-            >
-              <path
-                d="M48 18h-4a8 8 0 00-16 0h-4a4 4 0 00-4 4v24a4 4 0 004 4h28a4 4 0 004-4V22a4 4 0 00-4-4z"
-                fill="#f0f0f0"
-              />
-              <path
-                d="M24 18a8 8 0 0116 0"
-                fill="none"
-                stroke="#ffffff"
-                strokeWidth="3"
-                strokeLinecap="round"
-              />
-            </svg>
-          </span>
-          <span className="text">{buttons[index]}</span>
-        </button>
-      </Link>
+  
+        <Link to="/For-Men">
+         <button className={`btn active`} >
+            <span className="icon">
+              <svg
+                viewBox="0 0 64 64"
+                width="40"
+                height="40"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  d="M48 18h-4a8 8 0 00-16 0h-4a4 4 0 00-4 4v24a4 4 0 004 4h28a4 4 0 004-4V22a4 4 0 00-4-4z"
+                  fill="#f0f0f0"
+                />
+                <path
+                  d="M24 18a8 8 0 0116 0"
+                  fill="none"
+                  stroke="#ffffff"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </span>
+            <span className="text">{buttons[index]}</span>
+          </button>
+        </Link>;
+    
+  
 
-      <div className="black"></div>
+      ;<div className="black"></div>
     </div>
   );
 };

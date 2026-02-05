@@ -212,11 +212,13 @@
     font-size: 50px;
     text-align: center;
     font-family: var(--fonts--);
-    width: 55%;
+    width: 50%;
     margin: 0 auto;
     margin-top: 2rem;
     line-height: 4.5rem;
-    font-weight: 600;
+    font-weight: 500;
+    text-transform: capitalize;
+    line-height: 3.7rem;
   }
 
   .socials p a {
@@ -240,6 +242,7 @@
   .socials p a:hover {
     color: #222;
     transform: translateY(-4px);
+    cursor: grab;
   }
 
   .socials p a:hover::after {

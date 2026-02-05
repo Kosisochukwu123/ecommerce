@@ -1,4 +1,4 @@
-import Nav from "../components/Nav/NavBar/Nav.jsx";
+import  Nav  from "../components/Nav/NavBar/Nav.jsx";
 import { Header } from "../components/Header/Header.jsx";
 import { Body } from "../components/Body/Body.jsx";
 import { MostPopular } from "../components/MostPopular/MostPopular.jsx";
@@ -23,6 +23,7 @@ const Home = () => {
       <About />
 
       <Footer />
+
     </div>
   );
 };

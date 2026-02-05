@@ -1,0 +1,31 @@
+@media screen and (max-width: 730px) {
+  .mightlike-head {
+    margin-top: 10rem;
+    text-align: center;
+  }
+
+  .mightlike-head h2 {
+    font-size: var(--phone-size-text-head--);
+    font-weight: 100;
+    text-transform: capitalize;
+    font-family: var(--fonts--);
+    margin: 1rem 0rem;
+  }
+
+  .mightlike-head p {
+    font-family: var(--brand-font--);
+    text-transform: capitalize;
+    font-weight: 600;
+  }
+
+  .mightlike-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .mightlike-content a {
+    color: black !important;
+    text-decoration: none;
+  }
+}

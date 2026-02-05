@@ -4,6 +4,7 @@ import { Search } from "../Search/Search.jsx";
 import { CheckoutPage } from "../Cart/CartItems.jsx";
 import { Link } from "react-router-dom";
 import {useLocation} from 'react-router-dom';
+import { useCart } from "../Cart/UseCart.jsx";
 
 const Nav = ({scrolledDesktopDistance = 440, alwaysScrolled = false,
 }) => {
@@ -15,6 +16,8 @@ const Nav = ({scrolledDesktopDistance = 440, alwaysScrolled = false,
   const [scrolledDesktop, setScrolledDesktop] = useState(false);
 
   const location = useLocation();
+
+  const { getTotalItems } = useCart();
 
   useEffect(() => {
 
@@ -118,7 +121,7 @@ const Nav = ({scrolledDesktopDistance = 440, alwaysScrolled = false,
 
         <div className="header-icon">
           <span onClick={() => setShowCheckout(true)}>
-            <i className="fa-solid fa-cart-arrow-down"> <p>0</p> </i>
+            <i className="fa-solid fa-cart-arrow-down"> <p>{getTotalItems()}</p> </i>
           </span>
 
           <span onClick={() => setShowSearch(true)}>
@@ -171,7 +174,7 @@ const Nav = ({scrolledDesktopDistance = 440, alwaysScrolled = false,
         <div className="header-icon">
 
           <span onClick={() => setShowCheckout(true)}>
-            <i className="fa-solid fa-cart-arrow-down"><p>0</p></i>
+            <i className="fa-solid fa-cart-arrow-down"><p>{getTotalItems()}</p></i>
           </span>
 
           <span onClick={() => setShowSearch(true)}>
