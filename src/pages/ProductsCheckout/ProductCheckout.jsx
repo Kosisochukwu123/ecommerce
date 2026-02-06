@@ -7,7 +7,7 @@ import Nav from "../../components/Nav/NavBar/Nav.jsx";
 import MightLike from "../../components/MightLike/MightLike.jsx";
 import Socials from "../../components/Socials/Socials.jsx";
 // import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import { useCart } from '../../components/Nav/Cart/UseCart.jsx';
 

@@ -44,7 +44,7 @@ export const CheckoutPage = ({ showCheckout, setShowCheckout }) => {
               <div key={item.id} className="cartItem-container">
                 <div className="cartItem-image">
                   <img
-                     src={`${import.meta.env.BASE_URL}${item.image}`} 
+                     src={item.image} 
                   />
                </div>
 
