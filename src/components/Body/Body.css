@@ -16,13 +16,15 @@
   .body-bottom-text {
     position: absolute;
     top: 80%;
-    left: 32%;
+    left: 25%;
     transform: translate(-50%, -50%);
     color: white;
-    font-size: 50px;
-    text-transform: capitalize;
     line-height: 3.5rem;
+    font-size: var(--phone-size-text-head--);
+    font-weight: 100;
+    text-transform: capitalize;
     font-family: var(--fonts--);
+    margin: 1rem 0rem;
   }
 
   .body-top img,
@@ -85,7 +87,7 @@
 }
 
 @media screen and (max-width: 669px) and (orientation: landscape) {
-   .body-top {
+  .body-top {
     height: 100vh !important;
   }
 
@@ -130,13 +132,15 @@
   .body-bottom-text {
     position: absolute;
     top: 80%;
-    left: 30%;
+    left: 25%;
     transform: translate(-50%, -50%);
     color: white;
-    font-size: 45px;
+    line-height: 3.5rem;
+    font-size: var(--phone-size-text-head--);
+    font-weight: 100;
     text-transform: capitalize;
-    line-height: 3rem;
     font-family: var(--fonts--);
+    margin: 1rem 0rem;
   }
 
   .body-top img,
@@ -184,14 +188,16 @@
   .body-top-text,
   .body-bottom-text {
     position: absolute;
-    top: 75%;
+    top: 70%;
     left: 20%;
     transform: translate(-50%, -50%);
     color: white;
-    font-size: 55px;
+    line-height: 3.5rem;
+    font-size: var(--phone-size-text-head--);
+    font-weight: 100;
     text-transform: capitalize;
-    line-height: 3.8rem;
     font-family: var(--fonts--);
+    margin: 1rem 0rem;
   }
 
   .body-top img,
@@ -247,14 +253,16 @@
   .body-top-text,
   .body-bottom-text {
     position: absolute;
-    top: 70%;
-    left: 40%;
+    top: 80%;
+    left: 25%;
     transform: translate(-50%, -50%);
     color: white;
-    font-size: 45px;
-    text-transform: capitalize;
     line-height: 3.5rem;
+    font-size: var(--phone-size-text-head--);
+    font-weight: 100;
+    text-transform: capitalize;
     font-family: var(--fonts--);
+    margin: 1rem 0rem;
   }
 
   .body-top img,
@@ -316,14 +324,15 @@
   .body-bottom-text {
     position: absolute;
     top: 70%;
-    left: 28%;
+    left: 25%;
     transform: translate(-50%, -50%);
     color: white;
-    font-size: 55px;
+    line-height: 3.5rem;
+    font-size: var(--phone-size-text-head--);
+    font-weight: 100;
     text-transform: capitalize;
-    line-height: 4rem;
     font-family: var(--fonts--);
-    z-index: 2;
+    margin: 1rem 0rem;
   }
 
   .body-top img,

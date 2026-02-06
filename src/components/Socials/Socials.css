@@ -1,21 +1,23 @@
 @media screen and (max-width: 767px) {
   .socials {
     margin-top: 5rem;
-  }
-  .socials h2 {
     text-align: center;
-    font-family: var(--brand-font--);
-    font-size: 16px;
+    padding: 0rem 0.4rem;
+  }
+
+  .socials h2 {
+    font-size: var(--phone-size-text-head--);
+    font-weight: 100;
+    text-transform: capitalize;
+    font-family: var(--fonts--);
+    margin: 1rem 0rem;
+    border: 2px solid white; /*this serves as some type of padding to help bring content closer */
   }
 
   .socials p {
-    font-size: var(--phone-size-text-head--);
-    text-align: center;
-    font-family: var(--fonts--);
-    width: 90%;
-    margin: 0 auto;
-    margin-top: 2rem;
-    font-size: 50px;
+    font-family: var(--brand-font--);
+    text-transform: capitalize;
+    font-weight: 600;
   }
 
   .socials p a {
@@ -63,28 +65,31 @@
 @media screen and (min-width: 768px) and (max-width: 991px) {
   .socials {
     margin-top: 6rem;
+    text-align: center;
   }
 
   .socials h2 {
+    font-size: var(--phone-size-text-head--);
+    font-weight: 100;
+    text-transform: capitalize;
+    font-family: var(--fonts--);
+    margin: 1rem 0rem;
+    width: 100%;
+    padding: 0rem 10rem;
     text-align: center;
-    font-family: var(--brand-font--);
-    font-size: 17px;
-    letter-spacing: 1.5px;
   }
 
   .socials p {
-    font-size: 55px;
-    text-align: center;
-    font-family: var(--fonts--);
-    width: 85%;
-    margin: 0 auto;
-    margin-top: 2.2rem;
-    line-height: 3.5rem;
+    font-family: var(--brand-font--);
+    text-transform: capitalize;
+    font-weight: 600;
   }
 
   .socials p a {
     color: gray;
-    transition: color 0.3s ease, transform 0.3s ease;
+    transition:
+      color 0.3s ease,
+      transform 0.3s ease;
     display: inline-block;
   }
 
@@ -128,29 +133,31 @@
 /* Large devices (desktops, 992px to 1199px) */
 @media screen and (min-width: 992px) and (max-width: 1199px) {
   .socials {
-    margin-top: 7rem;
+    margin-top: 6rem;
+    text-align: center;
   }
 
   .socials h2 {
+    font-size: var(--phone-size-text-head--);
+    font-weight: 100;
+    text-transform: capitalize;
+    font-family: var(--fonts--);
+    margin: 1rem 0rem;
+    width: 100%;
+    padding: 0rem 10rem;
     text-align: center;
-    font-family: var(--brand-font--);
-    font-size: 18px;
-    letter-spacing: 2px;
   }
 
   .socials p {
-    font-size: 60px;
-    text-align: center;
-    font-family: var(--fonts--);
-    width: 80%;
-    margin: 0 auto;
-    margin-top: 2.5rem;
-    line-height: 4rem;
+    font-family: var(--brand-font--);
+    text-transform: capitalize;
+    font-weight: 600;
   }
-
   .socials p a {
     color: gray;
-    transition: color 0.3s ease, transform 0.3s ease;
+    transition:
+      color 0.3s ease,
+      transform 0.3s ease;
     display: inline-block;
   }
 
@@ -178,7 +185,9 @@
     height: 420px;
     object-fit: cover;
     border-radius: 8px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
   }
 
   @keyframes scroll-left {
@@ -198,38 +207,37 @@
     max-width: 1400px;
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
   }
 
   .socials h2 {
+    font-size: var(--phone-size-text-head--);
+    font-weight: 100;
+    text-transform: capitalize;
+    font-family: var(--fonts--);
+    margin: 1rem 0rem;
+    width: 100%;
+    padding: 0rem 10rem;
     text-align: center;
-    font-family: var(--brand-font--);
-    font-size: 19px;
-    letter-spacing: 2.5px;
-    font-weight: 400;
   }
 
   .socials p {
-    font-size: 50px;
-    text-align: center;
-    font-family: var(--fonts--);
-    width: 50%;
-    margin: 0 auto;
-    margin-top: 2rem;
-    line-height: 4.5rem;
-    font-weight: 500;
+    font-family: var(--brand-font--);
     text-transform: capitalize;
-    line-height: 3.7rem;
+    font-weight: 600;
   }
 
   .socials p a {
     color: gray;
-    transition: color 0.3s ease, transform 0.3s ease;
+    transition:
+      color 0.3s ease,
+      transform 0.3s ease;
     display: inline-block;
     position: relative;
   }
 
   .socials p a::after {
-    content: '';
+    content: "";
     position: absolute;
     width: 0;
     height: 2px;
@@ -268,7 +276,9 @@
     height: 400px;
     object-fit: cover;
     border-radius: 10px;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    transition:
+      transform 0.4s ease,
+      box-shadow 0.4s ease;
   }
 
   @keyframes scroll-left {
@@ -288,36 +298,37 @@
     max-width: 1600px;
     margin-left: auto;
     margin-right: auto;
+     text-align: center;
   }
 
   .socials h2 {
+    font-size: var(--phone-size-text-head--);
+    font-weight: 100;
+    text-transform: capitalize;
+    font-family: var(--fonts--);
+    margin: 1rem 0rem;
+    width: 100%;
+    padding: 0rem 10rem;
     text-align: center;
-    font-family: var(--brand-font--);
-    font-size: 20px;
-    letter-spacing: 3px;
-    font-weight: 400;
   }
 
   .socials p {
-    font-size: 80px;
-    text-align: center;
-    font-family: var(--fonts--);
-    width: 70%;
-    margin: 0 auto;
-    margin-top: 3.5rem;
-    line-height: 5rem;
+    font-family: var(--brand-font--);
+    text-transform: capitalize;
     font-weight: 600;
   }
 
   .socials p a {
     color: gray;
-    transition: color 0.3s ease, transform 0.3s ease;
+    transition:
+      color 0.3s ease,
+      transform 0.3s ease;
     display: inline-block;
     position: relative;
   }
 
   .socials p a::after {
-    content: '';
+    content: "";
     position: absolute;
     width: 0;
     height: 3px;
@@ -355,7 +366,9 @@
     height: 500px;
     object-fit: cover;
     border-radius: 12px;
-    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    transition:
+      transform 0.5s ease,
+      box-shadow 0.5s ease;
   }
 
   @keyframes scroll-left {
@@ -373,18 +386,24 @@
   .socials {
     margin-top: 12rem;
     max-width: 1800px;
+     text-align: center;
   }
 
   .socials h2 {
-    font-size: 22px;
-    letter-spacing: 3.5px;
+    font-size: var(--phone-size-text-head--);
+    font-weight: 100;
+    text-transform: capitalize;
+    font-family: var(--fonts--);
+    margin: 1rem 0rem;
+    width: 100%;
+    padding: 0rem 10rem;
+    text-align: center;
   }
 
   .socials p {
-    font-size: 90px;
-    width: 65%;
-    margin-top: 4rem;
-    line-height: 5.5rem;
+    font-family: var(--brand-font--);
+    text-transform: capitalize;
+    font-weight: 600;
   }
 
   .image-track {

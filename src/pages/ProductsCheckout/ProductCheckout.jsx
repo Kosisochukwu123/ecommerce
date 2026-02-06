@@ -70,7 +70,7 @@ export const ProductCheckout = () => {
           </div>
 
           <div className="product-detail">
-            <h3> {product.name} </h3>
+            <h3>{product.name}<p><i class="fa-solid fa-star"></i>{product.rating.stars}</p></h3>
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
             <span>${(product.priceCents / 100).toFixed(2)}</span>
           </div>

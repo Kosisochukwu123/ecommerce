@@ -14,10 +14,10 @@ export const Body = () => {
         <img src={bodytop} alt="body-top" />
 
         <div className="body-top-text" >
-          <p data-aos="fade-up">
+          <p>
             men's <br /> collection
           </p>
-          <Link to="/For-Men" data-aos="fade-up">
+          <Link to="/For-Men">
             <button>shop now</button>
           </Link>
         </div>
@@ -27,10 +27,10 @@ export const Body = () => {
         <img src={bodybottom} alt="body-bottom" />
 
         <div className="body-bottom-text">
-          <p data-aos="fade-up">
+          <p>
             women's <br /> collection
           </p>
-          <Link to="/For-Women" data-aos="fade-up">
+          <Link to="/For-Women">
             <button>shop now</button>
           </Link>
         </div>

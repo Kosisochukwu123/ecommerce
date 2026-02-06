@@ -10,18 +10,18 @@
   }
 
   .Most-popular-top p {
-    font-size: 50px;
-    width: 90%;
-    margin: 0 auto;
-    margin-top: 2.5rem;
+    font-family: var(--brand-font--);
     text-transform: capitalize;
-    font-family: var(--fonts--);
-    font-weight: none;
+    font-weight: 600;
   }
 
+
   .Most-popular-top h2 {
-    font-size: 16px;
-    font-family: var(--brand-font--);
+    font-size: var(--phone-size-text-head--);
+    font-weight: 100;
+    text-transform: capitalize;
+    font-family: var(--fonts--);
+    margin: 1rem 0rem;
   }
 
   .Most-popular-body {
@@ -89,18 +89,17 @@
   }
 
   .Most-popular-top p {
-    font-size: 50px;
-    width: 90%;
-    margin: 0 auto;
-    margin-top: 2.5rem;
+    font-family: var(--brand-font--);
     text-transform: capitalize;
-    font-family: var(--fonts--);
-    font-weight: none;
+    font-weight: 600;
   }
 
   .Most-popular-top h2 {
-    font-size: 16px;
-    font-family: var(--brand-font--);
+    font-size: var(--phone-size-text-head--);
+    font-weight: 100;
+    text-transform: capitalize;
+    font-family: var(--fonts--);
+    margin: 1rem 0rem;
   }
 
   .image img {
@@ -116,19 +115,25 @@
     text-align: center;
   }
 
+  .Most-popular-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
   .Most-popular-top p {
-    font-size: 50px;
-    width: 90%;
-    margin: 0 auto;
-    margin-top: 2.5rem;
+    font-family: var(--brand-font--);
     text-transform: capitalize;
-    font-family: var(--fonts--);
-    font-weight: none;
+    font-weight: 600;
   }
 
   .Most-popular-top h2 {
-    font-size: 16px;
-    font-family: var(--brand-font--);
+    font-size: var(--phone-size-text-head--);
+    font-weight: 100;
+    text-transform: capitalize;
+    font-family: var(--fonts--);
+    margin: 1rem 0rem;
+    width: 50%;
   }
 
   .Most-popular-body {
@@ -240,27 +245,24 @@
   }
 
   .Most-popular-top p {
-    font-size: 50px;
-    text-align: center;
-    font-family: var(--fonts--);
-    width: 45%;
-    margin: 0 auto;
-    margin-top: 2rem;
-    line-height: 4.5rem;
+    font-family: var(--brand-font--);
+    text-transform: capitalize;
     font-weight: 600;
   }
 
   .Most-popular-top h2 {
-    text-align: center;
-    font-family: var(--brand-font--);
-    font-size: 19px;
-    letter-spacing: 2.5px;
-    font-weight: 400;
+    font-size: var(--phone-size-text-head--);
+    font-weight: 100;
+    text-transform: capitalize;
+    font-family: var(--fonts--);
+    margin: 1rem 0rem;
   }
 
   .Most-popular-body {
     /* border: 2px solid green; */
     display: flex;
+    /* justify-content: space-around !important; */
+    /* align-items: end; */
     margin-top: 2rem;
     height: 100vh;
     padding: 0rem 2.5rem;
@@ -269,7 +271,7 @@
   .container {
     gap: 0.5rem;
     padding: 0.5rem;
-    /* border: 2px solid red; */
+    /* border: 2px solid blue; */
     width: 50%;
   }
 
@@ -277,7 +279,8 @@
     /* border: 2px solid red; */
     overflow: hidden;
     height: 100%;
-    width: 100%;
+    width: 80%;
+    margin-left: 4rem;
   }
 
   .image img {
@@ -296,12 +299,14 @@
     font-family: var(--fonts--);
     margin-top: 0.5rem;
     font-weight: bold;
+    margin-left: 4rem;
   }
 
   .amount {
     font-size: 14px;
     font-family: var(--brand-font--);
     margin-top: 0.5rem;
+    margin-left: 4rem;
   }
 }
 

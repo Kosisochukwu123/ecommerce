@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useCart } from "../Cart/UseCart";
 
-export const CheckoutPage = ({ showCheckout, setShowCheckout, children }) => {
+export const CheckoutPage = ({ showCheckout, setShowCheckout }) => {
   useEffect(() => {
     if (showCheckout) {
       document.body.classList.add("no-scroll");
@@ -16,14 +16,14 @@ export const CheckoutPage = ({ showCheckout, setShowCheckout, children }) => {
 
   const { cartItems, removeFromCart, getTotalPrice, updateQuantity } = useCart();
 
-  if (cartItems.length === 0) {
-    return (
-      <div className="empty-cart">
-        <h2>Your cart is empty</h2>
-        <Link to="/">Continue Shopping</Link>
-      </div>
-    );
-  }
+  // if (cartItems.length === 0) {
+  //   return (
+  //     <div>
+  //       <h2>Your cart is empty</h2>
+  //       <Link to="/">Continue Shopping</Link>
+  //     </div>
+  //   );
+  // }
 
   return (
     <>
@@ -74,6 +74,8 @@ export const CheckoutPage = ({ showCheckout, setShowCheckout, children }) => {
                 </div>
               </div>
             ))}
+
+        
           </div>
 
           <div className="cartItem-bottom">

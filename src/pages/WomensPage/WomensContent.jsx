@@ -1,8 +1,7 @@
 import "./WomensContent.css";
 import { useEffect, useState } from "react";
-import piece1 from "../../../public/images/Top-Piece1.png";
-import womenTop1 from "../../../public/images/womens-top1.png";
-import womenHoddie from "../../../public/images/women-hoddie.jpg";
+import { Link } from "react-router-dom";
+import { productLadies } from "../../../backend/products/productLadies";
 
 const WomensContent = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -28,116 +27,158 @@ const WomensContent = () => {
       </div>
 
       <div className="womens-links">
-        <a onClick={() => setSelectedCategory("all")} 
-           className={selectedCategory === "all" ? "active-link" : ""} 
+        <a
+          onClick={() => setSelectedCategory("all")}
+          className={selectedCategory === "all" ? "active-link" : ""}
         >
-            all</a>
-        <a onClick={() => setSelectedCategory("hoodies")}
-           className={selectedCategory === "hoodies" ? "active-link" : ""}
-          >hoodies</a>
-        <a onClick={() => setSelectedCategory("t-shirt")} 
-           className={selectedCategory === "t-shirt" ? "active-link" : ""}
-        >t-shirt</a>
-        <a onClick={() => setSelectedCategory("pants")} 
-           className={selectedCategory === "pants" ? "active-link" : ""}
-        >pants</a>
+          all
+        </a>
+        <a
+          onClick={() => setSelectedCategory("hoodies")}
+          className={selectedCategory === "hoodies" ? "active-link" : ""}
+        >
+          hoodies
+        </a>
+        <a
+          onClick={() => setSelectedCategory("t-shirt")}
+          className={selectedCategory === "t-shirt" ? "active-link" : ""}
+        >
+          t-shirt
+        </a>
+        <a
+          onClick={() => setSelectedCategory("pants")}
+          className={selectedCategory === "pants" ? "active-link" : ""}
+        >
+          pants
+        </a>
       </div>
 
       {selectedCategory === "all" && (
         <div className="contents">
-          <div className="container">
-            <div className="image">
-              <img src={piece1} alt="americana di na hoodie" />
-            </div>
-            <div className="name">
-              <p>americana di na hoodie</p>
-            </div>
+          {productLadies.map((product) => {
+            return (
+              <Link
+                key={product.id}
+                className="container"
+                to={`/products/${product.id}`}
+                state={{ product }}
+              >
+                <div className="image">
+                  <img src={product.image} alt="Product-Image" />
+                </div>
 
-            <div className="amount">
-              <p>$300</p>
-            </div>
-          </div>
+                <div className="name">
+                  <p>{product.name}</p>
+                  <p>
+                    <i class="fa-solid fa-star"></i>
+                    {product.rating.stars}
+                  </p>
+                </div>
 
-          <div className="container">
-            <div className="image">
-              <img src={womenHoddie} alt="americana di na hoodie" />
-            </div>
-            <div className="name">
-              <p>americana di na hoodie</p>
-            </div>
-
-            <div className="amount">
-              <p>$300</p>
-            </div>
-          </div>
-
-          <div className="container">
-            <div className="image">
-              <img src={womenTop1} alt="americana di na hoodie" />
-            </div>
-            <div className="name">
-              <p>americana di na hoodie</p>
-            </div>
-
-            <div className="amount">
-              <p>$300</p>
-            </div>
-          </div>
-
-          <div className="container">
-            <div className="image">
-              <img src={piece1} alt="americana di na hoodie" />
-            </div>
-            <div className="name">
-              <p>americana di na hoodie</p>
-            </div>
-
-            <div className="amount">
-              <p>$300</p>
-            </div>
-          </div>
+                <div className="amount">
+                  <p>${(product.priceCents / 100).toFixed(2)}</p>
+                </div>
+              </Link>
+            );
+          })}
         </div>
       )}
-
 
       {selectedCategory === "hoodies" && (
         <div className="contents">
-          <div className="container">
-            <div className="image">
-              <img src={womenHoddie} alt="hoodie" />
-            </div>
-            <div className="name"><p>Hoodie Product</p></div>
-            <div className="amount"><p>$220</p></div>
-          </div>
+          {productLadies
+            .filter((product) => product.category === "hoodies")
+            .map((product) => {
+              return (
+                <Link
+                  key={product.id}
+                  to={`/products/${product.id}`}
+                  state={{ product }}
+                  className="container"
+                >
+                  <div className="image">
+                    <img src={product.image} alt="Product-Image" />
+                  </div>
+                  <div className="name">
+                    <p>{product.name}</p>
+                    <p>
+                      <i class="fa-solid fa-star"></i>
+                      {product.rating.stars}
+                    </p>
+                  </div>
+
+                  <div className="amount">
+                    <p>${(product.priceCents / 100).toFixed(2)}</p>
+                  </div>
+                </Link>
+              );
+            })}
         </div>
       )}
-
 
       {selectedCategory === "t-shirt" && (
         <div className="contents">
-          <div className="container">
-            <div className="image">
-              <img src={womenTop1} alt="t-shirt" />
-            </div>
-            <div className="name"><p>T-Shirt Product</p></div>
-            <div className="amount"><p>$120</p></div>
-          </div>
+          {productLadies
+            .filter((product) => product.category === "t-shirt")
+            .map((product) => {
+              return (
+                <Link
+                  key={product.id}
+                  to={`/products/${product.id}`}
+                  state={{ product }}
+                  className="container"
+                >
+                  <div className="image">
+                    <img src={product.image} alt="Product-Image" />
+                  </div>
+                  <div className="name">
+                    <p>{product.name}</p>
+                    <p>
+                      <i class="fa-solid fa-star"></i>
+                      {product.rating.stars}
+                    </p>
+                  </div>
+
+                  <div className="amount">
+                    <p>${(product.priceCents / 100).toFixed(2)}</p>
+                  </div>
+                </Link>
+              );
+            })}
         </div>
       )}
-
 
       {selectedCategory === "pants" && (
         <div className="contents">
-          <div className="container">
-            <div className="image">
-              <img src={piece1} alt="pants" />
-            </div>
-            <div className="name"><p>Pants Product</p></div>
-            <div className="amount"><p>$180</p></div>
-          </div>
+            {productLadies
+            .filter((product) => product.category === "pants")
+            .map((product) => {
+              return (
+                <Link
+                  key={product.id}
+                  to={`/products/${product.id}`}
+                  state={{ product }}
+                  className="container"
+                >
+                  <div className="image">
+                    <img src={product.image} alt="Product-Image" />
+                  </div>
+                  <div className="name">
+                    <p>{product.name}</p>
+                    <p>
+                      <i class="fa-solid fa-star"></i>
+                      {product.rating.stars}
+                    </p>
+                  </div>
+
+                  <div className="amount">
+                    <p>${(product.priceCents / 100).toFixed(2)}</p>
+                  </div>
+                </Link>
+              );
+            })}
         </div>
       )}
-      
     </div>
   );
 };

@@ -25,6 +25,9 @@
     text-transform: capitalize;
     margin-top: 1rem;
     font-family: var(--fonts--);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .product-detail p {
@@ -282,7 +285,7 @@
 
 .cart-popup {
   position: absolute;
-  bottom: 65px;
+  bottom: 40px;
   right: 15px;
   color: var(--button-color--);
   padding: 12px 18px;

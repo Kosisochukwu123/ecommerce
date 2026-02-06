@@ -8,8 +8,8 @@ export const MostPopular = () => {
     <div className='Most-popular'>
 
       <div className='Most-popular-top'>
-        <h2  data-aos="zoom-in">(BestSellers)</h2>
-        <p  data-aos="zoom-in">Our Most popular pieces this season</p>
+        <p  data-aos="zoom-in">(BestSellers)</p>
+        <h2  data-aos="zoom-in">Our Most popular pieces this season</h2>
       </div>
 
       <div className='Most-popular-body'>

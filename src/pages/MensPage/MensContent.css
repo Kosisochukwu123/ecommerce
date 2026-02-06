@@ -46,6 +46,12 @@ So the styles their also have control here */
     text-decoration: none !important;
     color: black;
   }
+
+  .name{
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
 /* Medium Mobile (481px - 767px) */

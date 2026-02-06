@@ -66,8 +66,13 @@ const MensContent = () => {
                 <div className="image">
                   <img src={product.image} alt="Product-Image" />
                 </div>
+
                 <div className="name">
                   <p>{product.name}</p>
+                  <p>
+                    <i class="fa-solid fa-star"></i>
+                    {product.rating.stars}
+                  </p>
                 </div>
 
                 <div className="amount">
@@ -96,6 +101,10 @@ const MensContent = () => {
                   </div>
                   <div className="name">
                     <p>{product.name}</p>
+                    <p>
+                      <i class="fa-solid fa-star"></i>
+                      {product.rating.stars}
+                    </p>
                   </div>
 
                   <div className="amount">
@@ -124,6 +133,10 @@ const MensContent = () => {
                   </div>
                   <div className="name">
                     <p>{product.name}</p>
+                    <p>
+                      <i class="fa-solid fa-star"></i>
+                      {product.rating.stars}
+                    </p>
                   </div>
 
                   <div className="amount">
@@ -152,6 +165,10 @@ const MensContent = () => {
                   </div>
                   <div className="name">
                     <p>{product.name}</p>
+                    <p>
+                      <i class="fa-solid fa-star"></i>
+                      {product.rating.stars}
+                    </p>
                   </div>
 
                   <div className="amount">
