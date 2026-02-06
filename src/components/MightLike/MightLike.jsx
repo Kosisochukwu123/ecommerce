@@ -1,5 +1,5 @@
 import React from "react";
-import piece2 from "../../images/Top-Piece2.png";
+import piece2 from "../../../public/images/Top-Piece2.png"
 import { Link } from "react-router-dom";
 import "./MightLike.css"
 

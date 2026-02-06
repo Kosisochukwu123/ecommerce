@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import "./Header.css"; // import the css
-import img1 from "../../images/header_image1.jpg";
-import img2 from "../../images/header_image2.jpg";
-import img3 from "../../images/header_image3.jpg";
+import img1 from "../../../public/images/header_image1.jpg";
+import img2 from "../../../public/images/header_image2.jpg";
+import img3 from "../../../public/images/header_image3.jpg";
 import { Link } from "react-router-dom";
 
 export const Header = () => {

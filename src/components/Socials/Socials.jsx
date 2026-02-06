@@ -1,10 +1,10 @@
 import React from "react";
 import "./Socials.css";
-import body1 from "../../images/body1.jpg";
-import body2 from "../../images/body2.jpg";
-import body3 from "../../images/body3.jpg";
-import body4 from "../../images/body4.jpg";
-import body5 from "../../images/hoodie1.jpg";
+import body1 from "../../../public/images/body1.jpg";
+import body2 from "../../../public/images/body2.jpg";
+import body3 from "../../../public/images/body3.jpg";
+import body4 from "../../../public/images/body4.jpg";
+import body5 from "../../../public/images/hoodie1.jpg";
 
 export const Socials = () => {
   return (

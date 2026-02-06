@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./PullDown.css";
-import loadingSpinner from "../../images/laoding-spinner.png";
+import loadingSpinner from "../../../public/images/laoding-spinner.png";
 
 export default function OpenPageAnimation() {
   const [showIntro, setShowIntro] = useState(true);

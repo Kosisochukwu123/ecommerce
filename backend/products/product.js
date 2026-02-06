@@ -1,7 +1,7 @@
 export const products = [
     {
         id: "111111111112222222222",
-        image: "src/images/Top-Piece1.png",
+        image: "public/images/Top-Piece1.png",
         name: "socks",
         rating: {
             stars: 4.5,
@@ -12,7 +12,7 @@ export const products = [
     },
     {
         id: "222222222223333333333",
-        image: "src/images/Top-Piece2.png",
+        image: "public/images/Top-Piece2.png",
         name: "t-shirt",
         category: "hoodies", 
         rating: {
@@ -24,7 +24,7 @@ export const products = [
     },
     {
         id: "333333333334444444444",
-        image: "src/images/mens-top1.png",
+        image: "public/images/mens-top1.png",
         name: "jeans",
         category: "t-shirt",
         rating: {
@@ -36,7 +36,7 @@ export const products = [
     },
     {
         id: "444444444445555555555",
-        image: "src/images/mens-top2.png",
+        image: "public/images/mens-top2.png",
         name: "sneakers",
         category: "t-shirt",
         rating: {
@@ -48,7 +48,7 @@ export const products = [
     },
     {
         id: "555555555556666666666",
-        image: "src/images/mens-top2.png",
+        image: "public/images/mens-top2.png",
         name: "hoodie",
         rating: {
             stars: 4.4,
@@ -59,7 +59,7 @@ export const products = [
     },
     {
         id: "666666666667777777777",
-        image: "src/images/mens-top2.png",
+        image: "public/images/mens-top2.png",
         name: "hat",
         rating: {
             stars: 4.3,
@@ -70,7 +70,7 @@ export const products = [
     },
     {
         id: "777777777778888888888",
-        image: "src/images/mens-top2.png",
+        image: "public/images/mens-top2.png",
         name: "shorts",
         rating: {
             stars: 4.1,
@@ -81,7 +81,7 @@ export const products = [
     },
     {
         id: "888888888889999999999",
-         image: "src/images/mens-top2.png",
+         image: "public/images/mens-top2.png",
         name: "jacket",
         rating: {
             stars: 4.8,
@@ -92,7 +92,7 @@ export const products = [
     },
     {
         id: "999999999990000000000",
-           image: "src/images/mens-top2.png",
+           image: "public/images/mens-top2.png",
         name: "underwear",
         rating: {
             stars: 4.0,
@@ -103,7 +103,7 @@ export const products = [
     },
     {
         id: "000000000001111111111",
-        image: "src/images/mens-top2.png",
+        image: "public/images/mens-top2.png",
         name: "scarf",
         rating: {
             stars: 4.5,

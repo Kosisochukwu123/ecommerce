@@ -1,9 +1,10 @@
 import React from "react";
 import "./OurStory.css";
 import { useEffect } from "react";
-import image1 from "../../images/ourstory1.jpg";
-import image2 from "../../images/ourstory2.jpg";
-import image3 from "../../images/ourstory3.jpg";
+import image1 from "../../../public/images/ourstory1.jpg";
+import image2 from "../../../public/images/ourstory2.jpg";
+import image3 from "../../../public/images/ourstory3.jpg";
+
 
 const AboutContent = () => {
   useEffect(() => {

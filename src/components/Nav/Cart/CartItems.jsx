@@ -54,47 +54,26 @@ export const CheckoutPage = ({ showCheckout, setShowCheckout, children }) => {
                     <span>${(item.priceCents / 100).toFixed(2)}</span>
                   </div>
 
-                  <div className="cartItem-content-b`ottom">
-                    <div>
-                      <button
-                        onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                      >
+                  <div className="cartItem-content-bottom">
+                    <div className="cartItem-content-bottom-top">
+                      <button onClick={() => updateQuantity(item.id, item.quantity - 1)}>
                         -
                       </button>
 
                       <span>{item.quantity}</span>
 
-                      <button onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                      >
+                      <button onClick={() => updateQuantity(item.id, item.quantity + 1)}>
                         +
                       </button>
                     </div>
 
                     <button onClick={() => removeFromCart(item.id)}>
-                      Remove
+                      <i className="fa-solid fa-trash"></i>
                     </button>
                   </div>
                 </div>
               </div>
             ))}
-
-            {/* <div className="cartItem-container">
-              <div className="cartItem-image">
-                <img src={hoodie} alt="" srcset="" />
-              </div>
-
-              <div className="cartItem-content">
-                <div className="cartItem-content-top">
-                  <p>Americana di na hoddie</p>
-                  <span>$0</span>
-                </div>
-
-                <div className="cartItem-content-bottom">
-                  <p>quantity: 0</p>
-                  <button>X</button>
-                </div>
-              </div>
-            </div> */}
           </div>
 
           <div className="cartItem-bottom">

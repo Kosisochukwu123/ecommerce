@@ -1,8 +1,8 @@
 import "./WomensContent.css";
 import { useEffect, useState } from "react";
-import piece1 from "../../images/Top-Piece1.png";
-import womenTop1 from "../../images/womens-top1.png";
-import womenHoddie from "../../images/women-hoddie.jpg";
+import piece1 from "../../../public/images/Top-Piece1.png";
+import womenTop1 from "../../../public/images/womens-top1.png";
+import womenHoddie from "../../../public/images/women-hoddie.jpg";
 
 const WomensContent = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");

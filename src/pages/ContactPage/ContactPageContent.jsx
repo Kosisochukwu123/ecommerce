@@ -1,7 +1,7 @@
 import React from "react";
 import "./ContactPage.css";
 import { useEffect } from "react";
-import contactImage from "../../images/contact-body.jpg";
+import contactImage from "../../../public/images/contact-body.jpg";
 
 const ContactPageContent = () => {
   useEffect(() => {

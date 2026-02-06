@@ -1,6 +1,6 @@
 import {Link} from 'react-router-dom';
 import "./About.css";
-import AboutImage from "../../images/About-image.jpg";
+import AboutImage from "../../../public/images/About-image.jpg";
 
 export const About = () => {
 return (

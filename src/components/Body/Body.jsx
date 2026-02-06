@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./Body.css";
-import bodytop from "../../images/body-image-men.jpg";
-import bodybottom from "../../images/body-image-women.jpg";
+import bodytop from "../../../public/images/body-image-men.jpg";
+import bodybottom from "../../../public/images/body-image-women.jpg";
 
 
 

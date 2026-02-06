@@ -1,10 +1,10 @@
 import React from "react";
 import "./Footer.css";
 import {Link} from "react-router-dom";
-import mastercardImage from "../../images/apple-pay_5968209.png";
-import card from "../../images/card_16174534.png";
-import paypal from "../../images/paypal_888870.png";
-import visa from "../../images/visa_217425.png";
+import mastercardImage from "../../../public/images/apple-pay_5968209.png";
+import card from "../../../public/images/card_16174534.png";
+import paypal from "../../../public/images/paypal_888870.png";
+import visa from "../../../public/images/visa_217425.png";
 
 export const Footer = () => {
   return (
