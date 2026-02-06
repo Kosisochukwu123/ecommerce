@@ -1,7 +1,11 @@
+import topPiece1 from "../../public/images/Top-Piece1.png"
+import womenTop1 from "../../public/images/womens-top1.png"
+import womenHoddie from "../../public/images/women-hoddie.jpg"
+
 export const productLadies = [
     {
         id: "7656557867766464",
-        image: "public/images/Top-Piece1.png",
+        image: topPiece1,
         name: "Light blowse",
         rating: {
             stars: 4.5,
@@ -12,7 +16,7 @@ export const productLadies = [
     },
     {
         id: "22246475585996",
-        image: "public/images/womens-top1.png",
+        image: womenTop1,
         name: "Black mini top with sharwara",
         category: "t-shirt", 
         rating: {
@@ -24,7 +28,7 @@ export const productLadies = [
     },
     {
         id: "2224647",
-        image: "public/images/women-hoddie.jpg",
+        image: womenHoddie,
         name: "female sexy hoddies",
         category: "hoodies", 
         rating: {

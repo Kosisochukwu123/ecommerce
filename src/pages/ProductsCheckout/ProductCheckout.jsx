@@ -56,7 +56,7 @@ export const ProductCheckout = () => {
 
         <div className="product-image">
              <img 
-              src={`${import.meta.env.BASE_URL}${product.image}`} 
+              src={product.image} 
               alt="Product-Image"
               onError={(e) => console.log('Image failed to load:', e.target.src)}
               />
