@@ -75,13 +75,13 @@ export const ProductCheckout = () => {
             <span>${(product.priceCents / 100).toFixed(2)}</span>
           </div>
 
-          <>
+          <div className="product-button">
             <button onClick={handleAddToCart} disabled={loading}>
               {loading ? <span className="spinner"></span> : "Add to cart"}
             </button>
 
             {showPopup && <div className="cart-popup"> Added to cart</div>}
-          </>
+          </div>
 
           <div className="product-question-faq"></div>
         </div>

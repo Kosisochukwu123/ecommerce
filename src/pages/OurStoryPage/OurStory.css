@@ -12,7 +12,7 @@
   .contact-bg-about {
     position: absolute;
     inset: 0;
-    background: url(../../images/About-image.jpg) center/cover no-repeat;
+    background: url(../../../public/images/About-image.jpg) center/cover no-repeat;
     will-change: transform;
   }
 
@@ -77,7 +77,7 @@
   .contact-bg-about {
     position: absolute;
     inset: 0;
-    background: url(../../images/About-image.jpg) center/cover no-repeat;
+    background: url(../../../public/images/About-image.jpg) center/cover no-repeat;
     will-change: transform;
   }
 
@@ -146,7 +146,7 @@
   .contact-bg-about {
     position: absolute;
     inset: 0;
-    background: url(../../images/About-image.jpg) center/cover no-repeat;
+    background: url(../../../public/images/About-image.jpg) center/cover no-repeat;
     will-change: transform;
   }
 
@@ -213,7 +213,7 @@
   .contact-bg-about {
     position: absolute;
     inset: 0;
-    background: url(../../images/About-image.jpg) center/cover no-repeat;
+    background: url(../../../public/images/About-image.jpg) center/cover no-repeat;
     will-change: transform;
   }
 
@@ -282,7 +282,7 @@
   .contact-bg-about {
     position: absolute;
     inset: 0;
-    background: url(../../images/About-image.jpg) center/cover no-repeat;
+    background: url(../../../public/images/About-image.jpg) center/cover no-repeat;
     will-change: transform;
   }
 
@@ -349,7 +349,7 @@
   .contact-bg-about {
     position: absolute;
     inset: 0;
-    background: url(../../images/About-image.jpg) center/cover no-repeat;
+    background: url(../../../public/images/About-image.jpg) center/cover no-repeat;
     will-change: transform;
   }
 
@@ -428,7 +428,7 @@
   .contact-bg-about {
     position: absolute;
     inset: 0;
-    background: url(../../images/About-image.jpg) center/cover no-repeat;
+    background: url(../../../public/images/About-image.jpg) center/cover no-repeat;
     will-change: transform;
   }
 
@@ -497,7 +497,7 @@
   .contact-bg-about {
     position: absolute;
     inset: 0;
-    background: url(../../images/About-image.jpg) center/cover no-repeat;
+    background: url(../../../public/images/About-image.jpg) center/cover no-repeat;
     will-change: transform;
     transition: transform 0.5s ease-out;
   }
@@ -583,7 +583,7 @@
   .contact-bg-about {
     position: absolute;
     inset: 0;
-    background: url(../../images/About-image.jpg) center/cover no-repeat;
+    background: url(../../../public/images/About-image.jpg) center/cover no-repeat;
     will-change: transform;
     transition: transform 0.6s ease-out;
   }
@@ -658,7 +658,7 @@
   .contact-bg-about {
     position: absolute;
     inset: 0;
-    background: url(../../images/About-image.jpg) center/cover no-repeat;
+    background: url(../../../public/images/About-image.jpg) center/cover no-repeat;
     will-change: transform;
     transition: transform 0.7s ease-out;
   }

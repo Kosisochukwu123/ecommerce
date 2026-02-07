@@ -63,6 +63,11 @@ const WomensContent = () => {
                 to={`/products/${product.id}`}
                 state={{ product }}
               >
+
+                <div className="most-sold">
+                  most sold
+                </div>
+
                 <div className="image">
                   <img src={product.image} alt="Product-Image" />
                 </div>
@@ -96,6 +101,11 @@ const WomensContent = () => {
                   state={{ product }}
                   className="container"
                 >
+
+                 <div className="most-sold">
+                  most sold
+                </div>
+
                   <div className="image">
                     <img src={product.image} alt="Product-Image" />
                   </div>
@@ -128,6 +138,11 @@ const WomensContent = () => {
                   state={{ product }}
                   className="container"
                 >
+
+                <div className="most-sold">
+                  most sold
+                </div>
+
                   <div className="image">
                     <img src={product.image} alt="Product-Image" />
                   </div>
@@ -160,6 +175,11 @@ const WomensContent = () => {
                   state={{ product }}
                   className="container"
                 >
+
+                <div className="most-sold">
+                  most sold
+                </div>
+                
                   <div className="image">
                     <img src={product.image} alt="Product-Image" />
                   </div>

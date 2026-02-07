@@ -29,3 +29,155 @@
     text-decoration: none;
   }
 }
+
+/* Tablet - Small (731px - 900px) */
+@media screen and (min-width: 731px) and (max-width: 900px) {
+  .mightlike-head {
+    margin-top: 8rem;
+    text-align: center;
+  }
+
+  .mightlike-head h2 {
+    font-size: 2rem;
+    font-weight: 100;
+    text-transform: capitalize;
+    font-family: var(--fonts--);
+    margin: 1.5rem 0rem;
+  }
+
+  .mightlike-head p {
+    font-family: var(--brand-font--);
+    text-transform: capitalize;
+    font-weight: 600;
+    font-size: 1rem;
+  }
+
+  .mightlike-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 0 2rem;
+  }
+
+   .container{
+     width: 100% !important;
+  }
+
+  .mightlike-content a {
+    color: black !important;
+    text-decoration: none;
+  }
+}
+
+/* Tablet - Large (901px - 1024px) */
+@media screen and (min-width: 901px) and (max-width: 1024px) {
+  .mightlike-head {
+    margin-top: 7rem;
+    text-align: center;
+  }
+
+  .mightlike-head h2 {
+    font-size: 2.5rem;
+    font-weight: 100;
+    text-transform: capitalize;
+    font-family: var(--fonts--);
+    margin: 2rem 0rem;
+  }
+
+  .mightlike-head p {
+    font-family: var(--brand-font--);
+    text-transform: capitalize;
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+
+  .mightlike-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 0 3rem;
+  }
+
+  .container{
+     width: 100% !important;
+  }
+
+  .mightlike-content a {
+    color: black !important;
+    text-decoration: none;
+  }
+}
+
+/* Desktop - Small (1025px - 1440px) */
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+  .mightlike-head {
+    margin-top: 6rem;
+    text-align: center;
+  }
+
+  .mightlike-head h2 {
+    font-size: 3rem;
+    font-weight: 100;
+    text-transform: capitalize;
+    font-family: var(--fonts--);
+    margin: 2.5rem 0rem;
+  }
+
+  .mightlike-head p {
+    font-family: var(--brand-font--);
+    text-transform: capitalize;
+    font-weight: 600;
+    font-size: 1.2rem;
+  }
+
+  .mightlike-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .container{
+     width: 100%;
+  }
+
+  .mightlike-content a {
+    color: black !important;
+    text-decoration: none;
+  }
+}
+
+/* Desktop - Large (1441px and above) */
+@media screen and (min-width: 1441px) {
+  .mightlike-head {
+    margin-top: 5rem;
+    text-align: center;
+  }
+
+  .mightlike-head h2 {
+    font-size: 3.5rem;
+    font-weight: 100;
+    text-transform: capitalize;
+    font-family: var(--fonts--);
+    margin: 3rem 0rem;
+  }
+
+  .mightlike-head p {
+    font-family: var(--brand-font--);
+    text-transform: capitalize;
+    font-weight: 600;
+    font-size: 1.3rem;
+  }
+
+  .mightlike-content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+    padding: 0 6rem;
+    max-width: 1920px;
+    margin: 0 auto;
+  }
+
+  .mightlike-content a {
+    color: black !important;
+    text-decoration: none;
+  }
+}
