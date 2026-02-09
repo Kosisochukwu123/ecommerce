@@ -32,6 +32,10 @@ const Login = ({ setUser }) => {
       setError(error.response?.data?.message || "login failed");
     }
   };
+
+  const handleHome = () => {
+    navigate("/register")
+  }
   return (
     <div className="Login-page">
       {/* <div className="login-page-top"> */}
@@ -77,7 +81,7 @@ const Login = ({ setUser }) => {
 
         <div className="other-button">
           <Link to="/forgot-password">forgot password</Link>
-          <button><Link to="/register">Register</Link></button>
+          <button onClick={handleHome}>Register</button>
         </div>
       </div>
     // </div>

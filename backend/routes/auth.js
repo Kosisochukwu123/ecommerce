@@ -13,8 +13,12 @@ router.post("/register", async(req, res) => {
     }
 
     const userExists = await User.findOne({email})
+    const usernameExists = await User.findOne({username})
     if (userExists){
-           return res.status(400).json({message: "user exists"})
+           return res.status(400).json({message: "Email Already Exists"})
+    }
+    if (usernameExists){
+           return res.status(400).json({message: "Username Already Exists"})
     }
 
     const user = await User.create({username, email, password})
@@ -66,6 +70,7 @@ router.post("/login", async(req, res) => {
 // me
 router.get("/me", protect,  async(req, res) => {
     res.status(200).json(req.user)
+
 })
 
 // GEnaerate jwt token
