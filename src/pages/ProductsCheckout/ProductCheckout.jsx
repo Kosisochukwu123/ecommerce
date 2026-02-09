@@ -9,17 +9,17 @@ import Socials from "../../components/Socials/Socials.jsx";
 // import axios from "axios";
 import { useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
-import { useCart } from '../../components/Nav/Cart/UseCart.jsx';
-
+import { useCart } from "../../components/Nav/Cart/UseCart.jsx";
 
 export const ProductCheckout = () => {
   const [loading, setLoading] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
+  const [activeTab, setActiveTab] = useState("description");
+
   const { addToCart } = useCart();
   const { id } = useParams();
   const location = useLocation();
-  const product = location.state?.product
-
+  const product = location.state?.product;
 
   const handleAddToCart = () => {
     setLoading(true);
@@ -41,37 +41,71 @@ export const ProductCheckout = () => {
     }, 1000); // loading duration
   };
 
-
-
-  if(!product){
+  if (!product) {
     return <div>Loading product...</div>;
   }
-
 
   return (
     <div>
       <Nav alwaysScrolled={true} />
 
       <div className="product-container">
-
         <div className="product-image">
-             <img 
-              src={product.image} 
-              alt="Product-Image"
-              onError={(e) => console.log('Image failed to load:', e.target.src)}
-              />
+          <img
+            src={product.image}
+            alt="Product-Image"
+            onError={(e) => console.log("Image failed to load:", e.target.src)}
+          />
         </div>
-          
 
         <div className="product-area">
-
           <div className="product-badge">
-            <p>sale</p>
+            <i class="fa-regular fa-heart"></i>
           </div>
 
           <div className="product-detail">
-            <h3>{product.name}<p><i class="fa-solid fa-star"></i>{product.rating.stars}</p></h3>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+            <h3>
+              {product.name}
+              <p>
+                <i class="fa-solid fa-star"></i>
+                {product.rating.stars}
+              </p>
+            </h3>
+
+            <div className="product-tabs">
+              <div className="tabs-header">
+                <h4
+                  className={activeTab === "description" ? "active" : ""}
+                  onClick={() => setActiveTab("description")}
+                >
+                  Description
+                </h4>
+                <h4
+                  className={activeTab === "reviews" ? "active" : ""}
+                  onClick={() => setActiveTab("reviews")}
+                >
+                  Reviews
+                </h4>
+              </div>
+
+              {/* CONTENT */}
+              <div className="tabs-content">
+                {activeTab === "description" && (
+                  <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. dygvg jhv sfv gvyfgv gyv fs gfvsgf gvs 
+                  </p>
+                )}
+
+                {activeTab === "reviews" && (
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Labore dolore ad dicta facere iusto, quisquam nisi nemo
+                    soluta error mollitia.
+                  </p>
+                )}
+              </div>
+            </div>
+
             <span>${(product.priceCents / 100).toFixed(2)}</span>
           </div>
 

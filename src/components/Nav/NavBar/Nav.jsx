@@ -131,18 +131,8 @@ const Nav = ({scrolledDesktopDistance = 440, alwaysScrolled = false,
 
         {/* MOBILE MENU */}
         <div className={`mobile-menu ${open ? "show" : null}`}>
-          <Link to="/For-Men"> Men </Link>
+          <Link to="/loginFace"> Men </Link>
           <Link to="/For-Women"> Women </Link>
-          <Link
-            href="#"
-            onClick={(e) => {
-              e.preventDefault(); // stop page from jumping to "#"
-              alert("Children wears are unavailable");
-            }}
-            aria-disabled="true"
-          >
-            Kids
-          </Link>
           <Link to="/Our-Story"> Our story </Link>
           <Link to="/Contact"> Contact </Link>
         </div>
@@ -155,16 +145,6 @@ const Nav = ({scrolledDesktopDistance = 440, alwaysScrolled = false,
         <div className="desktop-menu">
           <Link to="/For-Men"> Men </Link>
           <Link to="/For-Women"> Women </Link>
-          <Link
-            href="#"
-            onClick={(e) => {
-              e.preventDefault(); // stop page from jumping to "#"
-              alert("Children wears are unavailable");
-            }}
-            aria-disabled="true"
-          >
-            Kids
-          </Link>
           <Link to="/Our-Story"> Our story </Link>
           <Link to="/Contact"> Contact </Link>
         </div>

@@ -1,0 +1,104 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 480px) {
+  .Login-home {
+    color: red;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    padding-bottom: 8rem;
+    height: 100vh;
+    background-image: url(../../../public/images/login-image.png);
+    background-size: cover;
+    background-position: center;
+  }
+
+  .Login-home button {
+    width: 60%;
+    font-size: 30px;
+    font-weight: 600;
+    font-family: var(--fonts--);
+    text-decoration: none;
+    padding: 1rem 0.5rem;
+  }
+
+  .Login-home button a {
+    text-decoration: none;
+    color: white;
+  }
+
+  /* ---------------------------------------- */
+
+  .Login-page {
+    /* background-color: black; */
+    height: 100vh;
+    /* border: 2px solid red; */
+    padding: 1rem 2rem;
+  }
+
+
+  .login-page-head {
+    border: 2px solid grey;
+    padding-top: 4rem;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    margin-top: 8rem;
+  }
+
+  .login-page-head h2 {
+    font-size: 30px;
+    margin-bottom: 0.5rem;
+  }
+
+  .login-page-head span {
+    font-size: 40px;
+    text-transform: capitalize;
+  }
+
+  .Login-page form {
+    /* margin-top: rem; */
+    /* border: 2px solid red; */
+  }
+
+  .Login-page form input {
+    height: 8vh;
+    width: 100%;
+    padding-left: 2rem;
+    margin-top: 1rem;
+    border: none;
+    box-shadow: 1px 1px 1px;
+    background: white;
+    outline: none;
+  }
+
+  .Login-page form button {
+    margin-top: 2rem;
+    width: 100%;
+    border-radius: 1px;
+    background-color: black;
+    color: white;
+  }
+
+  .other-button {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .other-button button a {
+    margin-top: 2rem;
+    text-decoration: none;
+  }
+
+  .other-button a {
+    margin-bottom: 2rem;
+    margin-top: 0.5rem;
+    text-transform: capitalize;
+    text-decoration: underline;
+    color: black;
+  }
+}

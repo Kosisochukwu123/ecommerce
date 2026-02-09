@@ -11,8 +11,10 @@ import OpenPageAnimation from "./components/OpenPageAnimation/OpenPageAnimation"
 import ScrollToTop from "./components/ScrollToTop";
 import PrivacyPolicy from "./components/PrivacyPolicy";
 import Terms from "./components/Terms";
-import Login from "./pages/loginpage/login.jsx";
-import Register from "./pages/loginpage/register.jsx";
+import Login from "./pages/LoginPage/Login.jsx";
+import LoginFace from "./pages/LoginPage/LoginFace.jsx";
+import Register from "./pages/RegisterPage/Register.jsx";
+import MainPage from "./pages/MainPage/MainPage.Jsx";
 // import error from "./pages/404/404.jsx";
 import { ProductCheckout } from "./pages/ProductsCheckout/ProductCheckout.jsx";
 import { useEffect, useState } from "react";
@@ -75,6 +77,7 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/Home" element={<MainPage />} />
           <Route path="/For-Men" element={<MenPage />} />
           <Route path="/For-Women" element={<WomenPage />} />
           <Route path="/Our-Story" element={<OurStoryPage />} />
@@ -84,6 +87,7 @@ function App() {
           <Route path="/products/:id" element={<ProductCheckout />} />
           <Route path="/Login" element={<Login setUser={setUser} />} />
           <Route path="/Register" element={<Register setUser={setUser} />} />
+          <Route path="/LoginFace" element={<LoginFace/>} />
           {/* <Route path="/error" element ={<error />} /> */}
         </Routes>
 

@@ -12,16 +12,13 @@
     padding: 0rem 1.5rem;
   }
 
-  .product-badge p {
+  .product-badge i {
     margin-top: 1rem;
-    width: fit-content;
-    padding: 0.6rem 1rem;
-    background-color: black;
-    color: white;
+    font-size: 30px;
   }
 
   .product-detail h3 {
-    font-size: 25px;
+    font-size: 23px;
     text-transform: capitalize;
     margin-top: 1rem;
     font-family: var(--fonts--);
@@ -34,10 +31,10 @@
     margin-top: 0.7rem;
     margin-bottom: 0.7rem;
     font-family: var(--fonts--);
+    font-size: 18px;
   }
 
   .product-detail span {
-    color: gray;
     font-family: var(--brand-font--);
     font-size: 20px;
     font-weight: 600;
@@ -67,6 +64,42 @@
     border-radius: 8px;
     font-size: 14px;
     z-index: 9999;
+    font-family: var(--brand-font--);
+  }
+
+  .product-tabs {
+    margin-bottom: 2rem;
+  }
+
+  .tabs-header {
+    font-family: var(--brand-font--);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+  }
+
+  .tabs-header h4 {
+    padding: 0rem 0.5rem;
+    opacity: 0.5;
+    transition:
+      opacity 0.2s ease,
+      border-bottom 0.2s ease;
+  }
+
+  .tabs-header h4.active {
+    opacity: 1;
+    border-bottom: 2px solid var(--button-color--);
+  }
+
+  .tabs-content {
+    margin-top: 1rem;
+    font-family: var(--brand-font--);
+  }
+
+  .tabs-content p {
+    font-size: 16px;
+    line-height: 1.5;
     font-family: var(--brand-font--);
   }
 }
@@ -325,7 +358,7 @@
     width: 50%;
     height: 5vh;
   }
-    .product-button {
+  .product-button {
     position: relative;
   }
 
@@ -353,7 +386,7 @@
   .product-detail h3 {
     margin-top: 1rem;
   }
-    .product-button {
+  .product-button {
     position: relative;
   }
 
@@ -396,3 +429,27 @@
     transform: rotate(360deg);
   }
 }
+
+
+/* This below has only been added to phone views, so remeber to update it on the rest */
+
+/* 
+.tabs-header {
+  display: flex;
+  gap: 2rem;
+  cursor: pointer;
+}
+
+.tabs-header h4 {
+  opacity: 0.5;
+  transition: opacity 0.2s ease, border-bottom 0.2s ease;
+}
+
+.tabs-header h4.active {
+  opacity: 1;
+  border-bottom: 2px solid black;
+}
+
+.tabs-content {
+  margin-top: 1rem;
+} */

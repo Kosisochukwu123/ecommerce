@@ -66,18 +66,6 @@ router.post("/login", async(req, res) => {
 // me
 router.get("/me", protect,  async(req, res) => {
     res.status(200).json(req.user)
-
-    // const user = await User.findById(req.user.id)
-
-    //  const token = generateToken(user._id)
-
-    //   res.status(200).json({
-    //         id: user._id,
-    //         username : user.username,
-    //         email: user.email,
-    //         token
-
-    //     })
 })
 
 // GEnaerate jwt token
