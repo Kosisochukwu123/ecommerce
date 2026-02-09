@@ -51,6 +51,7 @@ const Register = ({ setUser }) => {
             id="username"
             name="username"
             required
+            autoComplete="off"
           />
         </div>
 

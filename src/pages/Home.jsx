@@ -6,6 +6,7 @@ import { About } from "../components/About/About.jsx";
 import { Socials } from "../components/Socials/Socials.jsx";
 import { Footer } from "../components/Footer/Footer.jsx";
 import QuickLinks from "../components/QuickLink/QuickLinks.jsx";
+import NewArrivals from "../components/NewArrivals/NewArrivals.jsx";
 
 const Home = () => {
   return (
@@ -15,7 +16,10 @@ const Home = () => {
 
       <QuickLinks/>
 
+
       <Header />
+      
+      <NewArrivals />
 
       <MostPopular />
 
