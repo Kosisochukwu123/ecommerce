@@ -6,24 +6,50 @@
 
 @media screen and (max-width: 480px) {
   .Login-home {
-    color: red;
-    display: flex;
-    justify-content: center;
-    align-items: end;
-    padding-bottom: 8rem;
     height: 100vh;
-    background-image: url(../../../public/images/login-image.png);
-    background-size: cover;
-    background-position: center;
+    background-color: black;
   }
 
-  .Login-home button {
-    width: 60%;
+  .Login-home-top {
+    height: 60vh;
+    background-image: url(../../../public/images/login-image-transparent.jpg);
+    background-size: cover;
+    background-position: center;
+    background-color: blue;
+  }
+
+  .Login-home-bottom {
+    height: 40vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .Login-home-bottom p {
+    color: white;
     font-size: 30px;
+    text-transform: capitalize;
+    font-family: var(--fonts--);
+  }
+
+  .Login-home-bottom span {
+    color: white;
+    font-size: 13px;
+    text-transform: capitalize;
+    margin-top: 1rem;
+    font-family: var(--brand-font-- );
+  }
+
+  .Login-home-bottom button {
+    width: 80%;
+    font-size: 20px;
     font-weight: 600;
     font-family: var(--fonts--);
     text-decoration: none;
     padding: 1rem 0.5rem;
+    border-radius: 10px;
+    margin-top: 2rem;
   }
 
   .Login-home button a {
@@ -34,12 +60,9 @@
   /* ---------------------------------------- */
 
   .Login-page {
-    /* background-color: black; */
     height: 100vh;
-    /* border: 2px solid red; */
     padding: 1rem 2rem;
   }
-
 
   .login-page-head {
     border: 2px solid grey;
