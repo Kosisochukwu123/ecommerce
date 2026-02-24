@@ -1,4 +1,8 @@
-const BASE_URL = "/api";
+// const BASE_URL = "/api";
+
+const backendAddress = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+const BASE_URL = backendAddress + "/api";
+
 
 // Helper to handle API responses
 const handleResponse = async (response) => {

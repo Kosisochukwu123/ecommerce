@@ -1,4 +1,7 @@
-const BASE_URL = "/api/users";
+// const BASE_URL = "/api/users";
+const backendAddress = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+const BASE_URL = backendAddress + "/api/users";
+
 
 const handleResponse = async (response) => {
   const data = await response.json();
