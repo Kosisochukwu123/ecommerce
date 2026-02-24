@@ -1,7 +1,6 @@
 /* Extra small devices (portrait phones, 380px to 575px) */
 @media screen and (min-width: 334px) and (max-width: 575px) {
   footer {
-    margin-top: 7rem;
     padding-top: 3rem;
     padding-bottom: 0.5rem;
     background-color: rgb(33, 33, 33);
@@ -113,7 +112,6 @@
 /* Small devices (landscape phones, 576px to 767px) */
 @media screen and (min-width: 576px) and (max-width: 767px) {
   footer {
-    margin-top: 5.5rem;
     padding-top: 3.5rem;
     padding-bottom: 1rem;
     background-color: rgb(33, 33, 33);
@@ -228,7 +226,6 @@
 /* Medium devices (tablets, 768px to 991px) */
 @media screen and (min-width: 768px) and (max-width: 991px) {
   footer {
-    margin-top: 6rem;
     padding-top: 4rem;
     padding-bottom: 1.5rem;
     background-color: rgb(33, 33, 33);
@@ -345,7 +342,6 @@
 /* Large devices (desktops, 992px to 1199px) */
 @media screen and (min-width: 992px) and (max-width: 1199px) {
   footer {
-    margin-top: 7rem;
     padding-top: 5rem;
     padding-bottom: 2rem;
     background-color: rgb(33, 33, 33);
@@ -481,7 +477,6 @@
 /* Extra large devices (large desktops, 1200px to 1399px) */
 @media screen and (min-width: 1200px) and (max-width: 1399px) {
   footer {
-    margin-top: 8rem;
     padding-top: 6rem;
     padding-bottom: 2.5rem;
     background-color: rgb(33, 33, 33);
@@ -581,7 +576,7 @@
   }
 
   .footer-bottom {
-    margin-top: 5rem;
+    margin-top: 2rem;
   }
 
   .footer-bottom h3 {
@@ -620,7 +615,6 @@
 /* Ultra-wide screens (1400px and up) */
 @media screen and (min-width: 1400px) {
   footer {
-    margin-top: 10rem;
     padding-top: 7rem;
     padding-bottom: 3rem;
     background-color: rgb(33, 33, 33);
@@ -759,8 +753,6 @@
 /* 4K and larger screens (1920px and up) */
 @media screen and (min-width: 1920px) {
   footer {
-    margin-top: 12rem;
-    padding-top: 8rem;
     padding-bottom: 4rem;
   }
 

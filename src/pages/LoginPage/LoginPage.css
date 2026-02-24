@@ -1,9 +1,3 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
 @media screen and (max-width: 480px) {
   .Login-home {
     height: 100vh;
@@ -15,7 +9,7 @@
     background-image: url(../../../public/images/login-image-transparent.jpg);
     background-size: cover;
     background-position: center;
-    background-color: blue;
+    background-color: black;
   }
 
   .Login-home-bottom {
@@ -38,7 +32,7 @@
     font-size: 13px;
     text-transform: capitalize;
     margin-top: 1rem;
-    font-family: var(--brand-font-- );
+    font-family: var(--brand-font--);
   }
 
   .Login-home-bottom button {
@@ -50,6 +44,7 @@
     padding: 1rem 0.5rem;
     border-radius: 10px;
     margin-top: 2rem;
+    background-color: var(--button-color--);
   }
 
   .Login-home button a {
@@ -83,11 +78,6 @@
     text-transform: capitalize;
   }
 
-  .Login-page form {
-    /* margin-top: rem; */
-    /* border: 2px solid red; */
-  }
-
   .Login-page form input {
     height: 8vh;
     width: 100%;
@@ -102,7 +92,134 @@
   .Login-page form button {
     margin-top: 2rem;
     width: 100%;
-    border-radius: 1px;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    background-color: var(--button-color--);
+    border: none;
+    color: white;
+  }
+
+  .other-button {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .other-button button {
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    background-color: black;
+    margin-top: 1rem;
+  }
+
+  .other-button button a {
+    margin-top: 2rem;
+    text-decoration: none;
+  }
+
+  .other-button a {
+    margin-bottom: 2rem;
+    margin-top: 0.5rem;
+    text-transform: capitalize;
+    text-decoration: underline;
+    color: black;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 767px) {
+  .Login-home {
+    height: 100vh;
+    background-color: black;
+  }
+
+  .Login-home-top {
+    height: 65vh;
+    background-image: url(../../../public/images/login-image-transparent.jpg);
+    background-size: cover;
+    background-position: center;
+  }
+
+  .Login-home-bottom {
+    height: 35vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem 2rem;
+  }
+
+  .Login-home-bottom p {
+    color: white;
+    font-size: 34px;
+    text-transform: capitalize;
+    font-family: var(--fonts--);
+  }
+
+  .Login-home-bottom span {
+    color: white;
+    font-size: 15px;
+    text-transform: capitalize;
+    margin-top: 1rem;
+    font-family: var(--brand-font--);
+  }
+
+  .Login-home-bottom button {
+    width: 70%;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: var(--fonts--);
+    padding: 1rem 0.5rem;
+    border-radius: 10px;
+    margin-top: 2rem;
+  }
+
+  .Login-home button a {
+    text-decoration: none;
+    color: white;
+  }
+
+  /* ---------------------------------------- */
+
+  .Login-page {
+    height: 100vh;
+    padding: 2rem 3rem;
+  }
+
+  .login-page-head {
+    border: 2px solid grey;
+    padding-top: 3rem;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    margin-top: 6rem;
+  }
+
+  .login-page-head h2 {
+    font-size: 32px;
+    margin-bottom: 0.5rem;
+  }
+
+  .login-page-head span {
+    font-size: 42px;
+    text-transform: capitalize;
+  }
+
+  .Login-page form input {
+    height: 7vh;
+    width: 100%;
+    padding-left: 2rem;
+    margin-top: 1rem;
+    border: none;
+    box-shadow: 1px 1px 1px;
+    background: white;
+    outline: none;
+  }
+
+  .Login-page form button {
+    margin-top: 2rem;
+    width: 100%;
+    border-radius: 3px;
     background-color: black;
     color: white;
   }
@@ -123,5 +240,518 @@
     text-transform: capitalize;
     text-decoration: underline;
     color: black;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  /* Split layout */
+  .Login-home {
+    display: flex;
+    height: 100vh;
+  }
+
+  .Login-home-top {
+    width: 55%;
+    height: 100vh;
+    background-image: url(../../../public/images/login-image-transparent.jpg);
+    background-position: top;
+  }
+
+  .Login-home-bottom {
+    width: 45%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 2rem;
+    background-color: black;
+  }
+
+  .Login-home-bottom p {
+    color: white;
+    font-size: 38px;
+    text-transform: capitalize;
+    font-family: var(--fonts--);
+  }
+
+  .Login-home-bottom span {
+    color: white;
+    font-size: 15px;
+    margin-top: 1rem;
+    font-family: var(--brand-font--);
+  }
+
+  .Login-home-bottom button {
+    width: 70%;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 1rem 0.5rem;
+    border-radius: 10px;
+    background-color: var(--button-color--);
+    border: none;
+    margin-top: 2rem;
+  }
+
+  .Login-home button a {
+    text-decoration: none;
+    color: white;
+  }
+
+  /* ---------------------------------------- */
+
+  .Login-page {
+    width: 70%;
+    margin: 5rem auto;
+    height: auto;
+    padding: 2rem 3rem;
+  }
+
+  .login-page-head {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border: 2px solid grey;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+  }
+
+  .login-page-head h2 {
+    font-size: 32px;
+  }
+
+  .login-page-head span {
+    font-size: 42px;
+  }
+
+  .Login-page form input {
+    height: 6vh;
+    width: 100%;
+    padding-left: 2rem;
+    margin-top: 1rem;
+    border: none;
+    box-shadow: 1px 1px 1px;
+    background: white;
+    outline: none;
+  }
+
+  .Login-page form button {
+    margin-top: 2rem;
+    width: 100%;
+    border-radius: 10px;
+    background-color: var(--button-color--);
+    border: none;
+    padding: 1rem 2rem;
+    color: white;
+  }
+
+  .other-button {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .other-button button {
+    background-color: black;
+    color: white;
+    padding: 1rem 2rem;
+    margin-top: 1rem;
+    border-radius: 10px;
+  }
+
+  .other-button a {
+    margin-top: 0.8rem;
+    text-decoration: underline;
+    color: black;
+  }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  /* Split layout */
+  .Login-home {
+    display: flex;
+    height: 100vh;
+  }
+
+  .Login-home-top {
+    width: 60%;
+    height: 100vh;
+    background-image: url(../../../public/images/login-image-transparent.jpg);
+    background-size: cover;
+    background-position: center;
+  }
+
+  .Login-home-bottom {
+    width: 40%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 3rem;
+    background-color: black;
+  }
+
+  .Login-home-bottom p {
+    color: white;
+    font-size: 42px;
+    text-transform: capitalize;
+    font-family: var(--fonts--);
+  }
+
+  .Login-home-bottom span {
+    color: white;
+    font-size: 16px;
+    margin-top: 1rem;
+    font-family: var(--brand-font--);
+  }
+
+  .Login-home-bottom button {
+    width: 65%;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 1rem 0.5rem;
+    border-radius: 10px;
+    margin-top: 2rem;
+    background-color: var(--button-color--);
+    border: none;
+  }
+
+  .Login-home button a {
+    text-decoration: none;
+    color: white;
+  }
+
+  /* ---------------------------------------- */
+
+  .Login-page {
+    width: 65%;
+    margin: 0 auto;
+    padding: 3rem;
+  }
+
+  .login-page-head {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border: 2px solid grey;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+  }
+
+  .login-page-head h2 {
+    font-size: 32px;
+  }
+
+  .login-page-head span {
+    font-size: 44px;
+    text-transform: capitalize;
+  }
+
+  .Login-page form input {
+    height: 5.5vh;
+    width: 100%;
+    padding-left: 2rem;
+    margin-top: 1rem;
+    border: none;
+    box-shadow: 1px 1px 1px;
+    background: white;
+    outline: none;
+  }
+
+  .Login-page form button {
+    margin-top: 2rem;
+    width: 100%;
+    border-radius: 3px;
+    background-color: var(--button-color--);
+    padding: 10px;
+    border: none;
+    color: white;
+    padding: 1rem 2rem;
+  }
+
+  .other-button {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .other-button button {
+    background-color: black;
+    padding: 1rem 2rem;
+    color: white;
+    border-radius: 10px;
+    margin-top: 0.5rem;
+  }
+
+  .other-button a {
+    margin-top: 0.8rem;
+    text-decoration: underline;
+    color: black;
+  }
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1399px) {
+  /* Split layout */
+  .Login-home {
+    display: flex;
+    height: 100vh;
+  }
+
+  .Login-home-top {
+    width: 65%;
+    height: 100vh;
+    background-image: url(../../../public/images/login-image-transparent.jpg);
+    background-size: cover;
+    background-position: top;
+  }
+
+  .Login-home-bottom {
+    width: 35%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 4rem;
+    background-color: black;
+    /* border: 2px solid red !important; */
+  }
+
+  .Login-home-bottom p {
+    color: white;
+    font-size: 48px;
+    text-transform: capitalize;
+    font-family: var(--fonts--);
+  }
+
+  .Login-home-bottom span {
+    color: white;
+    font-size: 17px;
+    margin-top: 1rem;
+    font-family: var(--brand-font--);
+  }
+
+  .Login-home-bottom button {
+    width: 60%;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 1rem 0.5rem;
+    border-radius: 10px;
+    margin-top: 2rem;
+    border: none;
+    background-color: var(--button-color--);
+  }
+
+  .Login-home-bottom button:hover {
+    cursor: pointer;
+  }
+
+  .Login-home button a {
+    text-decoration: none;
+    color: white;
+  }
+
+  /* ---------------------------------------- */
+
+  .Login-page {
+    width: 55%;
+    margin: 0 auto;
+    padding: 3.5rem;
+  }
+
+  .login-page-head {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border: 2px solid grey;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+  }
+
+  .login-page-head h2 {
+    font-size: 34px;
+    margin-bottom: 0.5rem;
+    font-family: var(--brand-font--);
+  }
+
+  .login-page-head span {
+    font-size: 44px;
+    text-transform: capitalize;
+    font-family: var(--fonts--);
+  }
+
+  .Login-page form input {
+    height: 6.5vh;
+    width: 100%;
+    padding-left: 2rem;
+    margin-top: 1rem;
+    border: none;
+    box-shadow: 1px 1px 1px;
+    background: white;
+    outline: none;
+  }
+
+  .Login-page form button {
+    margin-top: 2rem;
+    width: 100%;
+    background-color: var(--button-color--);
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 10px;
+    color: white;
+  }
+
+  .other-button {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .other-button button {
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    background-color: black;
+    margin-top: 1rem;
+    padding: 1rem 2rem;
+  }
+
+  .other-button button:hover {
+    cursor: pointer;
+  }
+
+  .Login-page form button:hover {
+    cursor: pointer;
+  }
+
+  .other-button a {
+    margin-top: 0.3rem;
+    text-decoration: underline;
+    color: black;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  /* Prevent ultra-wide stretching */
+  .Login-home {
+    display: flex;
+    height: 100vh;
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+
+  .Login-home-top {
+    width: 68%;
+    height: 100vh;
+    background-image: url(../../../public/images/login-image-transparent.jpg);
+    background-size: cover;
+    background-position: top;
+  }
+
+  .Login-home-bottom {
+    width: 32%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 5rem;
+  }
+
+  .Login-home-bottom p {
+    color: white;
+    font-size: 52px;
+    text-transform: capitalize;
+    font-family: var(--fonts--);
+  }
+
+  .Login-home-bottom span {
+    color: white;
+    font-size: 18px;
+    margin-top: 1rem;
+    font-family: var(--brand-font--);
+  }
+
+  .Login-home-bottom button {
+    width: 55%;
+    font-size: 19px;
+    font-weight: 600;
+    padding: 1.1rem 0.5rem;
+    border-radius: 10px;
+    margin-top: 2rem;
+  }
+
+  .Login-home button a {
+    text-decoration: none;
+    color: white;
+  }
+
+  /* ---------------------------------------- */
+
+  .Login-page {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 4rem;
+  }
+
+  .login-page-head {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border: 2px solid grey;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+  }
+
+  .login-page-head h2 {
+    font-size: 36px;
+  }
+
+  .login-page-head span {
+    font-size: 48px;
+  }
+
+  .Login-page form input {
+    height: 5vh;
+    width: 100%;
+    padding-left: 2rem;
+    margin-top: 1rem;
+    border: none;
+    box-shadow: 1px 1px 1px;
+    background: white;
+    outline: none;
+  }
+
+  .Login-page form button {
+    margin-top: 2rem;
+    width: 100%;
+    background-color: var(--button-color--);
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 10px;
+    color: white;
+  }
+
+  .other-button {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .other-button button {
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    background-color: black;
+    margin-top: 1rem;
+  }
+
+  .other-button a {
+    margin-top: 1rem;
+    text-decoration: underline;
+    color: black;
+  }
+
+  .other-button button:hover {
+    cursor: pointer;
+  }
+
+  .Login-page form button:hover {
+    cursor: pointer;
   }
 }

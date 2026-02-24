@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import {useLocation} from 'react-router-dom';
 import { useCart } from "../Cart/UseCart.jsx";
 
+
 const Nav = ({scrolledDesktopDistance = 440, alwaysScrolled = false,
 }) => {
   const [open, setOpen] = useState(false);
@@ -170,6 +171,8 @@ const Nav = ({scrolledDesktopDistance = 440, alwaysScrolled = false,
       />
 
       <Search setShowSearch={setShowSearch} showSearch={showSearch} />
+
+      {/* <Shop/> */}
     </>
   );
 };

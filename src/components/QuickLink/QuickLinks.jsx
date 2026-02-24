@@ -9,10 +9,10 @@ const QuickLinks = () => {
     <div className="quick-links">
       {/* RADIAL LINKS */}
       <div className={`radial-menu ${open ? "open" : ""}`}>
-        <Link to="/shop" className="item item-1">Shop</Link>
-        <Link to="/cart" className="item item-2">Cart</Link>
-        <Link to="/profile" className="item item-3">Profile</Link>
-        <Link to="/contact" className="item item-4">Contact</Link>
+        <Link to="/Products" className="item item-1">Shop</Link>
+        <Link to="/ChatBot" className="item item-2">ChatBot </Link>
+        <Link to="/contact" className="item item-3">Favourite</Link>
+        <Link to="/profile" className="item item-4">Profile</Link>
       </div>
 
       {/* MAIN BUTTON */}

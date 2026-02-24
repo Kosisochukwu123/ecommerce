@@ -1,0 +1,37 @@
+[
+  {
+    "id": "1",
+    "question": "How long does delivering take?",
+    "answer": "Delivery typically takes 2–5 business days depending on your location.",
+    "order": 1,
+    "isActive": true
+  },
+  {
+    "id": "2",
+    "question": "What is your return policy?",
+    "answer": "You can return any item within 14 days of purchase as long as it is unused and in original packaging.",
+    "order": 2,
+    "isActive": false
+  },
+  {
+    "id": "3",
+    "question": "How do I track my order?",
+    "answer": "Once your order is shipped, you will receive a tracking link via email.",
+    "order": 3,
+    "isActive": true
+  },
+  {
+    "id": "4",
+    "question": "Do you offer customer support?",
+    "answer": "Yes! Our support team is available 24/7 through email and live chat.",
+    "order": 4,
+    "isActive": true
+  },
+  {
+    "id": "1771387686456",
+    "question": "can garri be added",
+    "answer": "yes, it can!",
+    "order": 5,
+    "isActive": true
+  }
+]

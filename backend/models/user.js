@@ -1,5 +1,26 @@
 import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
+import { getUsersDB } from "../config/db.js";
+
+const addressSchema = new mongoose.Schema(
+  {
+    type: {
+      type: String,
+      enum: ["home", "work", "other"],
+      default: "home",
+    },
+    street: String,
+    city: String,
+    state: String,
+    zipCode: String,
+    country: String,
+    isDefault: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  { _id: true },
+);
 
 const userSchema = new mongoose.Schema(
   {
@@ -7,37 +28,108 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
       unique: true,
+      trim: true,
     },
     email: {
       type: String,
       required: true,
       unique: true,
+      lowercase: true,
+      trim: true,
     },
     password: {
       type: String,
       required: true,
+      minlength: 6,
+      select: false,
+    },
+    role: {
+      type: String,
+      enum: ["user", "admin"],
+      default: "user",
+    },
+
+    firstName: {
+      type: String,
+      trim: true,
+    },
+    lastName: {
+      type: String,
+      trim: true,
+    },
+    phone: {
+      type: String,
+      trim: true,
+    },
+    avatar: {
+      type: String,
+      default: null,
+    },
+    dateOfBirth: {
+      type: Date,
+    },
+    gender: {
+      type: String,
+      enum: ["male", "female", "other", "prefer-not-to-say"],
+    },
+    addresses: [addressSchema],
+    wishlist: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+      },
+    ],
+
+    activeToken: {
+      type: String,
+      default: null,
+      select: false,
+    },
+    isActive: {
+      type: Boolean,
+      default: true,
     },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
-// Note: this is a mongoose middleware that will run before saving the user to the database.
-// It will hash the password before saving it to the database. It will only hash the password
-//  it is modified or if it is new. This is to prevent hashing the password multiple times
-//  if the user updates their profile without changing their password. Removing the await makes the password save without being hashed
-
+// Hash password before saving - CORRECTED VERSION
 userSchema.pre("save", async function () {
   if (!this.isModified("password")) return;
 
-  this.password = await bcrypt.hash(this.password, 10);
-
+  const salt = await bcrypt.genSalt(10);
+  this.password = await bcrypt.hash(this.password, salt);
 });
 
-// checking if the password written is same with the password in the database
-userSchema.methods.matchPassword = async function (enteredPassword) {
-  return await bcrypt.compare(enteredPassword, this.password);
+// Method to compare passwords
+userSchema.methods.matchPassword = async function (plaintext) {
+  return bcrypt.compare(plaintext, this.password);
 };
 
-const User = mongoose.model("User", userSchema);
 
-export default User;
+// Virtual for full name
+userSchema.virtual("fullName").get(function () {
+  if (this.firstName && this.lastName) {
+    return `${this.firstName} ${this.lastName}`;
+  }
+  return this.username;
+});
+
+// Include virtuals in JSON
+userSchema.set("toJSON", { virtuals: true });
+userSchema.set("toObject", { virtuals: true });
+
+// Get User model bound to users DB
+const getUserModel = () => {
+  const db = getUsersDB();
+
+  if (!db) {
+    throw new Error(
+      "Users database not connected. Make sure server started properly.",
+    );
+  }
+
+  if (db.models.User) return db.models.User;
+  return db.model("User", userSchema);
+};
+
+export default getUserModel;

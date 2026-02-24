@@ -4,7 +4,7 @@ import womenHoddie from "../../public/images/women-hoddie.jpg"
 
 export const productLadies = [
     {
-        id: "7656557867766464",
+        id: "1",
         image: topPiece1,
         name: "Light blowse",
         rating: {
@@ -15,7 +15,7 @@ export const productLadies = [
         keywords: ["socks", "sports", "apparel"]
     },
     {
-        id: "22246475585996",
+        id: "2",
         image: womenTop1,
         name: "Black mini top with sharwara",
         category: "t-shirt", 
@@ -27,7 +27,7 @@ export const productLadies = [
         keywords: ["t-shirt", "clothing", "casual"]
     },
     {
-        id: "2224647",
+        id: "3",
         image: womenHoddie,
         name: "female sexy hoddies",
         category: "hoodies", 

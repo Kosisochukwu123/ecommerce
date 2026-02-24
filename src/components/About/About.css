@@ -1,41 +1,44 @@
 @media screen and (max-width: 767px) {
   section {
-    margin-top: 6rem !important;
     position: relative;
     overflow: hidden;
   }
 
   section img {
-    height: auto;
     width: 100%;
+
+    height: 100%;
   }
 
   .about-text {
     position: absolute;
-    top: 55%;
-    left: 44%;
-    transform: translate(-50%, -50%);
+    top: 25%;
+    left: 4%;
     color: white;
     text-transform: capitalize;
-    width: 80%;
     font-family: var(--fonts--);
   }
 
   .about-text h2 {
     font-family: var(--brand-font--);
-    font-size: 15px;
+    font-size: 35px;
   }
 
   .about-text p {
-    font-size: 50px;
+    font-size: 18px;
     text-transform: capitalize;
     font-family: var(--fonts--);
-    margin-top: 0.5rem;
+    margin-top: 0.9rem;
   }
 
   .about-text button {
-    margin-top: 2rem;
+    margin-top: 1rem;
     font-family: var(--fonts--);
+    padding: 1.3rem 2rem;
+    font-size: 18px;
+    border-radius: 20px;
+    background-color: var(--button-color--);
+    color: white;
   }
 }
 
@@ -48,8 +51,6 @@
   section img {
     height: 100vh !important;
   }
-
-
 }
 
 @media screen and (max-width: 669px) and (orientation: landscape) {
@@ -64,26 +65,20 @@
     width: 100% !important;
   }
 
-
   .about-text p {
-    font-size: 32px;
+    font-size: 22px;
     text-transform: capitalize;
     font-family: var(--fonts--);
     margin-top: 0.5rem;
     width: 60%;
   }
-
 }
-
-
-
 
 /* Medium devices (tablets, 768px to 991px) */
 @media screen and (min-width: 768px) and (max-width: 991px) {
   section {
     height: 85vh;
     overflow: hidden;
-    margin-top: 8rem;
     position: relative;
   }
 
@@ -95,9 +90,8 @@
 
   .about-text {
     position: absolute;
-    top: 55%;
-    left: 42%;
-    transform: translate(-50%, -50%);
+    top: 35%;
+    left: 4%;
     color: white;
     text-transform: capitalize;
     width: 75%;
@@ -106,16 +100,16 @@
 
   .about-text h2 {
     font-family: var(--brand-font--);
-    font-size: 16px;
+    font-size: 30px;
     letter-spacing: 1px;
+    font-size: 40px;
   }
 
   .about-text p {
-    font-size: 55px;
+    font-size: 20px;
     text-transform: capitalize;
     font-family: var(--fonts--);
     margin-top: 1rem;
-    line-height: 3.5rem;
   }
 
   .about-text button {
@@ -125,6 +119,10 @@
     font-size: 16px;
     cursor: pointer;
     transition: all 0.3s ease;
+    background-color: var(--button-color--);
+    border: none;
+    border-radius: 10px;
+    color: white;
   }
 
   .about-text button:hover {
@@ -137,7 +135,7 @@
 @media screen and (min-width: 992px) and (max-width: 1199px) {
   section {
     height: 90vh;
-    margin-top: 9rem;
+    /* margin-top: 9rem; */
     position: relative;
     overflow: hidden;
   }
@@ -155,9 +153,8 @@
 
   .about-text {
     position: absolute;
-    top: 50%;
-    left: 45%;
-    transform: translate(-50%, -50%);
+    top: 15%;
+    left: 4%;
     color: white;
     text-transform: capitalize;
     width: 70%;
@@ -167,16 +164,15 @@
 
   .about-text h2 {
     font-family: var(--brand-font--);
-    font-size: 17px;
+    font-size: 40px;
     letter-spacing: 1.5px;
   }
 
   .about-text p {
-    font-size: 60px;
+    font-size: 20px;
     text-transform: capitalize;
     font-family: var(--fonts--);
     margin-top: 1.2rem;
-    line-height: 4rem;
   }
 
   .about-text button {
@@ -187,6 +183,9 @@
     cursor: pointer;
     transition: all 0.3s ease;
     border: 2px solid transparent;
+    background-color: var(--button-color--);
+    border-radius: 10px;
+    color: white;
   }
 
   .about-text button:hover {
@@ -200,7 +199,7 @@
 @media screen and (min-width: 1200px) and (max-width: 1399px) {
   section {
     height: 100vh;
-    margin-top: 10rem;
+    margin-top: 1rem;
     position: relative;
     overflow: hidden;
   }
@@ -218,41 +217,46 @@
 
   .about-text {
     position: absolute;
-    top: 50%;
-    left: 42%;
-    transform: translate(-50%, -50%);
+    top: 20%;
+    left: 0%;
     color: white;
     text-transform: capitalize;
-    width: 75%;
+    width: 100%;
     font-family: var(--fonts--);
     z-index: 2;
+    padding-left: 3rem;
   }
 
   .about-text h2 {
     font-family: var(--brand-font--);
-    font-size: 18px;
+    font-size: 70px;
     letter-spacing: 2px;
     font-weight: 400;
+    /* padding-left: 3rem; */
   }
 
   .about-text p {
-    font-size: 70px;
+    font-size: 20px;
     text-transform: capitalize;
     font-family: var(--fonts--);
-    margin-top: 1.5rem;
-    line-height: 4.5rem;
+    /* margin-top: 1.5rem; */
+    line-height: 1.5rem;
     font-weight: 600;
+    width: 50%;
   }
 
   .about-text button {
-    margin-top: 3rem;
+    margin-top: 1rem;
     font-family: var(--fonts--);
-    padding: 1.3rem 3rem;
+    padding: 1.3rem 2rem;
     font-size: 18px;
     cursor: pointer;
     transition: all 0.3s ease;
     border: 2px solid transparent;
     font-weight: 500;
+    border-radius: 20px;
+    background-color: var(--button-color--);
+    color: white;
   }
 
   .about-text button:hover {
@@ -266,7 +270,7 @@
 @media screen and (min-width: 1400px) {
   section {
     height: 100vh;
-    margin-top: 12rem;
+    /* margin-top: 12rem; */
     position: relative;
     overflow: hidden;
     max-width: 1800px;
@@ -287,9 +291,9 @@
 
   .about-text {
     position: absolute;
-    top: 50%;
-    left: 38%;
-    transform: translate(-50%, -50%);
+    top: 30%;
+    left: 3%;
+    /* transform: translate(-50%, -50%); */
     color: white;
     text-transform: capitalize;
     width: 60%;
@@ -299,13 +303,13 @@
 
   .about-text h2 {
     font-family: var(--brand-font--);
-    font-size: 20px;
+    font-size: 50px;
     letter-spacing: 2.5px;
     font-weight: 400;
   }
 
   .about-text p {
-    font-size: 80px;
+    font-size: 20px;
     text-transform: capitalize;
     font-family: var(--fonts--);
     margin-top: 2rem;
@@ -322,6 +326,8 @@
     transition: all 0.3s ease;
     border: 2px solid transparent;
     font-weight: 500;
+    background-color: var(--button-color--);
+    border-radius: 10px;
   }
 
   .about-text button:hover {
@@ -335,7 +341,6 @@
 @media screen and (min-width: 1920px) {
   section {
     height: 100vh;
-    margin-top: 14rem;
     max-width: 2000px;
   }
 
@@ -350,7 +355,7 @@
   }
 
   .about-text p {
-    font-size: 90px;
+    font-size: 30px;
     line-height: 5.5rem;
     margin-top: 2.5rem;
   }
@@ -358,6 +363,6 @@
   .about-text button {
     margin-top: 4rem;
     padding: 1.8rem 4rem;
-    font-size: 20px;
+    font-size: 60px;
   }
 }

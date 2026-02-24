@@ -9,7 +9,7 @@ import body5 from "../../../public/images/hoodie1.jpg";
 export const Socials = () => {
   return (
     <div className="socials">
-      <p data-aos="zoom-in">(Socials)</p>
+      <p data-aos="zoom-in">Socials</p>
       <h2 data-aos="zoom-in">
         Follow us <a>@Brandi</a> for updates
       </h2>

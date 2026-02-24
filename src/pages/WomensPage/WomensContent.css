@@ -27,8 +27,8 @@
     padding-left: 1rem;
     margin-top: 5rem;
     display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+    flex-direction: row;
+    gap: 1.5rem;
   }
 
   .womens-links a {

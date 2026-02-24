@@ -28,18 +28,11 @@ So the styles their also have control here */
     font-family: var(--fonts--);
   }
 
-  .mens-links {
-    padding-left: 1rem;
-    margin-top: 5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
   .contents {
     min-height: 100vh;
     margin-top: 2.5rem;
     position: relative;
+  
   }
 
   .contents a {

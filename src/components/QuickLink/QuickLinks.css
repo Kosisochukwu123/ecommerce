@@ -105,18 +105,22 @@
 
   .radial-menu.open .item-1 {
     transform: translate(-70px, 10px) scale(1) !important;
+    background-color: #d4af37;
   }
 
   .radial-menu.open .item-2 {
-    transform: translate(-130px, -50px) scale(1) !important;
+    transform: translate(-145px, -50px) scale(1) !important;
+    background: linear-gradient(135deg, #d4af37, #f0e68c);
   }
 
   .radial-menu.open .item-3 {
     transform: translate(-120px, -120px) scale(1) !important;
+    background: linear-gradient(135deg, #c9a961, #e8d4a2);
   }
 
   .radial-menu.open .item-4 {
     transform: translate(-90px, -170px) scale(1) !important;
+    background: linear-gradient(135deg, #b8960f, #daa520);
   }
 }
 

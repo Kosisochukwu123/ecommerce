@@ -1,0 +1,80 @@
+@media screen and (max-width: 768px) {
+  .dashboard {
+    padding: 0rem 1rem;
+  }
+
+  .dashboard-top {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .dashboard-top-box {
+    height: 16vh;
+    border-radius: 5px;
+  }
+
+  .dashboard-top-box {
+    display: flex;
+    padding-left: 2rem;
+    padding-top: 1rem;
+    flex-direction: column;
+  }
+
+  .dashboard-top-box h2 {
+    font-size: 40px;
+  }
+
+  .dashboard-top-box span {
+    font-size: 1rem;
+    font-weight: normal;
+    width: 40%;
+    padding: 0.5rem;
+    background-color: white;
+    color: black;
+    border-radius: 30px;
+    margin-top: 0.5rem;
+  }
+
+  .dashboard-top-box p {
+    margin-top: 0.6rem;
+    font-size: 20px;
+    text-transform: capitalize;
+  }
+
+  .dashboard-top-box:nth-child(1) {
+    background: linear-gradient(
+      to right,
+      rgb(207, 12, 12),
+      rgba(123, 123, 123, 0.425)
+    );
+  }
+
+  .dashboard-top-box:nth-child(2) {
+    background: linear-gradient(to right, violet, rgba(123, 123, 123, 0.425));
+  }
+
+  .dashboard-top-box:nth-child(3) {
+    background: linear-gradient(to right, indigo, rgba(123, 123, 123, 0.425));
+  }
+
+  .dashboard-top-box:nth-child(4) {
+    background: linear-gradient(to right, blue, rgba(123, 123, 123, 0.425));
+  }
+
+  .dashboard-products {
+    margin-top: 4rem;
+  }
+
+  .dashboard-products-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .dashboard-products h1 {
+    font-size: 40px;
+    text-transform: capitalize;
+  }
+}
+

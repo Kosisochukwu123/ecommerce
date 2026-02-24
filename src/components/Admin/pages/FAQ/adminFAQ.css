@@ -1,0 +1,664 @@
+/* Small Devices - Phones in Landscape (481px - 767px) */
+@media screen and (min-width: 481px) and (max-width: 767px) {
+  .admin-faq {
+    padding: 15px;
+  }
+
+  .page-header {
+    flex-direction: column;
+    gap: 15px;
+    align-items: stretch;
+  }
+
+  .page-header h1 {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  .btn-primary {
+    width: 100%;
+    padding: 12px 20px;
+  }
+
+  .faq-admin-item {
+    padding: 15px;
+  }
+
+  .faq-admin-content {
+    flex-wrap: wrap;
+  }
+
+  .faq-order {
+    width: 35px;
+    height: 35px;
+  }
+
+  .faq-text h4 {
+    font-size: 15px;
+  }
+
+  .faq-text p {
+    font-size: 13px;
+  }
+
+  .faq-status {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .faq-admin-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .btn-edit,
+  .btn-toggle,
+  .btn-delete {
+    flex: 1;
+    padding: 10px;
+  }
+
+  .faq-form {
+    width: 90%;
+    padding: 25px;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .admin-faq {
+    margin-bottom: 5rem;
+  }
+
+  .faq-form-overlay {
+    margin-top: 1rem;
+    background-color: rgb(54, 22, 22);
+    color: white;
+    padding: 1rem;
+  }
+
+  .form-group {
+    margin: 1rem 0rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-group input {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .form-group textarea {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+  }
+
+  /* ``````````````````````````````````````````` */
+
+  .faq-admin-list {
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  .admin-faq {
+    padding: 0rem 1rem;
+  }
+
+  .page-header h1 {
+    margin-bottom: 3rem;
+    font-family: var(--brand-font--);
+    font-size: var(--phone-size-text-head--);
+  }
+
+  .page-header button {
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    font-family: var(--fonts--);
+  }
+
+  .faq-text {
+    font-family: var(--fonts--);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .faq-text h4 {
+    font-size: 1.5rem;
+    margin-bottom: 0.7rem;
+  }
+
+  .admin-faq p {
+    font-size: 1rem;
+    color: #555;
+  }
+
+  .faq-admin-content {
+    margin-top: 2rem;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .faq-admin-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.4rem;
+  }
+
+  .faq-admin-actions button {
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+  }
+}
+
+/* Tablets - Portrait (768px - 1024px) */
+@media screen and (min-width: 760px) and (max-width: 1024px) {
+  .admin-faq {
+    margin-top: 6rem;
+    margin-bottom: 5rem;
+  }
+
+  .faq-form-overlay {
+    margin-top: 1rem;
+    background-color: rgb(54, 22, 22);
+    color: white;
+    padding: 1rem;
+  }
+
+  .form-group {
+    margin: 1rem 0rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-group input {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .form-group textarea {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+  }
+
+  /* ``````````````````````````````````````````` */
+ .faq-admin-list {
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  .admin-faq {
+    padding: 0rem 1rem;
+  }
+
+  .page-header h1 {
+    margin-bottom: 3rem;
+    font-family: var(--brand-font--);
+    font-size: var(--phone-size-text-head--);
+  }
+
+  .page-header button {
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    font-family: var(--fonts--);
+  }
+
+  .faq-text {
+    font-family: var(--fonts--);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .faq-text h4 {
+    font-size: 1.5rem;
+    margin-bottom: 0.7rem;
+  }
+
+  .admin-faq p {
+    font-size: 1rem;
+    color: #555;
+  }
+
+  .faq-admin-content {
+    margin-top: 2rem;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .faq-admin-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.4rem;
+  }
+
+  .faq-admin-actions button {
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+  }
+}
+
+/* Small Laptops (1025px - 1366px) */
+@media screen and (min-width: 1025px) and (max-width: 1366px) {
+  .admin-faq {
+    margin-bottom: 5rem;
+    margin-top: 3rem;
+  }
+
+  .faq-form-overlay {
+    margin-top: 1rem;
+    background-color: rgb(54, 22, 22);
+    color: white;
+    padding: 1rem;
+  }
+
+  .form-group {
+    margin: 1rem 0rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-group input {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .form-group textarea {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+  }
+
+  /* ``````````````````````````````````````````` */
+
+  .faq-admin-list {
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  .admin-faq {
+    padding: 0rem 1rem;
+  }
+
+  .page-header h1 {
+    margin-bottom: 2rem;
+    font-family: var(--brand-font--);
+    font-size: var(--phone-size-text-head--);
+  }
+
+  .page-header button {
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    font-family: var(--fonts--);
+  }
+
+  .faq-text {
+    font-family: var(--fonts--);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .faq-text h4 {
+    font-size: 1rem;
+    margin-bottom: 0.7rem;
+  }
+
+  .admin-faq p {
+    font-size: 1rem;
+    color: #555;
+  }
+
+  .faq-admin-content {
+    margin-top: 2rem;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .faq-admin-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.4rem;
+  }
+
+  .faq-admin-actions button {
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+}
+
+/* Standard Laptops & Desktops (1367px - 1600px) */
+@media screen and (min-width: 1367px) and (max-width: 1600px) {
+  .admin-faq {
+    margin-bottom: 5rem;
+    margin-top: 3rem;
+  }
+
+  .faq-form-overlay {
+    margin-top: 1rem;
+    background-color: rgb(54, 22, 22);
+    color: white;
+    padding: 1rem;
+  }
+
+  .form-group {
+    margin: 1rem 0rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-group input {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .form-group textarea {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+  }
+
+  /* ``````````````````````````````````````````` */
+
+  .faq-admin-list {
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  .admin-faq {
+    padding: 0rem 1rem;
+  }
+
+  .page-header h1 {
+    margin-bottom: 2rem;
+    font-family: var(--brand-font--);
+    font-size: var(--phone-size-text-head--);
+  }
+
+  .page-header button {
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    font-family: var(--fonts--);
+  }
+
+  .faq-text {
+    font-family: var(--fonts--);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .faq-text h4 {
+    font-size: 1rem;
+    margin-bottom: 0.7rem;
+  }
+
+  .admin-faq p {
+    font-size: 1rem;
+    color: #555;
+  }
+
+  .faq-admin-content {
+    margin-top: 2rem;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .faq-admin-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.4rem;
+  }
+
+  .faq-admin-actions button {
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+}
+
+/* Large Desktops (1601px and above) */
+@media screen and (min-width: 1601px) {
+  .admin-faq {
+    margin-bottom: 5rem;
+    margin-top: 3rem;
+  }
+
+  .faq-form-overlay {
+    margin-top: 1rem;
+    background-color: rgb(54, 22, 22);
+    color: white;
+    padding: 1rem;
+  }
+
+  .form-group {
+    margin: 1rem 0rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-group input {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .form-group textarea {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+  }
+
+  /* ``````````````````````````````````````````` */
+
+  .faq-admin-list {
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  .admin-faq {
+    padding: 0rem 1rem;
+  }
+
+  .page-header h1 {
+    margin-bottom: 2rem;
+    font-family: var(--brand-font--);
+    font-size: var(--phone-size-text-head--);
+  }
+
+  .page-header button {
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    font-family: var(--fonts--);
+  }
+
+  .faq-text {
+    font-family: var(--fonts--);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .faq-text h4 {
+    font-size: 1rem;
+    margin-bottom: 0.7rem;
+  }
+
+  .admin-faq p {
+    font-size: 1rem;
+    color: #555;
+  }
+
+  .faq-admin-content {
+    margin-top: 2rem;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .faq-admin-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.4rem;
+  }
+
+  .faq-admin-actions button {
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+}
+
+/* Ultra-Wide Monitors (1921px and above) */
+@media screen and (min-width: 1921px) {
+  .admin-faq {
+    max-width: 1400px;
+    padding: 40px;
+  }
+
+  .page-header h1 {
+    font-size: 3rem;
+  }
+
+  .btn-primary {
+    padding: 16px 36px;
+    font-size: 18px;
+  }
+
+  .faq-admin-item {
+    padding: 30px;
+  }
+
+  .faq-admin-content {
+    padding: 3rem;
+  }
+
+  .faq-order {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+
+  .faq-text h4 {
+    font-size: 20px;
+  }
+
+  .faq-text p {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .faq-status span {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  .btn-edit,
+  .btn-toggle,
+  .btn-delete {
+    padding: 12px 24px;
+    font-size: 15px;
+  }
+
+  .faq-form {
+    max-width: 800px;
+    padding: 45px;
+  }
+
+  .faq-form h3 {
+    font-size: 30px;
+  }
+
+  .form-group label {
+    font-size: 17px;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 16px;
+    font-size: 16px;
+  }
+
+  .btn-save,
+  .btn-cancel {
+    padding: 12px 24px;
+    font-size: 16px;
+  }
+}

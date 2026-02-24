@@ -19,7 +19,7 @@ const MensContent = () => {
   }, []);
 
   return (
-    <div>
+    <div className="cloth-section">
       <div className="contact-header">
         <div className="contact-bg-men">
           <p>For Men</p>

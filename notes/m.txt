@@ -1,0 +1,35 @@
+ecommerce/
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── chatBot/
+│   │   │   │   ├── ChatBot.jsx              # Main chat interface
+│   │   │   │   ├── ChatMessage.jsx          # Individual message component
+│   │   │   │   ├── ProductCard.jsx          # Product display in chat
+│   │   │   │   ├── ColorSuggestion.jsx      # Color combo display
+│   │   │   │   └── chatBot.css
+│   │   │   └── ...other components
+│   │   ├── context/
+│   │   │   ├── CartContext.jsx              # Existing cart context
+│   │   │   └── ChatContext.jsx              # NEW: Chat state management
+│   │   ├── services/
+│   │   │   └── aiService.js                 # NEW: API calls to backend
+│   │   ├── utils/
+│   │   │   └── productHelpers.js            # NEW: Product filtering logic
+│   │   └── data/
+│   │       └── products.js                   # Your existing products
+│   └── ...
+├── backend/
+│   ├── server.js                             # Express server
+│   ├── routes/
+│   │   └── ai.routes.js                      # AI endpoint routes
+│   ├── controllers/
+│   │   └── ai.controller.js                  # Business logic
+│   ├── services/
+│   │   ├── claude.service.js                 # Claude API integration
+│   │   ├── product.service.js                # Product search/filter
+│   │   └── recommendation.service.js         # Recommendation logic
+│   ├── data/
+│   │   └── products.json                     # Product database (or DB)
+│   └── package.json
+└── README.md

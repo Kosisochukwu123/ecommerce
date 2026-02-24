@@ -1,0 +1,435 @@
+/* Admin Layout Container */
+.admin-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f5f7fa;
+}
+
+/* Top Header */
+.admin-header {
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 0 30px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.admin-brand h1 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0;
+}
+
+/* Profile Section */
+.admin-profile {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.admin-user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px;
+  background: #f9fafb;
+  border-radius: 8px;
+}
+
+.admin-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.admin-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.admin-username {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 150px;
+}
+
+.admin-role {
+  font-size: 12px;
+  color: #6b7280;
+  margin: 0;
+  text-transform: capitalize;
+}
+
+.logout-btn {
+  padding: 8px 20px;
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+
+.logout-btn:hover {
+  background: #c82333;
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 8px;
+  color: #1f2937;
+}
+
+/* Main Container */
+.admin-container {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Sidebar */
+.admin-sidebar {
+  width: 250px;
+  background: white;
+  border-right: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  transition: transform 0.3s ease;
+}
+
+.admin-nav {
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.nav-link {
+  padding: 12px 24px;
+  color: #6b7280;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.2s;
+  border-left: 3px solid transparent;
+}
+
+.nav-link:hover {
+  background: #f9fafb;
+  color: #1f2937;
+}
+
+.nav-link.active {
+  background: #eff6ff;
+  color: #2563eb;
+  border-left-color: #2563eb;
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  padding: 20px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.btn-secondary {
+  width: 100%;
+  padding: 10px;
+  background: #f3f4f6;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  color: #374151;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-secondary:hover {
+  background: #e5e7eb;
+}
+
+/* Main Content */
+.admin-content {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+  background: #f5f7fa;
+}
+
+/* Sidebar Overlay (for mobile) */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 150;
+}
+
+.sidebar-overlay.active {
+  display: block;
+}
+
+/* ============================================
+   RESPONSIVE BREAKPOINTS
+   ============================================ */
+
+/* Tablets (portrait) and small laptops - 768px to 1024px */
+@media (max-width: 1024px) {
+  .admin-header {
+    padding: 0 20px;
+  }
+
+  .admin-content {
+    padding: 20px;
+  }
+
+  .admin-sidebar {
+    width: 220px;
+  }
+}
+
+/* Large phones (landscape) and small tablets - 600px to 768px */
+@media (max-width: 768px) {
+  .admin-header {
+    padding: 0 15px;
+    height: auto;
+    min-height: 60px;
+    gap: 10px;
+  }
+
+  .admin-brand h1 {
+    font-size: 18px;
+  }
+
+  .menu-toggle {
+    display: block;
+    order: -1;
+  }
+
+  .admin-profile {
+    gap: 12px;
+    margin-left: auto;
+  }
+
+  .admin-user-info {
+    padding: 6px 10px;
+    gap: 8px;
+  }
+
+  .admin-avatar {
+    width: 35px;
+    height: 35px;
+    font-size: 16px;
+  }
+
+  .admin-username {
+    font-size: 13px;
+    max-width: 100px;
+  }
+
+  .admin-role {
+    font-size: 11px;
+  }
+
+  .logout-btn {
+    padding: 6px 14px;
+    font-size: 13px;
+  }
+
+  /* Sidebar becomes overlay on mobile */
+  .admin-sidebar {
+    position: fixed;
+    left: 0;
+    top: 60px;
+    bottom: 0;
+    z-index: 200;
+    transform: translateX(-100%);
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .admin-sidebar.open {
+    transform: translateX(0);
+  }
+
+  .admin-content {
+    padding: 15px;
+    width: 100%;
+  }
+}
+
+/* Medium phones - 375px to 600px */
+@media (max-width: 600px) {
+  .admin-header {
+    padding: 0 12px;
+    flex-wrap: wrap;
+  }
+
+  .admin-brand {
+    order: 1;
+    flex: 1;
+  }
+
+  .admin-brand h1 {
+    font-size: 16px;
+  }
+
+  .admin-profile {
+    order: 2;
+    gap: 8px;
+  }
+
+  .admin-details {
+    display: none; /* Hide username text on very small screens */
+  }
+
+  .admin-user-info {
+    padding: 4px;
+    background: transparent;
+  }
+
+  .admin-avatar {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+
+  .logout-btn {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  .admin-content {
+    padding: 12px;
+  }
+
+  .nav-link {
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+
+  .sidebar-footer {
+    padding: 15px;
+  }
+}
+
+/* Small phones - 320px to 375px */
+@media (max-width: 375px) {
+  .admin-header {
+    padding: 0 10px;
+    min-height: 55px;
+  }
+
+  .admin-brand h1 {
+    font-size: 14px;
+  }
+
+  .menu-toggle {
+    font-size: 20px;
+    padding: 6px;
+  }
+
+  .admin-avatar {
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+  }
+
+  .logout-btn {
+    padding: 5px 10px;
+    font-size: 11px;
+  }
+
+  .admin-content {
+    padding: 10px;
+  }
+
+  .nav-link {
+    padding: 10px 16px;
+    font-size: 12px;
+    gap: 10px;
+  }
+
+  .btn-secondary {
+    padding: 8px;
+    font-size: 12px;
+  }
+}
+
+/* Very small phones - below 320px */
+@media (max-width: 320px) {
+  .admin-header {
+    padding: 0 8px;
+    min-height: 50px;
+  }
+
+  .admin-brand h1 {
+    font-size: 13px;
+  }
+
+  .admin-profile {
+    gap: 6px;
+  }
+
+  .logout-btn {
+    padding: 4px 8px;
+    font-size: 10px;
+  }
+
+  .admin-content {
+    padding: 8px;
+  }
+
+  .sidebar-footer {
+    padding: 12px;
+  }
+}
+
+/* Landscape orientation on phones */
+@media (max-height: 500px) and (orientation: landscape) {
+  .admin-header {
+    position: static;
+    min-height: 50px;
+  }
+
+  .admin-sidebar {
+    top: 50px;
+  }
+
+  .nav-link {
+    padding: 8px 20px;
+  }
+}

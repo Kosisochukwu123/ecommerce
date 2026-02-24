@@ -1,23 +1,25 @@
 @media screen and (max-width: 767px) {
   .socials {
-    margin-top: 5rem;
-    text-align: center;
+    margin-top: 3rem;
     padding: 0rem 0.4rem;
   }
 
   .socials h2 {
-    font-size: var(--phone-size-text-head--);
+    font-size: 14px;
     font-weight: 100;
     text-transform: capitalize;
     font-family: var(--fonts--);
-    margin: 1rem 0rem;
-    border: 2px solid white; /*this serves as some type of padding to help bring content closer */
+    text-align: left;
+    padding-left: 0.7rem;
   }
 
   .socials p {
     font-family: var(--brand-font--);
     text-transform: capitalize;
     font-weight: 600;
+    font-size: 32px;
+    text-align: left;
+    padding-left: 0.7rem;
   }
 
   .socials p a {
@@ -33,7 +35,6 @@
     overflow: hidden;
     position: relative;
     padding: 20px 0;
-    margin-top: 3rem;
   }
 
   .image-track {
@@ -64,25 +65,23 @@
 /* Medium devices (tablets, 768px to 991px) */
 @media screen and (min-width: 768px) and (max-width: 991px) {
   .socials {
-    margin-top: 6rem;
-    text-align: center;
   }
 
   .socials h2 {
-    font-size: var(--phone-size-text-head--);
     font-weight: 100;
     text-transform: capitalize;
+    font-size: 15px;
     font-family: var(--fonts--);
-    margin: 1rem 0rem;
     width: 100%;
-    padding: 0rem 10rem;
-    text-align: center;
+    padding-left: 2rem;
   }
 
   .socials p {
     font-family: var(--brand-font--);
     text-transform: capitalize;
     font-weight: 600;
+    padding-left: 2rem;
+    font-size: 45px;
   }
 
   .socials p a {
@@ -103,7 +102,6 @@
     overflow: hidden;
     position: relative;
     padding: 25px 0;
-    margin-top: 3.5rem;
   }
 
   .image-track {
@@ -132,26 +130,25 @@
 
 /* Large devices (desktops, 992px to 1199px) */
 @media screen and (min-width: 992px) and (max-width: 1199px) {
-  .socials {
-    margin-top: 6rem;
-    text-align: center;
+   .socials {
+    margin-top: 1.5rem;
   }
 
   .socials h2 {
-    font-size: var(--phone-size-text-head--);
     font-weight: 100;
     text-transform: capitalize;
+    font-size: 15px;
     font-family: var(--fonts--);
-    margin: 1rem 0rem;
     width: 100%;
-    padding: 0rem 10rem;
-    text-align: center;
+    padding-left: 3rem;
   }
 
   .socials p {
     font-family: var(--brand-font--);
     text-transform: capitalize;
     font-weight: 600;
+    padding-left: 3rem;
+    font-size: 50px;
   }
   .socials p a {
     color: gray;
@@ -171,7 +168,6 @@
     overflow: hidden;
     position: relative;
     padding: 30px 0;
-    margin-top: 4rem;
   }
 
   .image-track {
@@ -203,28 +199,25 @@
 /* Extra large devices (large desktops, 1200px to 1399px) */
 @media screen and (min-width: 1200px) and (max-width: 1399px) {
   .socials {
-    margin-top: 8rem;
+    margin-top: 2rem;
     max-width: 1400px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
   }
 
   .socials h2 {
-    font-size: var(--phone-size-text-head--);
+    font-size: 20px;
     font-weight: 100;
     text-transform: capitalize;
     font-family: var(--fonts--);
-    margin: 1rem 0rem;
     width: 100%;
-    padding: 0rem 10rem;
-    text-align: center;
+    padding-left: 3rem;
   }
 
   .socials p {
     font-family: var(--brand-font--);
     text-transform: capitalize;
     font-weight: 600;
+    font-size: 70px;
+    padding-left: 3rem;
   }
 
   .socials p a {
@@ -262,7 +255,7 @@
     overflow: hidden;
     position: relative;
     padding: 35px 0;
-    margin-top: 4.5rem;
+    /* margin-top: 4.5rem; */
   }
 
   .image-track {
@@ -294,28 +287,24 @@
 /* Ultra-wide screens (1400px and up) */
 @media screen and (min-width: 1400px) {
   .socials {
-    margin-top: 10rem;
-    max-width: 1600px;
-    margin-left: auto;
-    margin-right: auto;
-     text-align: center;
+    margin-top: 2rem;
   }
 
   .socials h2 {
-    font-size: var(--phone-size-text-head--);
     font-weight: 100;
     text-transform: capitalize;
+    font-size: 15px;
     font-family: var(--fonts--);
-    margin: 1rem 0rem;
     width: 100%;
-    padding: 0rem 10rem;
-    text-align: center;
+    padding-left: 4rem;
   }
 
   .socials p {
     font-family: var(--brand-font--);
     text-transform: capitalize;
     font-weight: 600;
+    padding-left: 4rem;
+    font-size: 45px;
   }
 
   .socials p a {
@@ -352,7 +341,6 @@
     overflow: hidden;
     position: relative;
     padding: 40px 0;
-    margin-top: 5rem;
   }
 
   .image-track {
@@ -383,27 +371,25 @@
 
 /* 4K and larger screens (1920px and up) */
 @media screen and (min-width: 1920px) {
-  .socials {
-    margin-top: 12rem;
-    max-width: 1800px;
-     text-align: center;
+   .socials {
+    margin-top: 2rem;
   }
 
   .socials h2 {
-    font-size: var(--phone-size-text-head--);
     font-weight: 100;
     text-transform: capitalize;
+    font-size: 15px;
     font-family: var(--fonts--);
-    margin: 1rem 0rem;
     width: 100%;
-    padding: 0rem 10rem;
-    text-align: center;
+    padding-left: 4rem;
   }
 
   .socials p {
     font-family: var(--brand-font--);
     text-transform: capitalize;
     font-weight: 600;
+    padding-left: 4rem;
+    font-size: 45px;
   }
 
   .image-track {

@@ -9,7 +9,7 @@ createRoot(document.getElementById("root")).render(
   <StrictMode>
     <CartProvider>
     
-      <BrowserRouter basename="/ecommerce/">
+      <BrowserRouter>
         <App />
       </BrowserRouter>
       
