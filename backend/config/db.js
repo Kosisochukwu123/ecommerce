@@ -38,7 +38,7 @@ export const connectUsersDB = async () => {
 
  export const connectProductsDB = async () => {
   try {
-    productsDB = await mongoose.createConnection(process.env.mongo_URI_products).asPromise();
+    productsDB = await mongoose.createConnection(process.env.mongo_URI_Products).asPromise();
     console.log(` Products DB connected: ${productsDB.host}`);
     return productsDB;
   } catch (error) {
