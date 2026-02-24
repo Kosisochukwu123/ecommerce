@@ -16,7 +16,7 @@ console.log("Port is", PORT);
 
 // Middleware
 app.use(cors({
-  origin: ["http://localhost:5173", "http://localhost:3000"],
+  origin: ["http://localhost:5173", "http://localhost:3000","https://ecommerce-2-87o9.onrender.com"],
   credentials: true,
 }));
 app.use(express.json());
