@@ -1,7 +1,7 @@
 import express from "express";
-import getUserModel from "../models/user.js";  // Capital U to match filename
+import getUserModel from "../models/user.js";
 import protect from "../middleware/auth.js";
-import getProductModel from "../models/Product.js";  // ← ADD THIS
+import getProductModel from "../models/Product.js";
 import jwt from "jsonwebtoken";
 
 const router = express.Router();
@@ -79,22 +79,42 @@ router.post("/login", async (req, res) => {
 });
 
 // GET /api/users/me
-// router.get("/me", protect, async (req, res) => {
-//   res.status(200).json(req.user);
+router.get("/me", protect, async (req, res) => {
+  try {
+    console.log("✅ /me route hit for user:", req.user._id);
 
-// });
-
+    res.status(200).json({
+      id: req.user._id,
+      username: req.user.username,
+      email: req.user.email,
+      role: req.user.role,
+      firstName: req.user.firstName,
+      lastName: req.user.lastName,
+      phone: req.user.phone,
+      avatar: req.user.avatar,
+    });
+  } catch (error) {
+    console.error("❌ /me route error:", error);
+    res.status(500).json({
+      success: false,
+      message: "Server error",
+    });
+  }
+});
 
 // GET /api/users/profile - Get full user profile
 router.get("/profile", protect, async (req, res) => {
   try {
     const User = getUserModel();
-    const user = await User.findById(req.user._id)
-      .select("-password -activeToken")
-      // .populate("wishlist");
+    const user = await User.findById(req.user._id).select(
+      "-password -activeToken",
+    );
+    // .populate("wishlist");
 
     if (!user) {
-      return res.status(404).json({ success: false, message: "User not found" });
+      return res
+        .status(404)
+        .json({ success: false, message: "User not found" });
     }
 
     res.status(200).json({
@@ -164,14 +184,14 @@ router.put("/change-password", protect, async (req, res) => {
     const { currentPassword, newPassword } = req.body;
 
     if (!currentPassword || !newPassword) {
-      return res.status(400).json({ 
-        message: "Please provide current and new password" 
+      return res.status(400).json({
+        message: "Please provide current and new password",
       });
     }
 
     if (newPassword.length < 6) {
-      return res.status(400).json({ 
-        message: "New password must be at least 6 characters" 
+      return res.status(400).json({
+        message: "New password must be at least 6 characters",
       });
     }
 
@@ -254,7 +274,7 @@ router.put("/address/:addressId", protect, async (req, res) => {
     }
 
     const address = user.addresses.id(req.params.addressId);
-    
+
     if (!address) {
       return res.status(404).json({ message: "Address not found" });
     }
@@ -308,35 +328,67 @@ router.delete("/address/:addressId", protect, async (req, res) => {
   }
 });
 
-// GET /api/users/wishlist - Get user's wishlist with product details
+// GET /api/users/wishlist
 router.get("/wishlist", protect, async (req, res) => {
+  console.log("=== WISHLIST ROUTE START ===");
+
   try {
+    console.log("1️⃣ Getting user model...");
     const User = getUserModel();
-    const Product = getProductModel(); // Import from products DB
-    
+    console.log("✅ User model loaded");
+
+    console.log("2️⃣ Finding user by ID:", req.user._id);
     const user = await User.findById(req.user._id).select("wishlist");
-    
+    console.log("✅ User found:", !!user);
+
     if (!user) {
-      return res.status(404).json({ 
+      console.log("❌ User not found");
+      return res.status(404).json({
         success: false,
-        message: "User not found" 
+        message: "User not found",
       });
     }
 
-    // Manually fetch products from the products DB
-    const products = await Product().find({
-      _id: { $in: user.wishlist }
+    console.log("3️⃣ User wishlist IDs:", user.wishlist);
+
+    if (!user.wishlist || user.wishlist.length === 0) {
+      console.log("ℹ️ Wishlist is empty");
+      return res.status(200).json({
+        success: true,
+        wishlist: [],
+        count: 0,
+      });
+    }
+
+    console.log("4️⃣ Getting Product model...");
+    const Product = getProductModel();
+    console.log("✅ Product model type:", typeof Product);
+    console.log("✅ Product.find type:", typeof Product.find);
+
+    console.log("5️⃣ Fetching products from DB...");
+    const products = await Product.find({
+      _id: { $in: user.wishlist },
+      isActive: true,
     });
+    console.log("✅ Found products:", products.length);
 
     res.status(200).json({
       success: true,
       wishlist: products,
+      count: products.length,
     });
+
+    console.log("=== WISHLIST ROUTE SUCCESS ===");
   } catch (error) {
-    console.error("Wishlist route error:", error);
-    res.status(500).json({ 
+    console.error("=== WISHLIST ROUTE ERROR ===");
+    console.error("Error type:", error.constructor.name);
+    console.error("Error message:", error.message);
+    console.error("Error stack:", error.stack);
+
+    res.status(500).json({
       success: false,
-      message: "Server error" 
+      message: "Server error",
+      error: error.message,
     });
   }
 });
@@ -393,5 +445,135 @@ router.delete("/wishlist/:productId", protect, async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 });
+
+
+// GET /api/users/all - Get all users (Admin only)
+router.get("/all", protect, async (req, res) => {
+  try {
+    // Check if user is admin
+    if (req.user.role !== "admin") {
+      return res.status(403).json({ 
+        success: false,
+        message: "Access denied. Admin only." 
+      });
+    }
+
+    const User = getUserModel();
+    
+    // Get all users, exclude password and activeToken
+    const users = await User.find({})
+      .select("-password -activeToken")
+      .sort({ createdAt: -1 }); // Newest first
+
+    res.status(200).json({
+      success: true,
+      users: users,
+      count: users.length,
+    });
+  } catch (error) {
+    console.error("Error fetching users:", error);
+    res.status(500).json({ 
+      success: false,
+      message: "Server error" 
+    });
+  }
+});
+
+// PUT /api/users/:userId/role - Update user role (Admin only)
+router.put("/:userId/role", protect, async (req, res) => {
+  try {
+    // Check if user is admin
+    if (req.user.role !== "admin") {
+      return res.status(403).json({ 
+        success: false,
+        message: "Access denied. Admin only." 
+      });
+    }
+
+    const User = getUserModel();
+    const { role } = req.body;
+
+    if (!role || !["user", "admin"].includes(role)) {
+      return res.status(400).json({ 
+        success: false,
+        message: "Invalid role. Must be 'user' or 'admin'" 
+      });
+    }
+
+    const user = await User.findById(req.params.userId);
+
+    if (!user) {
+      return res.status(404).json({ 
+        success: false,
+        message: "User not found" 
+      });
+    }
+
+    user.role = role;
+    await user.save();
+
+    res.status(200).json({
+      success: true,
+      message: `User role updated to ${role}`,
+      user: {
+        id: user._id,
+        username: user.username,
+        email: user.email,
+        role: user.role,
+      },
+    });
+  } catch (error) {
+    console.error("Error updating user role:", error);
+    res.status(500).json({ 
+      success: false,
+      message: "Server error" 
+    });
+  }
+});
+
+// DELETE /api/users/:userId - Delete user (Admin only)
+router.delete("/:userId", protect, async (req, res) => {
+  try {
+    // Check if user is admin
+    if (req.user.role !== "admin") {
+      return res.status(403).json({ 
+        success: false,
+        message: "Access denied. Admin only." 
+      });
+    }
+
+    const User = getUserModel();
+    const user = await User.findById(req.params.userId);
+
+    if (!user) {
+      return res.status(404).json({ 
+        success: false,
+        message: "User not found" 
+      });
+    }
+
+    // Prevent admin from deleting themselves
+    if (user._id.toString() === req.user._id.toString()) {
+      return res.status(400).json({ 
+        success: false,
+        message: "You cannot delete your own account" 
+      });
+    }
+
+    await User.findByIdAndDelete(req.params.userId);
+
+    res.status(200).json({
+      success: true,
+      message: "User deleted successfully",
+    });
+  } catch (error) {
+    console.error("Error deleting user:", error);
+    res.status(500).json({ 
+      success: false,
+      message: "Server error" 
+    });
+  }
+});
+
 
 export default router;

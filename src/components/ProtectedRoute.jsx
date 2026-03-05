@@ -20,7 +20,7 @@ function ProtectedRoute({ children, requireAdmin = false }) {
 
   // Not logged in at all
   if (!user) {
-    return <Navigate to="/Login" replace />;
+    return <Navigate to="/Login" />;
   }
 
   // Logged in but not admin (when admin is required)

@@ -111,15 +111,20 @@
 .profile-sidebar {
   background: white;
   border-radius: 12px;
-  padding: 20px;
-  height: fit-content;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 90vh;
+  position: relative;
 }
 
 .profile-nav {
-  display: flex;
-  flex-direction: column;
   gap: 4px;
+  width: 150%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  margin-top: 2rem;
+  position: absolute;
 }
 
 .profile-nav-item {
@@ -137,21 +142,26 @@
   transition: all 0.2s;
   text-align: left;
   border-left: 3px solid transparent;
+  width: 80%;
+  margin-left: -2rem;
 }
 
 .profile-nav-item:hover {
   background: #f9fafb;
   color: #1f2937;
+  width: 80%;
 }
 
 .profile-nav-item.active {
   background: #eff6ff;
   color: #2563eb;
   border-left-color: #2563eb;
+  width: 80%;
 }
 
 .nav-icon {
   font-size: 18px;
+  width: 15%;
 }
 
 /* Main Content */
@@ -351,7 +361,46 @@
 }
 
 /* Responsive Design */
+
+@media (max-width: 1280px) {
+  .profile-nav-item {
+    width: 60% !important;
+    margin-left: 0.2rem;
+  }
+}
+
 @media (max-width: 1024px) {
+  .profile-container {
+    display: flex;
+    flex-direction: column !important;
+    flex-direction: column-reverse !important;
+  }
+
+  .profile-sidebar {
+    height: 12vh;
+    padding-left: 1rem;
+    display: flex !important;
+    align-items: center !important;
+    overflow: scroll !important;
+    scrollbar-width: 0%;
+    /* border: 2px solid red; */
+  }
+
+  .profile-nav {
+    gap: 2rem !important;
+    display: flex !important;
+    align-items: flex-end;
+    margin-left: -1rem;
+    margin-top: 0rem;
+    padding-top: 4rem !important;
+    height: 10vh;
+    margin-top: 1rem;
+  }
+
+  .profile-nav-item {
+    width: 100%;
+  }
+
   .profile-container {
     grid-template-columns: 1fr;
   }
@@ -374,7 +423,82 @@
   }
 }
 
+@media (min-width: 820px) and (max-width: 920px) {
+  .profile-container {
+    display: flex;
+    flex-direction: column !important;
+    flex-direction: column-reverse !important;
+  }
+
+  .profile-sidebar {
+    height: 10vh;
+    padding-left: 1rem;
+    display: flex !important;
+    align-items: center !important;
+    overflow: scroll !important;
+    scrollbar-width: none;
+    padding-top: 3rem;
+  }
+
+  .profile-nav {
+    gap: 2rem !important;
+    display: flex !important;
+    margin-left: -1rem;
+    margin-top: 0rem;
+    padding-top: 2rem;
+    padding-left: 2.4rem;
+    height: 10vh;
+  }
+
+  .profile-nav-item {
+    width: 100%;
+    font-size: 20px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #999;
+    border-radius: 10px;
+  }
+}
+
 @media (max-width: 768px) {
+  .profile-container {
+    display: flex;
+    flex-direction: column !important;
+    flex-direction: column-reverse !important;
+  }
+
+  .profile-sidebar {
+    height: 10vh;
+    padding-left: 1rem;
+    display: flex !important;
+    align-items: center !important;
+    overflow: scroll !important;
+    scrollbar-width: 0%;
+  }
+
+  .profile-nav {
+    gap: 2rem !important;
+    display: flex !important;
+    margin-left: -1rem;
+    margin-top: 0rem;
+    padding-top: 2rem;
+    padding-left: 2.4rem;
+    height: 10vh;
+  }
+
+  .profile-nav-item {
+    width: 100%;
+  }
+
   .profile-header-content {
     flex-direction: column;
     align-items: flex-start;
@@ -412,6 +536,35 @@
 }
 
 @media (max-width: 480px) {
+  .profile-container {
+    display: flex;
+    flex-direction: column !important;
+    flex-direction: column-reverse !important;
+  }
+
+  .profile-sidebar {
+    height: 10vh;
+    padding-left: 1rem;
+    display: flex !important;
+    align-items: center !important;
+    overflow: scroll !important;
+    scrollbar-width: 0%;
+  }
+
+  .profile-nav {
+    gap: 2rem !important;
+    display: flex !important;
+    margin-left: -1rem;
+    margin-top: 0rem;
+    padding-top: 1.2rem;
+    padding-left: 2.4rem;
+    height: 10vh;
+  }
+
+  .profile-nav-item {
+    width: 100%;
+  }
+
   .profile-avatar-section {
     flex-direction: column;
     align-items: flex-start;
@@ -433,5 +586,28 @@
 
   .nav-icon {
     font-size: 16px;
+  }
+}
+
+@media (max-width: 967px) and (orientation: landscape) {
+  .profile-sidebar {
+    height: 20vh;
+    padding-top: 3rem;
+  }
+
+  .profile-nav {
+    padding-top: 6.2rem !important;
+  }
+}
+
+@media (max-width: 767px) and (orientation: landscape) {
+  .profile-sidebar {
+    height: 20vh;
+  }
+
+  .profile-nav {
+    padding-top: 1.2rem !important;
+    height: 20vh;
+    margin-top: -2rem;
   }
 }

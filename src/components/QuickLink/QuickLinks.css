@@ -12,6 +12,31 @@
 @media screen and (max-width: 1280px) {
   .quick-links {
     right: 25px;
+    text-transform: capitalize;
+    font-family: var(--brand-font--);
+  }
+
+  .quick-links-btn {
+    padding: 2rem;
+    height: 10vh;
+    background-color: #111 !important;
+    color: white !important;
+  }
+
+  .radial-menu.open .item-1 {
+    transform: translate(-70px, 10px) scale(1) !important;
+  }
+
+  .radial-menu.open .item-2 {
+    transform: translate(-140px, -40px) scale(1) !important;
+  }
+
+  .radial-menu.open .item-3 {
+    transform: translate(-140px, -100px) scale(1) !important;
+  }
+
+  .radial-menu.open .item-4 {
+    transform: translate(-90px, -150px) scale(1) !important;
   }
 }
 
@@ -100,7 +125,6 @@
     background: #111 !important;
     color: white !important;
     padding: 2rem !important;
-
   }
 
   .radial-menu.open .item-1 {

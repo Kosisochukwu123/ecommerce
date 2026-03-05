@@ -1,7 +1,7 @@
 import "./App.css";
 import Home from "./pages/Home.jsx";
-import MenPage from "./pages/MensPage/Mens.jsx";
-import WomenPage from "./pages/WomensPage/Womens.jsx";
+// import MenPage from "./pages/MensPage/Mens.jsx";
+// import WomenPage from "./pages/WomensPage/Womens.jsx";
 import OurStoryPage from "./pages/OurStoryPage/OurStoryPage.jsx";
 import ContactPage from "./pages/ContactPage/ContactPage.jsx";
 import { Routes, Route, BrowserRouter } from "react-router";
@@ -19,16 +19,25 @@ import Products from "./pages/Shop/Products.jsx";
 import AdminLayout from "./components/Admin/AdminLayout.jsx";
 import Dashboard from "./components/Admin/pages/Dashboard/Dashboard.jsx";
 import UserManager from "./components/Admin/pages/UserManager.jsx";
-import ProductManager from "./components/Admin/pages/ProductManager.jsx";
+// import ProductManager from "./components/Admin/pages/ProductManager.jsx";
 import OrderManager from "./components/Admin/pages/OrderManager.jsx";
 import Analytics from "./components/Admin/pages/Analytics.jsx";
 // import error from "./pages/404/404.jsx";
 // import Faq from "./components/Admin/pages/FAQ/faq.jsx";
 
 import AdminFAQ from "./components/Admin/pages/FAQ/AdminFAQ.jsx";
-import AdminDashboard from "./pages/AdminDashboard.jsx";
+// import AdminDashboard from "./pages/AdminDashboard.jsx";
 import UserProfile from "./pages/UserProfile/UserProfile.jsx";
 import ProfileSettings from "./pages/ProfileSettings/ProfileSettings.jsx";
+import Wishlist from "./pages/WishList/WishList.jsx";
+
+// import { CartProvider } from "./components/Cart/UseCart";
+import { CartProvider } from "./components/Nav/Cart/UseCart.jsx"
+import ProductManager from "./components/Admin/pages/ProductManager/ProductManager";
+
+import SellProduct from "./pages/SellProduct/SellProduct";
+import MySubmissions from "./pages/MySubmissions/MySubmissions";
+import SubmissionReview from "./components/Admin/pages/SubmissionReview/SubmissionReview";
 
 
 // import UpdateProduct from './components/Admin/pages/AdminProducts.jsx';
@@ -47,8 +56,6 @@ import SmoothScroll from "./SmoothScroll.jsx";
 import { AuthProvider } from "./context/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute.jsx"; // ← ADD THIS
 
-
-
 function App() {
   useEffect(() => {
     AOS.init({
@@ -56,7 +63,6 @@ function App() {
       once: true,
     });
   }, []);
-
 
   return (
     <>
@@ -69,47 +75,58 @@ function App() {
       {/* <CheckoutPage> */}
       {/* <BrowserRouter> */}
       <AuthProvider>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          {/* <Route path="/Home" element={<Home />} /> */}
-          <Route path="/For-Men" element={<MenPage />} />
-          <Route path="/For-Women" element={<WomenPage />} />
-          <Route path="/Our-Story" element={<OurStoryPage />} />
-          <Route path="/Contact" element={<ContactPage />} />
-          <Route path="/Privacy-Policy" element={<PrivacyPolicy />} />
-          <Route path="/Terms" element={<Terms />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/products/:id" element={<ProductCheckout />} />
-          <Route path="/Login" element={<Login/>} />
-          <Route path="/Register" element={<Register />} />
-          <Route path="/LoginFace" element={<LoginFace />} />
-           
-          <Route path="/profile" element={<UserProfile />} />
-          <Route path="/profile/settings" element={<ProfileSettings />} />
+        <CartProvider>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            {/* <Route path="/Home" element={<Home />} /> */}
+            {/* <Route path="/For-Men" element={<MenPage />} /> */}
+            {/* <Route path="/For-Women" element={<WomenPage />} /> */}
+            <Route path="/Our-Story" element={<OurStoryPage />} />
+            <Route path="/Contact" element={<ContactPage />} />
+            <Route path="/Privacy-Policy" element={<PrivacyPolicy />} />
+            <Route path="/Terms" element={<Terms />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/products/:id" element={<ProductCheckout />} />
+            <Route path="/Login" element={<Login />} />
+            <Route path="/Register" element={<Register />} />
+            <Route path="/LoginFace" element={<LoginFace />} />
+
+            <Route path="/profile" element={<UserProfile />} />
+            <Route path="/profile/settings" element={<ProfileSettings />} />
+            <Route path="/wishlist" element={<Wishlist />} />
+            <Route path="/sell" element={<SellProduct />} />
+            <Route path="/my-submissions" element={<MySubmissions />} />
 
 
-          {/* <Route path="/ChatBot" element={<ChatBot />} /> */}
 
-          <Route 
-            path="/admin" 
-            element={
-             <ProtectedRoute requireAdmin = {true}>
-               <AdminLayout />  
-             </ProtectedRoute>
-             }>
+            {/* <Route path="/ChatBot" element={<ChatBot />} /> */}
+
+            <Route
+              path="/admin"
+              element={
+                <ProtectedRoute requireAdmin={true}>
+                  <AdminLayout />
+                </ProtectedRoute>
+              }
+            >
               <Route index element={<Dashboard />} />
-              <Route path="products" element={<AdminDashboard />} />
+              {/* <Route path="products" element={<AdminDashboard />} /> */}
+              <Route path="products" element={<ProductManager />} />
+
               <Route path="Users" element={<UserManager />} />
               <Route path="orders" element={<OrderManager />} />
               <Route path="analytics" element={<Analytics />} />
               <Route path="faq" element={<AdminFAQ />} />
-            
+              <Route path="submissions" element={<SubmissionReview />} />
+
+
               {/* <Route path="admindasboard" element={<AdminDashboard />} /> */}
               {/* <Route path="UpdateProduct" element={<UpdateProduct/>} /> */}
-          </Route>
+            </Route>
 
-          {/* <Route path="/error" element ={<error />} /> */}
-        </Routes>
+            {/* <Route path="/error" element ={<error />} /> */}
+          </Routes>
+        </CartProvider>
       </AuthProvider>
       {/* </BrowserRouter> */}
       {/* </CheckoutPage> */}

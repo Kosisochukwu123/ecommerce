@@ -8,49 +8,63 @@ export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [loading, setLoading] = useState(true);
 
-  // Check if user is logged in on mount
   useEffect(() => {
     const checkAuth = async () => {
-      if (token) {
+      const storedToken = localStorage.getItem("token");
+      
+      console.log("🔍 AuthContext: Checking auth, token exists:", !!storedToken);
+      
+      if (storedToken) {
         try {
-          const response = await getMe(token);
-          console.log("🔍 getMe response:", response);
-
-          // Extract user data from response
+          console.log("📡 Calling /me endpoint...");
+          const response = await getMe(storedToken);
+          console.log("✅ /me response:", response);
+          
+          // Handle different response structures
           const userData = response.user || response;
           console.log("👤 Setting user:", userData);
-
+          
           setUser(userData);
-          setToken(token);
+          setToken(storedToken);
         } catch (error) {
-          console.error("❌ Auth check failed:", error);
-          // Only clear token if it's actually invalid, not on network errors
-          if (
-            error.message.includes("token") ||
-            error.message.includes("401")
-          ) {
+          console.error("❌ AuthContext: /me failed:", error);
+          console.error("Error message:", error.message);
+          
+          // Only clear token if it's truly invalid (401/403/expired)
+          if (error.message.includes("401") || 
+              error.message.includes("403") || 
+              error.message.includes("Invalid token") ||
+              error.message.includes("Token expired") ||
+              error.message.includes("Not authorized")) {
             console.log("🗑️ Clearing invalid token");
             localStorage.removeItem("token");
             setToken(null);
             setUser(null);
+          } else {
+            // Network/server error - keep token but don't set user yet
+            console.log("⚠️ Network/server error, keeping token");
+            // User will need to refresh or the next API call will work
           }
         }
+      } else {
+        console.log("ℹ️ No token found");
       }
+      
+      console.log("🏁 Auth check complete");
       setLoading(false);
     };
 
     checkAuth();
-  }, [token]);
+  }, []);
 
   const login = async (email, password) => {
     const response = await loginApi(email, password);
-    console.log("🔐 Login API response:", response);
-
-    // Save token
-    setToken(response.token);
-    localStorage.setItem("token", response.token);
-
-    // Create user object with all necessary fields
+    console.log("🔐 Login response:", response);
+    
+    const newToken = response.token;
+    setToken(newToken);
+    localStorage.setItem("token", newToken);
+    
     const userData = {
       id: response.id,
       username: response.username,
@@ -59,12 +73,12 @@ export const AuthProvider = ({ children }) => {
       firstName: response.firstName,
       lastName: response.lastName,
       phone: response.phone,
+      avatar: response.avatar,
     };
-
-    console.log("✅ Setting user in context:", userData);
+    
+    console.log("✅ User logged in:", userData);
     setUser(userData);
-
-    // Return the user data for Login.jsx to use
+    
     return userData;
   };
 
@@ -77,18 +91,8 @@ export const AuthProvider = ({ children }) => {
 
   const isAdmin = user?.role === "admin";
 
-  // Debug log to see current state
-  console.log("🎯 Current auth state:", {
-    hasUser: !!user,
-    userRole: user?.role,
-    isAdmin,
-    loading,
-  });
-
   return (
-    <AuthContext.Provider
-      value={{ user, token, login, logout, loading, isAdmin }}
-    >
+    <AuthContext.Provider value={{ user, token, login, logout, loading, isAdmin }}>
       {children}
     </AuthContext.Provider>
   );

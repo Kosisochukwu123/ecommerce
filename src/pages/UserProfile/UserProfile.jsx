@@ -1,24 +1,30 @@
 import { useState, useEffect } from "react";
 import { useAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { getUserProfile } from "../../api/user";
 import "./UserProfile.css";
+import MySubmissions from "../MySubmissions/MySubmissions";
 
 function UserProfile() {
-  const { user, token, logout } = useAuth();
+  const { user, token, logout, loading: authLoading } = useAuth(); // ← Add authLoading
   const navigate = useNavigate();
   const [profile, setProfile] = useState(null);
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState("overview");
 
   useEffect(() => {
+    if (authLoading) {
+      return;
+    }
+
     if (!user) {
       navigate("/LoginFace");
       return;
     }
 
     loadProfile();
-  }, [user, navigate]);
+  }, [authLoading, user, navigate]);
 
   const loadProfile = async () => {
     try {
@@ -56,7 +62,7 @@ function UserProfile() {
     }
   };
 
-  if (loading) {
+  if (authLoading || loading) {
     return (
       <div className="profile-loading">
         <p>Loading profile...</p>
@@ -124,6 +130,7 @@ function UserProfile() {
               <span className="nav-icon">👤</span>
               <span>Overview</span>
             </button>
+
             <button
               className={`profile-nav-item ${activeTab === "settings" ? "active" : ""}`}
               onClick={() => setActiveTab("settings")}
@@ -131,6 +138,7 @@ function UserProfile() {
               <span className="nav-icon">⚙️</span>
               <span>Settings</span>
             </button>
+
             <button
               className={`profile-nav-item ${activeTab === "addresses" ? "active" : ""}`}
               onClick={() => setActiveTab("addresses")}
@@ -138,6 +146,7 @@ function UserProfile() {
               <span className="nav-icon">📍</span>
               <span>Addresses</span>
             </button>
+
             <button
               className={`profile-nav-item ${activeTab === "wishlist" ? "active" : ""}`}
               onClick={() => setActiveTab("wishlist")}
@@ -145,6 +154,16 @@ function UserProfile() {
               <span className="nav-icon">❤️</span>
               <span>Wishlist</span>
             </button>
+
+            {/* <Link to="/my-submissions">My Submissions</Link> */}
+            <button
+              className={`profile-nav-item ${activeTab === "my-submissions" ? "active" : ""}`}
+              onClick={() => navigate("/my-Submissions")}
+            >
+              <span className="nav-icon">📃</span>
+              <span>My Submission</span>
+            </button>
+
             <button
               className={`profile-nav-item ${activeTab === "orders" ? "active" : ""}`}
               onClick={() => setActiveTab("orders")}
@@ -273,9 +292,19 @@ function UserProfile() {
             <div className="profile-tab-content">
               <h2>My Wishlist</h2>
               {displayUser.wishlist && displayUser.wishlist.length > 0 ? (
-                <p>
-                  You have {displayUser.wishlist.length} items in your wishlist.
-                </p>
+                <div>
+                  <p>
+                    You have {displayUser.wishlist.length} items in your
+                    wishlist.
+                  </p>
+                  <button
+                    className="btn-primary"
+                    onClick={() => navigate("/wishlist")}
+                    style={{ marginTop: "20px" }}
+                  >
+                    View Wishlist →
+                  </button>
+                </div>
               ) : (
                 <div className="empty-message">
                   <p>Your wishlist is empty.</p>

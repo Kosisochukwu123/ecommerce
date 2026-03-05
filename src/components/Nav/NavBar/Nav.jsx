@@ -1,29 +1,21 @@
 import "./Nav.css";
 import { useState, useEffect } from "react";
-import { Search } from "../Search/Search.jsx";
 import { CheckoutPage } from "../Cart/CartItems.jsx";
 import { Link } from "react-router-dom";
-import {useLocation} from 'react-router-dom';
+import { useLocation } from "react-router-dom";
 import { useCart } from "../Cart/UseCart.jsx";
 
-
-const Nav = ({scrolledDesktopDistance = 440, alwaysScrolled = false,
-}) => {
+const Nav = ({ scrolledDesktopDistance = 440, alwaysScrolled = false }) => {
   const [open, setOpen] = useState(false);
-
   const [showCheckout, setShowCheckout] = useState(false);
-  const [showSearch, setShowSearch] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [scrolledDesktop, setScrolledDesktop] = useState(false);
-
   const location = useLocation();
-
   const { getTotalItems } = useCart();
 
   useEffect(() => {
-
     let scrollDistance;
-    
+
     if (alwaysScrolled) {
       setScrolled(true); // force scrolled state on this page
       return; // skip scroll logic
@@ -31,34 +23,23 @@ const Nav = ({scrolledDesktopDistance = 440, alwaysScrolled = false,
 
     // mobile screens
     if (window.innerWidth <= 480 && location.pathname === "/") {
-      scrollDistance = 820; 
-    }
-
-    else if (window.innerWidth <= 480) {
+      scrollDistance = 820;
+    } else if (window.innerWidth <= 480) {
       scrollDistance = 450;
     }
     // tablets
-
-      else if (window.innerWidth <= 768 && location.pathname === "/") {
-      scrollDistance = 1000; 
-    }
-    
-
-    else if (window.innerWidth <= 768) {
+    else if (window.innerWidth <= 768 && location.pathname === "/") {
+      scrollDistance = 1000;
+    } else if (window.innerWidth <= 768) {
       scrollDistance = 700;
-    }
-
-     else if (window.innerWidth <= 820 && location.pathname === "/") {
-      scrollDistance = 1150; 
-    }
-
-      else if (window.innerWidth <= 820) {
+    } else if (window.innerWidth <= 820 && location.pathname === "/") {
+      scrollDistance = 1150;
+    } else if (window.innerWidth <= 820) {
       scrollDistance = 800;
     }
 
-  
     // small laptops
-     else if (window.innerWidth <= 1024) {
+    else if (window.innerWidth <= 1024) {
       scrollDistance = 500;
     }
     // desktops
@@ -80,17 +61,14 @@ const Nav = ({scrolledDesktopDistance = 440, alwaysScrolled = false,
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-
   useEffect(() => {
-  
-   if (alwaysScrolled) {
+    if (alwaysScrolled) {
       setScrolledDesktop(true); // force scrolled state on this page
       return; // skip scroll logic
     }
 
     const handleScroll = () => {
-
-  if (window.scrollY > scrolledDesktopDistance) {
+      if (window.scrollY > scrolledDesktopDistance) {
         setScrolledDesktop(true);
       } else {
         setScrolledDesktop(false);
@@ -102,8 +80,6 @@ const Nav = ({scrolledDesktopDistance = 440, alwaysScrolled = false,
     // cleanup
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-
 
   return (
     <>
@@ -122,11 +98,10 @@ const Nav = ({scrolledDesktopDistance = 440, alwaysScrolled = false,
 
         <div className="header-icon">
           <span onClick={() => setShowCheckout(true)}>
-            <i className="fa-solid fa-cart-arrow-down"> <p>{getTotalItems()}</p> </i>
-          </span>
-
-          <span onClick={() => setShowSearch(true)}>
-            <i className="fa-solid fa-magnifying-glass"></i>
+            <i className="fa-solid fa-cart-arrow-down">
+              {" "}
+              <p>{getTotalItems()}</p>{" "}
+            </i>
           </span>
         </div>
 
@@ -142,7 +117,6 @@ const Nav = ({scrolledDesktopDistance = 440, alwaysScrolled = false,
       {/* desktop menu */}
 
       <div className={`desktop-view ${scrolledDesktop ? "scrolled" : null}`}>
-        
         <div className="desktop-menu">
           <Link to="/For-Men"> Men </Link>
           <Link to="/For-Women"> Women </Link>
@@ -153,26 +127,18 @@ const Nav = ({scrolledDesktopDistance = 440, alwaysScrolled = false,
         <div className="header-logo-desktop">Brandi</div>
 
         <div className="header-icon">
-
           <span onClick={() => setShowCheckout(true)}>
-            <i className="fa-solid fa-cart-arrow-down"><p>{getTotalItems()}</p></i>
-          </span>
-
-          <span onClick={() => setShowSearch(true)}>
-            <i className="fa-solid fa-magnifying-glass"></i>
+            <i className="fa-solid fa-cart-arrow-down">
+              <p>{getTotalItems()}</p>
+            </i>
           </span>
         </div>
-
       </div>
 
       <CheckoutPage
         showCheckout={showCheckout}
         setShowCheckout={setShowCheckout}
       />
-
-      <Search setShowSearch={setShowSearch} showSearch={showSearch} />
-
-      {/* <Shop/> */}
     </>
   );
 };

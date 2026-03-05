@@ -1,20 +1,20 @@
 import { useState, useEffect } from "react";
 import { useAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
-import { 
-  getUserProfile, 
-  updateUserProfile, 
+import {
+  getUserProfile,
+  updateUserProfile,
   changePassword,
   addAddress,
   updateAddress,
-  deleteAddress
+  deleteAddress,
 } from "../../api/user";
 import "./ProfileSettings.css";
 
 function ProfileSettings() {
-  const { user, token, logout } = useAuth();
+  const { user, token, logout, loading: authLoading } = useAuth(); // ← Add authLoading
   const navigate = useNavigate();
-  
+
   // Profile form state
   const [profileForm, setProfileForm] = useState({
     firstName: "",
@@ -45,30 +45,36 @@ function ProfileSettings() {
   const [addresses, setAddresses] = useState([]);
   const [editingAddress, setEditingAddress] = useState(null);
   const [showAddressForm, setShowAddressForm] = useState(false);
-  
+
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState({ type: "", text: "" });
   const [activeSection, setActiveSection] = useState("profile");
 
   useEffect(() => {
+    if (authLoading) {
+      return;
+    }
+
     if (!user) {
       navigate("/Login");
       return;
     }
     loadUserProfile();
-  }, [user, navigate]);
+  }, [authLoading, user, navigate]);
 
   const loadUserProfile = async () => {
     try {
       const response = await getUserProfile(token);
       const userData = response.user || response;
-      
+
       // Populate profile form
       setProfileForm({
         firstName: userData.firstName || "",
         lastName: userData.lastName || "",
         phone: userData.phone || "",
-        dateOfBirth: userData.dateOfBirth ? userData.dateOfBirth.split('T')[0] : "",
+        dateOfBirth: userData.dateOfBirth
+          ? userData.dateOfBirth.split("T")[0]
+          : "",
         gender: userData.gender || "",
       });
 
@@ -97,7 +103,8 @@ function ProfileSettings() {
 
   // Handle address form changes
   const handleAddressChange = (e) => {
-    const value = e.target.type === "checkbox" ? e.target.checked : e.target.value;
+    const value =
+      e.target.type === "checkbox" ? e.target.checked : e.target.value;
     setAddressForm({ ...addressForm, [e.target.name]: value });
   };
 
@@ -139,9 +146,9 @@ function ProfileSettings() {
         currentPassword: passwordForm.currentPassword,
         newPassword: passwordForm.newPassword,
       });
-      
+
       showMessage("success", "Password changed successfully!");
-      
+
       // Clear form
       setPasswordForm({
         currentPassword: "",
@@ -163,7 +170,11 @@ function ProfileSettings() {
     try {
       if (editingAddress) {
         // Update existing address
-        const response = await updateAddress(token, editingAddress._id, addressForm);
+        const response = await updateAddress(
+          token,
+          editingAddress._id,
+          addressForm,
+        );
         setAddresses(response.addresses);
         showMessage("success", "Address updated successfully!");
       } else {
@@ -172,7 +183,7 @@ function ProfileSettings() {
         setAddresses(response.addresses);
         showMessage("success", "Address added successfully!");
       }
-      
+
       // Reset form
       resetAddressForm();
     } catch (error) {
@@ -199,7 +210,8 @@ function ProfileSettings() {
 
   // Delete address
   const handleDeleteAddress = async (addressId) => {
-    if (!window.confirm("Are you sure you want to delete this address?")) return;
+    if (!window.confirm("Are you sure you want to delete this address?"))
+      return;
 
     setLoading(true);
 
@@ -229,6 +241,7 @@ function ProfileSettings() {
     setShowAddressForm(false);
   };
 
+
   return (
     <div className="profile-settings">
       {/* Back Button */}
@@ -244,9 +257,7 @@ function ProfileSettings() {
 
       {/* Message Alert */}
       {message.text && (
-        <div className={`alert alert-${message.type}`}>
-          {message.text}
-        </div>
+        <div className={`alert alert-${message.type}`}>{message.text}</div>
       )}
 
       {/* Settings Navigation */}
@@ -419,7 +430,10 @@ function ProfileSettings() {
 
             {/* Address Form */}
             {showAddressForm && (
-              <form className="settings-form address-form" onSubmit={handleAddressSubmit}>
+              <form
+                className="settings-form address-form"
+                onSubmit={handleAddressSubmit}
+              >
                 <div className="form-group">
                   <label>Address Type</label>
                   <select
@@ -511,11 +525,23 @@ function ProfileSettings() {
                 </div>
 
                 <div className="form-actions">
-                  <button type="button" className="btn-cancel" onClick={resetAddressForm}>
+                  <button
+                    type="button"
+                    className="btn-cancel"
+                    onClick={resetAddressForm}
+                  >
                     Cancel
                   </button>
-                  <button type="submit" className="btn-submit" disabled={loading}>
-                    {loading ? "Saving..." : editingAddress ? "Update Address" : "Add Address"}
+                  <button
+                    type="submit"
+                    className="btn-submit"
+                    disabled={loading}
+                  >
+                    {loading
+                      ? "Saving..."
+                      : editingAddress
+                        ? "Update Address"
+                        : "Add Address"}
                   </button>
                 </div>
               </form>
@@ -528,7 +554,9 @@ function ProfileSettings() {
                   <div key={address._id} className="address-item">
                     <div className="address-item-header">
                       <div>
-                        <span className="address-type-badge">{address.type}</span>
+                        <span className="address-type-badge">
+                          {address.type}
+                        </span>
                         {address.isDefault && (
                           <span className="default-badge">Default</span>
                         )}
@@ -552,7 +580,9 @@ function ProfileSettings() {
                     </div>
                     <div className="address-details">
                       <p>{address.street}</p>
-                      <p>{address.city}, {address.state} {address.zipCode}</p>
+                      <p>
+                        {address.city}, {address.state} {address.zipCode}
+                      </p>
                       <p>{address.country}</p>
                     </div>
                   </div>

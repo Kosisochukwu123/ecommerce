@@ -6,6 +6,14 @@ import authRoutes from "./routes/auth.js";
 import productRoutes from "./routes/products.js";
 import faqRoutes from "./routes/faq.routes.js";
 import adminFaqRoutes from "./routes/adminFaqRoutes.js";
+import orderRoutes from "./routes/orders.js"; 
+import uploadRoutes from "./routes/upload.js"; 
+import reviewRoutes from "./routes/reviews.js"; 
+import sellerSubmissionRoutes from "./routes/sellerSubmissions.js"; // ← ADD THIS
+
+
+
+
 
 dotenv.config({ quiet: true });
 
@@ -19,8 +27,8 @@ app.use(cors({
   origin: ["http://localhost:5173", "http://localhost:3000","https://ecommerce-2-87o9.onrender.com", "https://ecommerce-seven-gamma-40.vercel.app"],
   credentials: true,
 }));
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.json({limit : "50mb"}));
+app.use(express.urlencoded({ limit: "50mb", extended: true }));
 
 // Test route
 app.get("/", (req, res) => {
@@ -30,8 +38,13 @@ app.get("/", (req, res) => {
 // API Routes
 app.use("/api/users", authRoutes);
 app.use("/api/products", productRoutes);
+app.use("/api/orders", orderRoutes);  
 app.use("/api/faqs", faqRoutes);
 app.use("/api/admin/faqs", adminFaqRoutes);
+app.use("/api/upload", uploadRoutes); 
+app.use("/api/products", reviewRoutes); 
+app.use("/api/seller-submissions", sellerSubmissionRoutes); // ← ADD THIS
+
 
 // 404 handler
 app.use((req, res) => {

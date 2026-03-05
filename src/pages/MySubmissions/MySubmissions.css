@@ -1,0 +1,265 @@
+/* My Submissions Page */
+.submissions-container {
+  max-width: 1400px;
+  margin: 100px auto 60px;
+  padding: 0 24px;
+}
+
+.submissions-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.submissions-header h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 8px 0;
+}
+
+.submissions-header p {
+  font-size: 16px;
+  color: #6b7280;
+  margin: 0;
+}
+
+.btn-new-submission {
+  padding: 12px 24px;
+  background: #10b981;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-new-submission:hover {
+  background: #059669;
+}
+
+/* Submissions Grid */
+.submissions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.submission-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.submission-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.submission-image {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  background: #f3f4f6;
+}
+
+.submission-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.status-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 6px 12px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-badge.pending {
+  background: #fbbf24;
+  color: #92400e;
+}
+
+.status-badge.approved {
+  background: #10b981;
+  color: white;
+}
+
+.status-badge.rejected {
+  background: #ef4444;
+  color: white;
+}
+
+.submission-details {
+  padding: 20px;
+}
+
+.submission-details h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 8px 0;
+}
+
+.submission-category {
+  font-size: 13px;
+  color: #6b7280;
+  margin: 0 0 8px 0;
+  text-transform: capitalize;
+}
+
+.submission-price {
+  font-size: 24px;
+  font-weight: 700;
+  color: #3b82f6;
+  margin: 0 0 8px 0;
+}
+
+.submission-condition {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 0 0 4px 0;
+}
+
+.submission-date {
+  font-size: 13px;
+  color: #9ca3af;
+  margin: 0 0 16px 0;
+}
+
+/* Notices */
+.approval-notice,
+.rejection-notice,
+.pending-notice {
+  padding: 12px;
+  border-radius: 8px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.approval-notice {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.rejection-notice {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.pending-notice {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.approval-notice i,
+.rejection-notice i,
+.pending-notice i {
+  font-size: 18px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.approval-notice p,
+.rejection-notice p,
+.pending-notice p {
+  font-size: 13px;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.btn-delete-submission {
+  width: 100%;
+  padding: 10px;
+  background: #fee2e2;
+  color: #dc2626;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-delete-submission:hover {
+  background: #fecaca;
+}
+
+/* No Submissions */
+.no-submissions {
+  text-align: center;
+  padding: 100px 20px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.no-submissions i {
+  font-size: 64px;
+  color: #d1d5db;
+  margin-bottom: 20px;
+}
+
+.no-submissions h3 {
+  font-size: 24px;
+  color: #1f2937;
+  margin: 0 0 8px 0;
+}
+
+.no-submissions p {
+  font-size: 16px;
+  color: #6b7280;
+  margin: 0 0 24px 0;
+}
+
+.no-submissions button {
+  padding: 12px 24px;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Loading */
+.loading-state {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .submissions-container {
+    margin: 80px auto 40px;
+    padding: 0 16px;
+  }
+
+  .submissions-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .btn-new-submission {
+    width: 100%;
+  }
+
+  .submissions-grid {
+    grid-template-columns: 1fr;
+  }
+}

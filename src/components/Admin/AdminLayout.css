@@ -132,7 +132,10 @@
   padding: 20px 0;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 4px;
+  width: 30%;
+  margin-top: 1rem;
 }
 
 .nav-link {
@@ -146,6 +149,7 @@
   gap: 12px;
   transition: all 0.2s;
   border-left: 3px solid transparent;
+  width: 70%;
 }
 
 .nav-link:hover {
@@ -203,6 +207,10 @@
   display: block;
 }
 
+.admin-nav{
+  gap: 2rem;
+}
+
 /* ============================================
    RESPONSIVE BREAKPOINTS
    ============================================ */
@@ -219,6 +227,10 @@
 
   .admin-sidebar {
     width: 220px;
+  }
+
+  .admin-nav {
+    margin-top: 2rem !important;
   }
 }
 
@@ -268,6 +280,11 @@
   .logout-btn {
     padding: 6px 14px;
     font-size: 13px;
+  }
+
+  .nav-link {
+    width: 220%;
+    margin-top: 1rem;
   }
 
   /* Sidebar becomes overlay on mobile */
@@ -339,6 +356,8 @@
   .nav-link {
     padding: 10px 20px;
     font-size: 13px;
+    width: 200% !important;
+    margin-top: 1rem;
   }
 
   .sidebar-footer {
@@ -426,10 +445,38 @@
   }
 
   .admin-sidebar {
-    top: 50px;
+    top: -60px;
+    /* border: 2px solid red; */
+    font-size: 10px;
+    /* display: flex !important; */
+    /* flex-direction: row !important; */
+    /* gap: -3rem !important; */
+    /* height: 20vh; */
   }
 
   .nav-link {
     padding: 8px 20px;
+  }
+}
+
+@media (max-height: 767px) and (orientation: landscape) {
+
+  .admin-nav {
+    height: 100vh !important;
+    padding-top: 4rem;
+  }
+
+  .nav-link {
+    margin-top: -2.1rem;
+    width: 80%;
+  }
+}
+
+@media (max-height: 1000px) and (orientation: landscape) {
+  .admin-nav {
+    height: 60vh;
+    position: relative;
+    width: 100%;
+    padding-left: 0.5rem;
   }
 }

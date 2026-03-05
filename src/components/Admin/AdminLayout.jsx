@@ -63,6 +63,7 @@ function AdminLayout() {
 
         {/* Sidebar Navigation */}
         <aside className={`admin-sidebar ${sidebarOpen ? "open" : ""}`}>
+
           <nav className="admin-nav">
             <NavLink
               to="/admin"
@@ -116,6 +117,18 @@ function AdminLayout() {
             </NavLink>
 
             <NavLink
+              to="/admin/submissions"
+              className={({ isActive }) =>
+                isActive ? "nav-link active" : "nav-link"
+              }
+              onClick={closeSidebar}
+            >
+              {/* <i className="fa-solid fa-clipboard-check"></i> */}
+              📑
+              Submissions
+            </NavLink>
+
+            <NavLink
               to="/admin/faq"
               className={({ isActive }) =>
                 isActive ? "nav-link active" : "nav-link"
@@ -138,6 +151,7 @@ function AdminLayout() {
               🏠 View Store
             </button>
           </div>
+
         </aside>
 
         {/* Main Content Area */}

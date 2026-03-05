@@ -1,99 +1,175 @@
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { fetchProducts } from "../../api/product";
+import { useCart } from "../Nav/Cart/UseCart";
+import { useAuth } from "../../context/AuthContext";
+import { addToWishlist, removeFromWishlist, getWishlist } from "../../api/user";
+import Star from "../../../public/images/star.png";
 import "./NewArrivals.css";
 import { Link } from "react-router-dom";
-import img1 from "../../../public/images/nike-shoe.webp";
-import Star from "../../../public/images/star.png";
 
 const NewArrivals = () => {
+  const navigate = useNavigate();
   const rowRef = useRef(null);
+  const { addToCart } = useCart();
+  const { user, token } = useAuth();
+
+  const [newArrivals, setNewArrivals] = useState([]);
+  const [trendingProducts, setTrendingProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [wishlistIds, setWishlistIds] = useState([]);
+
+  useEffect(() => {
+    loadProducts();
+    if (user && token) {
+      loadWishlist();
+    }
+  }, [user, token]);
+
+  const loadProducts = async () => {
+    try {
+      setLoading(true);
+      const response = await fetchProducts({});
+
+      // Get 6 newest products (by createdAt)
+      const newest = response.data
+        .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+        .slice(0, 6);
+
+      // Get 6 top-rated products (by rating stars)
+      const trending = response.data
+        .filter((p) => p.rating && p.rating.stars > 0)
+        .sort((a, b) => {
+          // Sort by stars first, then by review count
+          if (b.rating.stars !== a.rating.stars) {
+            return b.rating.stars - a.rating.stars;
+          }
+          return b.rating.count - a.rating.count;
+        })
+        .slice(0, 6);
+
+      setNewArrivals(newest);
+      setTrendingProducts(trending);
+    } catch (error) {
+      console.error("Error loading products:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const loadWishlist = async () => {
+    try {
+      const response = await getWishlist(token);
+      const ids = response.wishlist.map((item) => item._id);
+      setWishlistIds(ids);
+    } catch (error) {
+      console.error("Error loading wishlist:", error);
+    }
+  };
+
+  const handleWishlistToggle = async (productId) => {
+    if (!user) {
+      alert("Please login to add items to wishlist");
+      navigate("/Login");
+      return;
+    }
+
+    try {
+      if (wishlistIds.includes(productId)) {
+        await removeFromWishlist(token, productId);
+        setWishlistIds(wishlistIds.filter((id) => id !== productId));
+      } else {
+        await addToWishlist(token, productId);
+        setWishlistIds([...wishlistIds, productId]);
+      }
+    } catch (error) {
+      console.error("Error toggling wishlist:", error);
+    }
+  };
+
+  const handleAddToCart = (product) => {
+    addToCart(product, 1);
+  };
+
+  const handleProductClick = (product) => {
+    navigate(`/products/${product._id}`, { state: { product } });
+  };
 
   const slideLeft = () => {
-    rowRef.current.scrollLeft -= 200;
+    rowRef.current.scrollLeft -= 300;
   };
 
   const slideRight = () => {
-    rowRef.current.scrollLeft += 200;
+    rowRef.current.scrollLeft += 300;
   };
+
+  const calculateDiscount = (product) => {
+    if (product.discountCents && product.discountCents < product.priceCents) {
+      return Math.round(
+        ((product.priceCents - product.discountCents) / product.priceCents) * 100
+      );
+    }
+    return 0;
+  };
+
+  if (loading) {
+    return (
+      <div className="New-arrivals-container">
+        <div className="loading-message">Loading products...</div>
+      </div>
+    );
+  }
 
   return (
     <div className="New-arrivals-container">
+      {/* TRENDING SIDEBAR */}
       <aside>
         <h3>Trending Products</h3>
 
         <div className="aside-container">
-          <div className="aside-content">
-            <img src={img1} alt="" srcset="" />
+          {trendingProducts.length > 0 ? (
+            trendingProducts.map((product) => {
+              const finalPrice = product.discountCents || product.priceCents;
+              const hasDiscount = product.discountCents && product.discountCents < product.priceCents;
 
-            <div className="aside-content-detail">
-              <p>Ofe akwu mixed with banger soup</p>
-              <span>
-                <b>$140</b>$200
-              </span>
+              return (
+                <div
+                  key={product._id}
+                  className="aside-content"
+                  onClick={() => handleProductClick(product)}
+                  style={{ cursor: "pointer" }}
+                >
+                  <img src={product.image} alt={product.name} />
+
+                  <div className="aside-content-detail">
+                    <p>{product.name}</p>
+                    <span>
+                      <b>${(finalPrice / 100).toFixed(2)}</b>
+                      {hasDiscount && (
+                        <span className="old-price">
+                          ${(product.priceCents / 100).toFixed(2)}
+                        </span>
+                      )}
+                    </span>
+                    {product.rating && product.rating.stars > 0 && (
+                      <div className="trending-rating">
+                        <img src={Star} alt="star" />
+                        <span>{product.rating.stars.toFixed(1)}</span>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              );
+            })
+          ) : (
+            <div className="no-products">
+              <p>No trending products yet</p>
             </div>
-          </div>
-
-          <div className="aside-content">
-            <img src={img1} alt="" srcset="" />
-
-            <div className="aside-content-detail">
-              <p>Ofe akwu mixed with banger soup</p>
-              <span>
-                {" "}
-                <b>$140</b>$200
-              </span>
-            </div>
-          </div>
-
-          <div className="aside-content">
-            <img src={img1} alt="" srcset="" />
-
-            <div className="aside-content-detail">
-              <p>Ofe akwu mixed with banger soup</p>
-              <span>
-                {" "}
-                <b>$140</b>$200
-              </span>
-            </div>
-          </div>
-
-          <div className="aside-content">
-            <img src={img1} alt="" srcset="" />
-
-            <div className="aside-content-detail">
-              <p>Ofe akwu mixed with banger soup</p>
-              <span>
-                {" "}
-                <b>$140</b>$200
-              </span>
-            </div>
-          </div>
-
-          <div className="aside-content">
-            <img src={img1} alt="" srcset="" />
-
-            <div className="aside-content-detail">
-              <p>Ofe akwu mixed with banger soup</p>
-              <span>
-                {" "}
-                <b>$140</b>$200
-              </span>
-            </div>
-          </div>
-
-          <div className="aside-content">
-            <img src={img1} alt="" srcset="" />
-
-            <div className="aside-content-detail">
-              <p>Ofe akwu mixed with banger soup</p>
-              <span>
-                {" "}
-                <b>$140</b>$200
-              </span>
-            </div>
-          </div>
+          )}
         </div>
       </aside>
 
+      {/* NEW ARRIVALS SECTION */}
       <div className="New-arrivals">
         <div className="New-arrivals-head">
           <h3>New Arrivals</h3>
@@ -106,41 +182,91 @@ const NewArrivals = () => {
         </div>
 
         <div ref={rowRef} className="wrapper">
-          {Array.from({ length: 6 }).map((_, i) => (
-            <div key={i} className="items">
-              <div className="items-banner">new</div>
+          {newArrivals.length > 0 ? (
+            newArrivals.map((product) => {
+              const finalPrice = product.discountCents || product.priceCents;
+              const hasDiscount = product.discountCents && product.discountCents < product.priceCents;
+              const discount = calculateDiscount(product);
+              const isInWishlist = wishlistIds.includes(product._id);
 
-              <div className="innerdisplay">
+              return (
+                <div key={product._id} className="items">
+                  {hasDiscount && (
+                    <div className="items-banner">{discount}% off</div>
+                  )}
 
-                <div className="image-wrapper">
-                  {/* HOVER ICONS */}
-                  <div className="hover-icons">
-                    <button className="icon-btn">
-                      <i className="fa-regular fa-heart"></i>
-                    </button>
-                    <button className="icon-btn">
-                      <i className="fa-solid fa-arrow-up-right-from-square"></i>
-                    </button>
+                  <div className="innerdisplay">
+                    <div className="image-wrapper">
+                      {/* HOVER ICONS */}
+                      <div className="hover-icons">
+                        <button
+                          className={`icon-btn ${isInWishlist ? "active" : ""}`}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleWishlistToggle(product._id);
+                          }}
+                          title={isInWishlist ? "Remove from wishlist" : "Add to wishlist"}
+                        >
+                          <i className={`fa-${isInWishlist ? "solid" : "regular"} fa-heart`}></i>
+                        </button>
+                        <button
+                          className="icon-btn"
+                          onClick={() => handleProductClick(product)}
+                          title="View details"
+                        >
+                          <i className="fa-solid fa-arrow-up-right-from-square"></i>
+                        </button>
+                      </div>
+
+                      {/* ADD TO CART */}
+                      <button
+                        className="add-to-cart"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleAddToCart(product);
+                        }}
+                      >
+                        Add To Cart
+                      </button>
+                    </div>
+
+                    <div
+                      className="items-content"
+                      onClick={() => handleProductClick(product)}
+                      style={{ cursor: "pointer" }}
+                    >
+                      <img className="image-product" src={product.image} alt={product.name} />
+                      <h2>{product.name}</h2>
+                      
+                      {product.rating && product.rating.stars > 0 && (
+                        <span>
+                          <img src={Star} alt="star" />
+                          <b>{product.rating.stars.toFixed(1)}</b>
+                          <small>({product.rating.count})</small>
+                        </span>
+                      )}
+
+                      <p>
+                        <b>${(finalPrice / 100).toFixed(2)}</b>
+                        {hasDiscount && (
+                          <span className="strike-price">
+                            ${(product.priceCents / 100).toFixed(2)}
+                          </span>
+                        )}
+                      </p>
+                    </div>
+
                   </div>
-
-                  {/* ADD TO CART */}
-                  <button className="add-to-cart">Add To Cart</button>
                 </div>
 
-                <div className="items-content">
-                  <img src={img1} alt="" />
-                  <h2>jumbo shoe low 77 pro</h2>
-                  <span>
-                    <img src={Star} alt="star" /> <b>3.5</b>
-                  </span>
-                  <p>
-                    <b>$99.9</b> $120{" "}
-                  </p>
-                </div>
-
-              </div>
+           
+              );
+            })
+          ) : (
+            <div className="no-products-grid">
+              <p>No new arrivals yet</p>
             </div>
-          ))}
+          )}
         </div>
 
         <div className="New-Arrivals-buttons">

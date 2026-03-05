@@ -1,0 +1,88 @@
+/* Add to Cart Button */
+.add-to-cart-btn {
+  padding: 12px 24px !important;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  z-index: 1;
+}
+
+.add-to-cart-btn:hover {
+  background: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.add-to-cart-btn:active {
+  transform: translateY(0);
+}
+
+.add-to-cart-btn.adding {
+  background: #10b981;
+  animation: pulse 0.6s ease;
+}
+
+.add-to-cart-btn.in-cart {
+  background: #6b7280;
+}
+
+.add-to-cart-btn.in-cart:hover {
+  background: #4b5563;
+}
+
+.adding-text {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Cart Toast Notification */
+.cart-toast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #10b981;
+  color: white;
+  padding: 16px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  z-index: 10000;
+}
+
+.cart-toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .cart-toast {
+    bottom: 20px;
+    right: 20px;
+    left: 20px;
+    text-align: center;
+  }
+}

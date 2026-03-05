@@ -89,3 +89,40 @@ export const removeFromWishlist = async (token, productId) => {
   });
   return handleResponse(response);
 };
+
+// Get wishlist with full product details
+export const getWishlist = async (token) => {
+  const response = await fetch(`${BASE_URL}/wishlist`, {
+    headers: authHeaders(token),
+  });
+  return handleResponse(response);
+};
+
+
+// Get all users (Admin only)
+export const getAllUsers = async (token) => {
+  const response = await fetch(`${BASE_URL}/all`, {
+    headers: authHeaders(token),
+  });
+  return handleResponse(response);
+};
+
+// Update user role (Admin only)
+export const updateUserRole = async (token, userId, role) => {
+  const response = await fetch(`${BASE_URL}/${userId}/role`, {
+    method: "PUT",
+    headers: authHeaders(token),
+    body: JSON.stringify({ role }),
+  });
+  return handleResponse(response);
+};
+
+// Delete user (Admin only)
+export const deleteUser = async (token, userId) => {
+  const response = await fetch(`${BASE_URL}/${userId}`, {
+    method: "DELETE",
+    headers: authHeaders(token),
+  });
+  return handleResponse(response);
+};
+
