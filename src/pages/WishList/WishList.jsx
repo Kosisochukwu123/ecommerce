@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { getWishlist, removeFromWishlist } from "../../api/user";
-import "./Wishlist.css";
+import "./WishList.css";
 
 function Wishlist() {
   const { user, token, loading: authLoading } = useAuth(); // ← Add loading from context
