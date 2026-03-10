@@ -35,24 +35,39 @@ export const CartProvider = ({ children }) => {
             name: product.name,
             image: product.image,
             priceCents: product.discountCents || product.priceCents,
+            originalPriceCents: product.priceCents,
+            discountCents: product.discountCents,
             quantity: quantity,
             category: product.category,
+            brand: product.brand,
           },
         ];
       }
     });
 
-    // Show success message
-    showToast(`${product.name} added to cart!`);
+    // Show success toast
+    showToast(`✓ ${product.name} added to cart!`, "success");
   };
 
   const removeFromCart = (productId) => {
-    setCartItems((prevItems) => prevItems.filter((item) => item.id !== productId));
+    const item = cartItems.find((item) => item.id === productId);
+    if (item) {
+      setCartItems((prevItems) =>
+        prevItems.filter((item) => item.id !== productId)
+      );
+      showToast(`${item.name} removed from cart`, "info");
+    }
   };
 
   const updateQuantity = (productId, newQuantity) => {
     if (newQuantity < 1) {
       removeFromCart(productId);
+      return;
+    }
+
+    // Prevent adding more than 99 items
+    if (newQuantity > 99) {
+      showToast("Maximum quantity is 99", "warning");
       return;
     }
 
@@ -64,8 +79,10 @@ export const CartProvider = ({ children }) => {
   };
 
   const clearCart = () => {
+    const itemCount = cartItems.length;
     setCartItems([]);
     localStorage.removeItem("cart");
+    showToast(`Cart cleared! ${itemCount} items removed`, "info");
   };
 
   const getTotalPrice = () => {
@@ -79,22 +96,81 @@ export const CartProvider = ({ children }) => {
     return cartItems.reduce((total, item) => total + item.quantity, 0);
   };
 
+  const getTotalSavings = () => {
+    return cartItems.reduce((total, item) => {
+      if (item.discountCents && item.originalPriceCents) {
+        const savings =
+          (item.originalPriceCents - item.discountCents) * item.quantity;
+        return total + savings;
+      }
+      return total;
+    }, 0);
+  };
+
   const isInCart = (productId) => {
     return cartItems.some((item) => item.id === productId);
   };
 
-  const showToast = (message) => {
+  const getItemQuantity = (productId) => {
+    const item = cartItems.find((item) => item.id === productId);
+    return item ? item.quantity : 0;
+  };
+
+  const incrementQuantity = (productId) => {
+    const item = cartItems.find((item) => item.id === productId);
+    if (item) {
+      updateQuantity(productId, item.quantity + 1);
+    }
+  };
+
+  const decrementQuantity = (productId) => {
+    const item = cartItems.find((item) => item.id === productId);
+    if (item) {
+      updateQuantity(productId, item.quantity - 1);
+    }
+  };
+
+  const showToast = (message, type = "success") => {
     const toast = document.createElement("div");
-    toast.className = "cart-toast";
-    toast.textContent = message;
+    toast.className = `cart-toast cart-toast-${type}`;
+
+    const icon = document.createElement("span");
+    icon.className = "toast-icon";
+
+    switch (type) {
+      case "success":
+        icon.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
+        break;
+      case "error":
+        icon.innerHTML = '<i class="fa-solid fa-circle-xmark"></i>';
+        break;
+      case "warning":
+        icon.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i>';
+        break;
+      case "info":
+        icon.innerHTML = '<i class="fa-solid fa-circle-info"></i>';
+        break;
+      default:
+        icon.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
+    }
+
+    const text = document.createElement("span");
+    text.textContent = message;
+
+    toast.appendChild(icon);
+    toast.appendChild(text);
     document.body.appendChild(toast);
 
     setTimeout(() => toast.classList.add("show"), 10);
 
     setTimeout(() => {
-      toast.classList.remove("show");
-      setTimeout(() => document.body.removeChild(toast), 300);
-    }, 2500);
+      toast.classList.add("hide");
+      setTimeout(() => {
+        if (document.body.contains(toast)) {
+          document.body.removeChild(toast);
+        }
+      }, 300);
+    }, 3000);
   };
 
   return (
@@ -104,10 +180,14 @@ export const CartProvider = ({ children }) => {
         addToCart,
         removeFromCart,
         updateQuantity,
+        incrementQuantity,
+        decrementQuantity,
         clearCart,
         getTotalPrice,
         getTotalItems,
+        getTotalSavings,
         isInCart,
+        getItemQuantity,
       }}
     >
       {children}

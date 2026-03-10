@@ -57,8 +57,8 @@ const Home = () => {
       <QuickLinks />
       <Header />
       <NewArrivals />
-      <Socials />
       <About />
+      <Socials />
       <Footer />
     </div>
   );
