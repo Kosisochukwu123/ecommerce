@@ -1,63 +1,115 @@
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api/admin';
+// ✅ FIX: Use correct environment variable and endpoint
+const backendAddress = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
+const API_URL = `${backendAddress}/api/faqs`; // Changed from /api/admin
 
 class FAQService {
-  // 📞 Call to get FAQs for visitors
+  // Get auth headers
+  getAuthHeaders() {
+    const token = localStorage.getItem('token'); // Changed from 'adminToken'
+    return {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`
+    };
+  }
+
+  // Get FAQs for visitors (public - no auth needed)
   async getFAQs() {
     try {
-      const response = await fetch(`${API_URL}/faqs`);
+      const response = await fetch(`${API_URL}/public`); // Public endpoint
+      
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+      }
+      
       const data = await response.json();
-      return data.faqs;
+      return data.faqs || data; // Handle different response formats
     } catch (error) {
-      console.error('Failed to load FAQs:', error);
-      return [];
+      console.error('❌ Failed to load FAQs:', error.message);
+      throw error; // Re-throw so component can handle it
     }
   }
 
-  // 📞 Call to get all FAQs for admin
+  // Get all FAQs for admin (requires auth)
   async getAdminFAQs() {
-    const response = await fetch(`${API_URL}/faqs`, {
-      headers: this.getAuthHeaders()
-    });
-    const data = await response.json();
-    return data.faqs;
+    try {
+      const response = await fetch(API_URL, {
+        headers: this.getAuthHeaders()
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.message || `HTTP ${response.status}`);
+      }
+
+      const data = await response.json();
+      console.log('✅ FAQs loaded:', data);
+      return data.faqs || data;
+    } catch (error) {
+      console.error('❌ Failed to load admin FAQs:', error.message);
+      throw error;
+    }
   }
 
-  // 📞 Call to add new FAQ
+  // Create new FAQ
   async createFAQ(faq) {
-    const response = await fetch(`${API_URL}/faqs`, {
-      method: 'POST',
-      headers: this.getAuthHeaders(),
-      body: JSON.stringify(faq)
-    });
-    return response.json();
+    try {
+      const response = await fetch(API_URL, {
+        method: 'POST',
+        headers: this.getAuthHeaders(),
+        body: JSON.stringify(faq)
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.message || 'Failed to create FAQ');
+      }
+
+      return response.json();
+    } catch (error) {
+      console.error('❌ Failed to create FAQ:', error.message);
+      throw error;
+    }
   }
 
-  // 📞 Call to update FAQ
+  // Update FAQ
   async updateFAQ(id, faq) {
-    const response = await fetch(`${API_URL}/faqs/${id}`, {
-      method: 'PUT',
-      headers: this.getAuthHeaders(),
-      body: JSON.stringify(faq)
-    });
-    return response.json();
+    try {
+      const response = await fetch(`${API_URL}/${id}`, {
+        method: 'PUT',
+        headers: this.getAuthHeaders(),
+        body: JSON.stringify(faq)
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.message || 'Failed to update FAQ');
+      }
+
+      return response.json();
+    } catch (error) {
+      console.error('❌ Failed to update FAQ:', error.message);
+      throw error;
+    }
   }
 
-  // 📞 Call to delete FAQ
+  // Delete FAQ
   async deleteFAQ(id) {
-    const response = await fetch(`${API_URL}/faqs/${id}`, {
-      method: 'DELETE',
-      headers: this.getAuthHeaders()
-    });
-    return response.json();
-  }
+    try {
+      const response = await fetch(`${API_URL}/${id}`, {
+        method: 'DELETE',
+        headers: this.getAuthHeaders()
+      });
 
-  // 🔑 Get admin password (token)
-  getAuthHeaders() {
-    const token = localStorage.getItem('adminToken');
-    return {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
-    };
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.message || 'Failed to delete FAQ');
+      }
+
+      return response.json();
+    } catch (error) {
+      console.error('❌ Failed to delete FAQ:', error.message);
+      throw error;
+    }
   }
 }
 

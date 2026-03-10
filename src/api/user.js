@@ -33,16 +33,6 @@ export const updateUserProfile = async (token, profileData) => {
   return handleResponse(response);
 };
 
-// Change password
-export const changePassword = async (token, passwordData) => {
-  const response = await fetch(`${BASE_URL}/change-password`, {
-    method: "PUT",
-    headers: authHeaders(token),
-    body: JSON.stringify(passwordData),
-  });
-  return handleResponse(response);
-};
-
 // Add address
 export const addAddress = async (token, addressData) => {
   const response = await fetch(`${BASE_URL}/address`, {

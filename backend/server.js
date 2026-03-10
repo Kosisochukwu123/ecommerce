@@ -10,6 +10,7 @@ import orderRoutes from "./routes/orders.js";
 import uploadRoutes from "./routes/upload.js"; 
 import reviewRoutes from "./routes/reviews.js"; 
 import sellerSubmissionRoutes from "./routes/sellerSubmissions.js"; // ← ADD THIS
+import settingsRoutes from "./routes/settings.js";
 
 
 
@@ -46,6 +47,7 @@ app.use("/api/upload", uploadRoutes);
 app.use("/api/products", reviewRoutes); 
 app.use("/api/seller-submissions", sellerSubmissionRoutes); // ← ADD THIS
 // app.use("/api/auth", authRoutes); 
+app.use("/api/settings", settingsRoutes);
 
 
 // 404 handler

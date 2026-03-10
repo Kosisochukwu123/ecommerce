@@ -4,11 +4,12 @@ import { useNavigate } from "react-router-dom";
 import {
   getUserProfile,
   updateUserProfile,
-  changePassword,
+  // changePassword,
   addAddress,
   updateAddress,
   deleteAddress,
 } from "../../api/user";
+import { changePassword } from '../../api/auth';
 import "./ProfileSettings.css";
 
 function ProfileSettings() {
