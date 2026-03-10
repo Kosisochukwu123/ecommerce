@@ -141,9 +141,9 @@ const userSchema = new mongoose.Schema(
 // ============================================
 
 // Index for faster login queries
-userSchema.index({ email: 1 });
-userSchema.index({ phone: 1 });
-userSchema.index({ username: 1 });
+// userSchema.index({ email: 1 });
+// userSchema.index({ phone: 1 });
+// userSchema.index({ username: 1 });
 
 // ============================================
 // PRE-SAVE MIDDLEWARE
@@ -266,16 +266,16 @@ userSchema.virtual("maskedEmail").get(function () {
 // ============================================
 
 // Find user by email or phone
-userSchema.statics.findByEmailOrPhone = async function (identifier) {
-  // Check if it's an email
+userSchema.statics.findByEmailOrPhone = function (identifier) {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   
   if (emailRegex.test(identifier)) {
-    return await this.findOne({ email: identifier.toLowerCase() });
+    // It's an email
+    return this.findOne({ email: identifier.toLowerCase() });
   } else {
-    // Assume it's a phone number - normalize it
+    // It's a phone number - normalize it
     const normalizedPhone = identifier.replace(/[\s\-\(\)]/g, "");
-    return await this.findOne({ phone: normalizedPhone });
+    return this.findOne({ phone: normalizedPhone });
   }
 };
 

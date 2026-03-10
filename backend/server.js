@@ -37,7 +37,7 @@ app.get("/", (req, res) => {
 });
 
 // API Routes
-// app.use("/api/users", authRoutes);
+app.use("/api/users", authRoutes);
 app.use("/api/products", productRoutes);
 app.use("/api/orders", orderRoutes);  
 app.use("/api/faqs", faqRoutes);
@@ -45,7 +45,7 @@ app.use("/api/admin/faqs", adminFaqRoutes);
 app.use("/api/upload", uploadRoutes); 
 app.use("/api/products", reviewRoutes); 
 app.use("/api/seller-submissions", sellerSubmissionRoutes); // ← ADD THIS
-app.use("/api/auth", authRoutes); // Changed from /api/users to /api/auth
+// app.use("/api/auth", authRoutes); 
 
 
 // 404 handler
