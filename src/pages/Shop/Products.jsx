@@ -18,13 +18,13 @@ import adVideo from "../../../public/video/NikeAD.mp4";
 import Footer from "../../components/Footer/Footer";
 import img from "../../../public/images/aside-products.png";
 import { useAuth } from "../../context/AuthContext";
+import { useLocation, useNavigationType } from "react-router-dom";
 
 const Products = () => {
   const navigate = useNavigate();
   const { user } = useAuth();
   const { getTotalItems } = useCart();
   const searchRef = useRef(null);
-
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -34,6 +34,8 @@ const Products = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [showSearchDropdown, setShowSearchDropdown] = useState(false);
+  const location = useLocation();
+  const navigationType = useNavigationType();
 
   // ← ADD FILTER STATES
   const [priceRange, setPriceRange] = useState([0, 50000]); // in cents (0 to $500)
@@ -124,6 +126,64 @@ const Products = () => {
       setLoading(false);
     }
   };
+
+  // ← ADD THIS: Restore scroll AFTER products load
+  useEffect(() => {
+    if (!loading && navigationType === "POP") {
+      const savedPosition = sessionStorage.getItem(
+        `scroll-${location.pathname}`,
+      );
+
+      if (savedPosition) {
+        const targetPosition = parseInt(savedPosition, 10);
+
+        // Try multiple times to ensure content is fully loaded
+        let attempts = 0;
+        const maxAttempts = 10;
+
+        const tryScroll = () => {
+          setTimeout(() => {
+            const pageHeight = document.documentElement.scrollHeight;
+            const windowHeight = window.innerHeight;
+            const maxScroll = pageHeight - windowHeight;
+
+            if (targetPosition <= maxScroll || attempts >= maxAttempts) {
+              // Content is ready or we've tried enough
+              window.scrollTo({
+                top: targetPosition,
+                behavior: "instant",
+              });
+            } else {
+              // Try again
+              attempts++;
+              tryScroll();
+            }
+          }, 100);
+        };
+
+        tryScroll();
+      }
+    }
+  }, [loading, navigationType, location.pathname]);
+
+  // ← ADD THIS: Save scroll position while scrolling
+  useEffect(() => {
+    let scrollTimer;
+    const handleScroll = () => {
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(() => {
+        sessionStorage.setItem(`scroll-${location.pathname}`, window.scrollY);
+      }, 100);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      clearTimeout(scrollTimer);
+      window.removeEventListener("scroll", handleScroll);
+      sessionStorage.setItem(`scroll-${location.pathname}`, window.scrollY);
+    };
+  }, [location.pathname]);
 
   // ← UPDATED FILTER FUNCTION WITH PRICE RANGE AND CATEGORIES
   const filterProducts = () => {
@@ -276,7 +336,7 @@ const Products = () => {
 
       <div className="products-container">
         <div className="products-video">
-          <video src={adVideo} autoPlay muted loop></video>
+          <video src={adVideo} muted loop playsInline autoPlay></video>
           <div className="overlay"></div>
           <div className="contact-here">Contact here: 665656555</div>
         </div>
@@ -292,7 +352,6 @@ const Products = () => {
 
         <div className="products-container-top">
           <div className="products-container-top-1">
-
             <div className="products-container-top-details">
               <img src={profileImg} alt="Profile" />
               <div className="aaa">
@@ -387,7 +446,6 @@ const Products = () => {
                 <p>0</p>
               </i> */}
             </div>
-            
           </div>
 
           <div className="products-container-top-2">

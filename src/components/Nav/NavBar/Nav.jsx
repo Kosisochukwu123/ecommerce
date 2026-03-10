@@ -99,8 +99,7 @@ const Nav = ({ scrolledDesktopDistance = 440, alwaysScrolled = false }) => {
         <div className="header-icon">
           <span onClick={() => setShowCheckout(true)}>
             <i className="fa-solid fa-cart-arrow-down">
-              {" "}
-              <p>{getTotalItems()}</p>{" "}
+              <p>{getTotalItems()}</p>
             </i>
           </span>
         </div>
@@ -112,6 +111,7 @@ const Nav = ({ scrolledDesktopDistance = 440, alwaysScrolled = false }) => {
           <Link to="/Our-Story"> Our story </Link>
           <Link to="/Contact"> Contact </Link>
         </div>
+        
       </nav>
 
       {/* desktop menu */}

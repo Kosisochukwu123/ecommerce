@@ -1,7 +1,7 @@
 /* Add to Cart Button */
 .add-to-cart-btn {
   padding: 12px 24px !important;
-  background: #3b82f6;
+  background: var(--button-color--) !important;
   color: white;
   border: none;
   border-radius: 8px;

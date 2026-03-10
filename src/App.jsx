@@ -32,13 +32,12 @@ import ProfileSettings from "./pages/ProfileSettings/ProfileSettings.jsx";
 import Wishlist from "./pages/WishList/WishList.jsx";
 
 // import { CartProvider } from "./components/Cart/UseCart";
-import { CartProvider } from "./components/Nav/Cart/UseCart.jsx"
+import { CartProvider } from "./components/Nav/Cart/UseCart.jsx";
 import ProductManager from "./components/Admin/pages/ProductManager/ProductManager";
 
 import SellProduct from "./pages/SellProduct/SellProduct";
 import MySubmissions from "./pages/MySubmissions/MySubmissions";
 import SubmissionReview from "./components/Admin/pages/SubmissionReview/SubmissionReview";
-
 
 // import UpdateProduct from './components/Admin/pages/AdminProducts.jsx';
 
@@ -52,6 +51,9 @@ import "aos/dist/aos.css";
 // import CursorFollower from "./components/CursorFollower";
 
 import SmoothScroll from "./SmoothScroll.jsx";
+
+// import { ScrollRestoration } from "react-router-dom";
+import ScrollRestoration from "./components/ScrollRestore.jsx";
 
 import { AuthProvider } from "./context/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute.jsx"; // ← ADD THIS
@@ -69,18 +71,13 @@ function App() {
       <OpenPageAnimation />
       <ScrollToTop />
       <SmoothScroll />
-      {/* <ChatBot/> */}
 
-      {/* <CursorFollower /> */}
-      {/* <CheckoutPage> */}
-      {/* <BrowserRouter> */}
       <AuthProvider>
         <CartProvider>
+        <ScrollRestoration />
+
           <Routes>
             <Route path="/" element={<Home />} />
-            {/* <Route path="/Home" element={<Home />} /> */}
-            {/* <Route path="/For-Men" element={<MenPage />} /> */}
-            {/* <Route path="/For-Women" element={<WomenPage />} /> */}
             <Route path="/Our-Story" element={<OurStoryPage />} />
             <Route path="/Contact" element={<ContactPage />} />
             <Route path="/Privacy-Policy" element={<PrivacyPolicy />} />
@@ -90,16 +87,11 @@ function App() {
             <Route path="/Login" element={<Login />} />
             <Route path="/Register" element={<Register />} />
             <Route path="/LoginFace" element={<LoginFace />} />
-
             <Route path="/profile" element={<UserProfile />} />
             <Route path="/profile/settings" element={<ProfileSettings />} />
             <Route path="/wishlist" element={<Wishlist />} />
             <Route path="/sell" element={<SellProduct />} />
             <Route path="/my-submissions" element={<MySubmissions />} />
-
-
-
-            {/* <Route path="/ChatBot" element={<ChatBot />} /> */}
 
             <Route
               path="/admin"
@@ -110,26 +102,16 @@ function App() {
               }
             >
               <Route index element={<Dashboard />} />
-              {/* <Route path="products" element={<AdminDashboard />} /> */}
               <Route path="products" element={<ProductManager />} />
-
               <Route path="Users" element={<UserManager />} />
               <Route path="orders" element={<OrderManager />} />
               <Route path="analytics" element={<Analytics />} />
               <Route path="faq" element={<AdminFAQ />} />
               <Route path="submissions" element={<SubmissionReview />} />
-
-
-              {/* <Route path="admindasboard" element={<AdminDashboard />} /> */}
-              {/* <Route path="UpdateProduct" element={<UpdateProduct/>} /> */}
             </Route>
-
-            {/* <Route path="/error" element ={<error />} /> */}
           </Routes>
         </CartProvider>
       </AuthProvider>
-      {/* </BrowserRouter> */}
-      {/* </CheckoutPage> */}
     </>
   );
 }

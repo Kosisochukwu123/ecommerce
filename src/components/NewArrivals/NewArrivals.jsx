@@ -171,6 +171,7 @@ const NewArrivals = () => {
 
       {/* NEW ARRIVALS SECTION */}
       <div className="New-arrivals">
+        
         <div className="New-arrivals-head">
           <h3>New Arrivals</h3>
           <Link to="/products">see more</Link>
@@ -190,45 +191,13 @@ const NewArrivals = () => {
               const isInWishlist = wishlistIds.includes(product._id);
 
               return (
+
                 <div key={product._id} className="items">
                   {hasDiscount && (
                     <div className="items-banner">{discount}% off</div>
                   )}
 
                   <div className="innerdisplay">
-                    <div className="image-wrapper">
-                      {/* HOVER ICONS */}
-                      <div className="hover-icons">
-                        <button
-                          className={`icon-btn ${isInWishlist ? "active" : ""}`}
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            handleWishlistToggle(product._id);
-                          }}
-                          title={isInWishlist ? "Remove from wishlist" : "Add to wishlist"}
-                        >
-                          <i className={`fa-${isInWishlist ? "solid" : "regular"} fa-heart`}></i>
-                        </button>
-                        <button
-                          className="icon-btn"
-                          onClick={() => handleProductClick(product)}
-                          title="View details"
-                        >
-                          <i className="fa-solid fa-arrow-up-right-from-square"></i>
-                        </button>
-                      </div>
-
-                      {/* ADD TO CART */}
-                      <button
-                        className="add-to-cart"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          handleAddToCart(product);
-                        }}
-                      >
-                        Add To Cart
-                      </button>
-                    </div>
 
                     <div
                       className="items-content"
@@ -257,6 +226,7 @@ const NewArrivals = () => {
                     </div>
 
                   </div>
+
                 </div>
 
            
@@ -269,10 +239,6 @@ const NewArrivals = () => {
           )}
         </div>
 
-        <div className="New-Arrivals-buttons">
-          <button onClick={slideLeft}>◀</button>
-          <button onClick={slideRight}>▶</button>
-        </div>
       </div>
     </div>
   );

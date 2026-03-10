@@ -18,11 +18,11 @@
   flex-direction: column;
 }
 
-.productsCard-items:hover {
+/* .productsCard-items:hover {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   transform: translateY(-4px);
   border-color: #3b82f6;
-}
+} */
 
 /* Banner/Badge */
 .productscard-items-banner {
@@ -178,7 +178,6 @@
   position: absolute;
   bottom: -15px !important;
   left: 1px;
-  background: #3b82f6;
   color: white;
   border: none;
   border-radius: 8px;
@@ -196,15 +195,15 @@
 }
 
 .productsCard-items .add-to-cartinho:hover {
-  background: #2563eb;
+  background: #2563eb !important;
 }
 
 .productsCard-items .add-to-cartinho.adding {
-  background: #10b981;
+  background: #10b981 !important;
 }
 
 .productsCard-items .add-to-cartinho.in-cart {
-  background: #6b7280;
+  background: #6b7280 !important;
 }
 
 /* Product Info at Bottom */
@@ -219,7 +218,6 @@
   top: -6%;
   background: linear-gradient(to top, rgba(255, 255, 255, 0.95), transparent);
 }
-
 
 /* ============================================
   WISHLIST ANIMATIONS
@@ -241,19 +239,19 @@
 
 @keyframes heartBeat {
   0% {
-   transform: scale(1);
+    transform: scale(1);
   }
   25% {
-   transform: scale(1.3);
+    transform: scale(1.3);
   }
   50% {
-   transform: scale(1.1);
+    transform: scale(1.1);
   }
   75% {
-   transform: scale(1.25);
+    transform: scale(1.25);
   }
   100% {
-   transform: scale(1);
+    transform: scale(1);
   }
 }
 
@@ -370,7 +368,7 @@
 
 @keyframes spin {
   to {
-   transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
@@ -381,352 +379,354 @@
 /* Large Desktop (1920px+) */
 @media (min-width: 1920px) {
   .productsCard-items {
-   height: 70vh !important;
+    height: 70vh !important;
   }
 
   .productcard-innerdisplay img {
-   height: 35vh;
+    height: 35vh;
   }
 }
 
 /* Desktop (1440px - 1920px) */
 @media (max-width: 1440px) {
   .productsCard-items {
-   height: 72vh;
+    height: 72vh;
   }
 
   .productcard-innerdisplay h2 {
-   font-size: 14px;
+    font-size: 14px;
   }
 }
 
 /* Laptop (1024px - 1440px) */
 @media (min-width: 769px) and (max-width: 1023px) {
   .productsCard-items {
-   height: 44vh !important;
+    height: 44vh !important;
   }
 
   .productcard-innerdisplay h2 {
-   font-size: 14px;
-   margin-top: 0.5rem;
+    font-size: 14px;
+    margin-top: 0.5rem;
   }
 
   .productcard-innerdisplay img {
-   height: 26vh;
-   margin-top: 1.4rem;
+    height: 26vh;
+    margin-top: 1.4rem;
   }
 
   .productcard-image-wrapper {
-   height: 48vh;
+    height: 48vh;
   }
 
   .hover-icons {
-   opacity: 1;
+    opacity: 1;
   }
 
   .zzz h2 {
-   margin-bottom: -1rem;
-   margin-top: 1.5rem;
+    margin-bottom: -1rem;
+    margin-top: 1.5rem;
   }
 
   .icon-btn {
-   width: 36px;
-   height: 36px;
-   font-size: 14px;
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
   }
 
   .productsCard-items .add-to-cartinho {
-   font-size: 13px;
-   padding: 10px;
-   opacity: 1;
-   top: 69%;
+    font-size: 13px;
+    padding: 10px;
+    opacity: 1;
+    top: 69%;
+    height: 3vh !important;
   }
 
   /* Wishlist Toast */
   .wishlist-toast {
-   bottom: 20px;
-   right: 20px;
-   left: 20px;
-   text-align: center;
-   justify-content: center;
+    bottom: 20px;
+    right: 20px;
+    left: 20px;
+    text-align: center;
+    justify-content: center;
   }
 }
 
 /* Tablet (768px - 1024px) */
 @media (max-width: 768px) {
   .productsCard-items {
-   height: 52vh !important;
+    height: 52vh !important;
   }
 
   .productcard-innerdisplay h2 {
-   font-size: 14px;
+    font-size: 14px;
   }
 
   .productcard-innerdisplay img {
-   height: 32vh;
-   margin-top: 1.1rem;
+    height: 32vh;
+    margin-top: 1.1rem;
   }
 
   .productcard-image-wrapper {
-   height: 48vh;
+    height: 48vh;
   }
 
   .hover-icons {
-   opacity: 1;
+    opacity: 1;
   }
 
   .icon-btn {
-   width: 36px;
-   height: 36px;
-   font-size: 14px;
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
   }
 
   .productsCard-items .add-to-cartinho {
-   font-size: 13px;
-   padding: 10px;
-   opacity: 1;
-   top: 84%;
+    font-size: 13px;
+    opacity: 1;
+    top: 84%;
+    height: 3.5vh !important;
   }
 
   /* Wishlist Toast */
   .wishlist-toast {
-   bottom: 20px;
-   right: 20px;
-   left: 20px;
-   text-align: center;
-   justify-content: center;
+    bottom: 20px;
+    right: 20px;
+    left: 20px;
+    text-align: center;
+    justify-content: center;
   }
 }
 
 @media (max-width: 668px) and (orientation: landscape) {
   .productsCard-items {
-   height: 110vh !important;
+    height: 110vh !important;
   }
 
   .productsCard-items .add-to-cartinho {
-   top: 160%;
-   left: 5% !important;
+    top: 160%;
+    left: 5% !important;
   }
 }
 
 /* Just for surface duo phones */
 @media (min-width: 700px) and (max-width: 724px) and (orientation: landscape) {
   .productsCard-items img {
-   margin-top: 2.3rem;
+    margin-top: 2.3rem;
   }
 }
 
 /* Mostly mobile phones */
 @media (max-width: 1000px) and (orientation: landscape) {
   .productsCard-items {
-   height: 101vh !important;
+    height: 101vh !important;
   }
 
   .productsCard-items img {
-   height: 50vh;
+    height: 50vh;
   }
 
   .productsCard-items h2 {
-   margin-top: -0.1rem;
-   text-transform: capitalize;
+    margin-top: -0.1rem;
+    text-transform: capitalize;
   }
 
   .productcard-innerdisplay {
-   margin-top: -1rem;
+    margin-top: -1rem;
   }
 
   .productsCard-items .add-to-cartinho {
-   top: 152.5%;
-   left: 4% !important;
+    top: 152.5%;
+    left: 4% !important;
   }
 }
 
 @media (min-width: 1024px) and (orientation: landscape) {
   .productsCard-items {
-   height: 70vh !important;
+    height: 70vh !important;
   }
 
   .productsCard-items img {
-   height: 35vh;
-   margin-top: 1rem;
+    height: 35vh;
+    margin-top: 1rem;
   }
 
   .productsCard-items h2 {
-   margin-bottom: -0.6rem;
+    margin-bottom: -0.6rem;
   }
 
   .productsCard-items .add-to-cartinho {
-   top: 105% !important;
-   opacity: 1;
+    top: 105% !important;
+    opacity: 1;
   }
 
   .hover-icons {
-   opacity: 1;
+    opacity: 1;
   }
 }
 
 @media (min-width: 1025px) and (max-width: 1381px) and (orientation: landscape) {
   .productsCard-items .add-to-cartinho {
-   top: 85% !important;
+    top: 85% !important;
   }
 }
 
 /* Mobile Large (600px - 768px) */
 @media (max-width: 600px) {
   .productsCard-items {
-   /* height: auto; */
-   height: 410px !important;
-   padding: 0.5rem;
-   border: none;
-   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    /* height: auto; */
+    height: 410px !important;
+    padding: 0.5rem;
+    border: none;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   }
 
   .productcard-innerdisplay {
-   padding: 0 0.4rem;
+    padding: 0 0.4rem;
   }
 
   .productcard-innerdisplay h2 {
-   font-size: 13px;
-   margin-top: 0.2rem;
+    font-size: 13px;
+    margin-top: 0.2rem;
   }
 
   .productcard-innerdisplay img {
-   height: 250px;
+    height: 250px;
   }
 
   .productcard-image-wrapper {
-   height: auto;
+    height: auto;
   }
 
   .productcard-innerdisplay p {
-   font-size: 14px;
-   margin-top: 0.3rem;
+    font-size: 14px;
+    margin-top: 0.3rem;
   }
 
   .productcard-innerdisplay p b {
-   font-size: 16px;
+    font-size: 16px;
   }
 
   .productscard-items-banner {
-   font-size: 11px;
-   padding: 0.4rem 0.8rem;
+    font-size: 11px;
+    padding: 0.4rem 0.8rem;
   }
 
   .productcard-image-wrapper {
-   height: 32vh;
-   opacity: 1;
-   display: block;
+    height: 32vh;
+    opacity: 1;
+    display: block;
   }
 
   .hover-icons {
-   height: 10vh;
-   width: fit-content;
-   opacity: 1;
+    height: 10vh;
+    width: fit-content;
+    opacity: 1;
   }
 
   .productsCard-items .add-to-cartinho {
-   bottom: 10% !important;
-   opacity: 1;
+    bottom: 10% !important;
+    opacity: 1;
+    padding: 1rem !important;
   }
 }
 
 @media (min-width: 480px) and (max-width: 600px) {
   .productsCard-items {
-   height: 63vh !important;
+    height: 63vh !important;
   }
 
   .productsCard-items .add-to-cartinho {
-   top: 150%;
+    top: 150%;
   }
 }
 
 /* Mobile Medium (480px - 600px) */
 @media (max-width: 480px) {
   .productsCard-items {
-   padding: 0.4rem;
+    padding: 0.4rem;
   }
 
   .productcard-innerdisplay h2 {
-   font-size: 12px;
+    font-size: 12px;
   }
 
   .productcard-innerdisplay img {
-   height: 220px;
+    height: 220px;
   }
 
   .icon-btn {
-   width: 32px;
-   height: 32px;
-   font-size: 13px;
+    width: 32px;
+    height: 32px;
+    font-size: 13px;
   }
 
   .productsCard-items .add-to-cartinho {
-   font-size: 12px;
-   padding: 8px;
-   top: 97%;
+    font-size: 12px;
+    padding: 8px;
+    top: 97%;
   }
 
   .discount-badge,
   .stock-badge {
-   font-size: 10px;
-   padding: 4px 8px;
+    font-size: 10px;
+    padding: 4px 8px;
   }
 }
 
 @media (max-width: 430px) {
   .productsCard-items .add-to-cartinho {
-   top: 293px;
+    top: 293px;
   }
 
   .zzz h2 {
-   text-transform: capitalize;
-   margin-bottom: -1rem;
+    text-transform: capitalize;
+    margin-bottom: -1rem;
   }
 }
 
 /* Mobile Small (below 375px) */
 @media (max-width: 375px) {
   .productsCard-items {
-   height: 350px;
+    height: 350px;
   }
 
   .productcard-innerdisplay img {
-   height: 200px;
+    height: 200px;
   }
 
   .productcard-innerdisplay h2 {
-   font-size: 11px;
+    font-size: 11px;
   }
 
   .productcard-innerdisplay p {
-   font-size: 12px;
+    font-size: 12px;
   }
 
   .productcard-innerdisplay p b {
-   font-size: 14px;
+    font-size: 14px;
   }
 }
 
 @media (max-width: 360px) {
   .productsCard-items {
-   height: 52vh !important;
+    height: 52vh !important;
   }
   .productsCard-items .add-to-cartinho {
-   top: 110%;
+    top: 110%;
   }
 
   .productcard-innerdisplay img {
-   height: 25vh;
+    height: 25vh;
   }
 }
 
 @media (max-width: 345px) {
   .productsCard-items {
-   height: 46vh !important;
+    height: 46vh !important;
   }
 
   .productsCard-items .add-to-cartinho {
-   top: 103%;
+    top: 103%;
   }
 }
 
@@ -736,23 +736,21 @@
 
 @media (min-width: 1024px) {
   .productsCard-items {
-   cursor: pointer;
-   height: 75vh !important;
+    cursor: pointer;
+    height: 75vh !important;
   }
 
   .productsCard-items:hover {
-   border-color: #3b82f6;
+    border-color: #3b82f6;
   }
 
   .productsCard-items:hover .productcard-innerdisplay img {
-   transform: scale(1.05);
+    transform: scale(1.05);
   }
 
   .productsCard-items .add-to-cartinho {
-   top: 90% !important;
+    top: 90% !important;
   }
-
-
 }
 
 /* ============================================
@@ -763,12 +761,12 @@
   .hover-icons,
   .productsCard-items .add-to-cartinho,
   .wishlist-toast {
-   display: none !important;
+    display: none !important;
   }
 
   .productsCard-items {
-   border: 1px solid #000;
-   box-shadow: none;
-   page-break-inside: avoid;
+    border: 1px solid #000;
+    box-shadow: none;
+    page-break-inside: avoid;
   }
 }

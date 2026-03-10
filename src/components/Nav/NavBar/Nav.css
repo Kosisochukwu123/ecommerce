@@ -156,7 +156,7 @@
   left: -100%;
   width: 100%;
   height: calc(100vh - 70px);
-  background: rgba(0, 0, 0, 0.98);
+  background: var(--button-color--);
   backdrop-filter: blur(10px);
   display: flex;
   flex-direction: column;
@@ -230,7 +230,7 @@
 }
 
 .desktop-view.scrolled {
-  background: var(--button-color--);
+  background: black;
   backdrop-filter: blur(10px);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
@@ -261,12 +261,12 @@
   left: 0;
   width: 0;
   height: 2px;
-  background: #3b82f6;
+  background: var(--button-color--);
   transition: width 0.3s ease;
 }
 
 .desktop-menu a:hover {
-  color: #3b82f6;
+  color: var(--button-color--);
 }
 
 .desktop-menu a:hover::after {
