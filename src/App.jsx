@@ -14,6 +14,8 @@ import Terms from "./components/Terms";
 import Login from "./pages/LoginPage/Login.jsx";
 import LoginFace from "./pages/LoginPage/LoginFace.jsx";
 import Register from "./pages/RegisterPage/Register.jsx";
+import ForgotPassword from './pages/LoginPage/ForgotPassword';
+
 // import MainPage from "./pages/MainPage/MainPage.Jsx";
 import Products from "./pages/Shop/Products.jsx";
 import AdminLayout from "./components/Admin/AdminLayout.jsx";
@@ -87,6 +89,8 @@ function App() {
             <Route path="/Login" element={<Login />} />
             <Route path="/Register" element={<Register />} />
             <Route path="/LoginFace" element={<LoginFace />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
+
             <Route path="/profile" element={<UserProfile />} />
             <Route path="/profile/settings" element={<ProfileSettings />} />
             <Route path="/wishlist" element={<Wishlist />} />

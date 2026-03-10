@@ -1,100 +1,201 @@
 import express from "express";
+import { body, validationResult } from "express-validator";
 import getUserModel from "../models/user.js";
-import protect from "../middleware/auth.js";
 import getProductModel from "../models/Product.js";
+import protect from "../middleware/auth.js";
 import jwt from "jsonwebtoken";
 
 const router = express.Router();
+
+// ============================================
+// HELPER FUNCTIONS
+// ============================================
 
 // Generate JWT token
 const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "30d" });
 };
 
-// POST /api/users/register
-router.post("/register", async (req, res) => {
-  try {
-    const User = getUserModel(); // Call it HERE
-    const { username, email, password } = req.body;
+// ============================================
+// AUTHENTICATION ROUTES
+// ============================================
 
-    if (!username || !email || !password) {
-      return res.status(400).json({ message: "Please fill all the fields" });
+// @route   POST /api/auth/register
+// @desc    Register new user
+// @access  Public
+router.post(
+  "/register",
+  [
+    body("username").trim().notEmpty().withMessage("Username is required")
+      .isLength({ min: 3 }).withMessage("Username must be at least 3 characters"),
+    body("email").isEmail().withMessage("Valid email is required"),
+    body("password")
+      .isLength({ min: 6 })
+      .withMessage("Password must be at least 6 characters"),
+  ],
+  async (req, res) => {
+    // Validate request
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({
+        success: false,
+        errors: errors.array(),
+      });
     }
 
-    const userExists = await User.findOne({ email });
-    const usernameExists = await User.findOne({ username });
+    const { username, email, password, phone, firstName, lastName } = req.body;
 
-    if (userExists) {
-      return res.status(400).json({ message: "Email already exists" });
+    try {
+      const User = getUserModel();
+
+      // Check if user exists
+      const userExists = await User.findOne({
+        $or: [{ email }, { username }],
+      });
+
+      if (userExists) {
+        return res.status(400).json({
+          success: false,
+          message:
+            userExists.email === email
+              ? "Email already registered"
+              : "Username already taken",
+        });
+      }
+
+      // Check if phone exists (if provided)
+      if (phone) {
+        const phoneExists = await User.findOne({ phone });
+        if (phoneExists) {
+          return res.status(400).json({
+            success: false,
+            message: "Phone number already registered",
+          });
+        }
+      }
+
+      // Create user
+      const user = await User.create({
+        username,
+        email,
+        password,
+        phone: phone || undefined,
+        firstName: firstName || undefined,
+        lastName: lastName || undefined,
+      });
+
+      // Generate token
+      const token = generateToken(user._id);
+
+      res.status(201).json({
+        success: true,
+        token,
+        user: {
+          id: user._id,
+          username: user.username,
+          email: user.email,
+          role: user.role,
+        },
+      });
+    } catch (error) {
+      console.error("Register error:", error);
+      res.status(500).json({
+        success: false,
+        message: "Server error during registration",
+      });
     }
-    if (usernameExists) {
-      return res.status(400).json({ message: "Username already exists" });
-    }
-
-    const user = await User.create({ username, email, password });
-    const token = generateToken(user._id);
-
-    res.status(201).json({
-      id: user._id,
-      username: user.username,
-      email: user.email,
-      role: user.role,
-      token,
-    });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json({ message: "Server error" });
   }
-});
+);
 
-// POST /api/users/login
-router.post("/login", async (req, res) => {
+// @route   POST /api/auth/login
+// @desc    Login with email/phone and password
+// @access  Public
+router.post(
+  "/login",
+  [
+    body("identifier").notEmpty().withMessage("Email or phone is required"),
+    body("password").notEmpty().withMessage("Password is required"),
+  ],
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({
+        success: false,
+        errors: errors.array(),
+      });
+    }
+
+    const { identifier, password } = req.body;
+
+    try {
+      const User = getUserModel();
+
+      // Find by email or phone using the static method
+      const user = await User.findByEmailOrPhone(identifier).select("+password");
+
+      if (!user) {
+        return res.status(401).json({
+          success: false,
+          message: "Invalid credentials",
+        });
+      }
+
+      // Check if account is active
+      if (!user.isActive) {
+        return res.status(401).json({
+          success: false,
+          message: "Account is deactivated",
+        });
+      }
+
+      // Check password
+      const isMatch = await user.matchPassword(password);
+      if (!isMatch) {
+        return res.status(401).json({
+          success: false,
+          message: "Invalid credentials",
+        });
+      }
+
+      // Update last login
+      user.lastLogin = new Date();
+      await user.save();
+
+      // Generate token
+      const token = generateToken(user._id);
+
+      res.json({
+        success: true,
+        token,
+        user: {
+          id: user._id,
+          username: user.username,
+          email: user.email,
+          role: user.role,
+        },
+      });
+    } catch (error) {
+      console.error("Login error:", error);
+      res.status(500).json({
+        success: false,
+        message: "Server error during login",
+      });
+    }
+  }
+);
+
+// @route   POST /api/auth/logout
+// @desc    Logout user (invalidate token)
+// @access  Private
+router.post("/logout", protect, async (req, res) => {
   try {
-    const User = getUserModel(); // Call it HERE
-    const { email, password } = req.body;
-
-    if (!email || !password) {
-      return res.status(400).json({ message: "Please fill all the fields" });
-    }
-
-    const user = await User.findOne({ email }).select("+password"); // Need to select password explicitly
-
-    if (!user || !(await user.matchPassword(password))) {
-      return res.status(401).json({ message: "Invalid credentials" });
-    }
-
-    const token = generateToken(user._id);
-
-    res.status(200).json({
-      id: user._id,
-      username: user.username,
-      email: user.email,
-      role: user.role,
-      token,
+    // You can implement token blacklisting here if needed
+    res.json({
+      success: true,
+      message: "Logged out successfully",
     });
   } catch (error) {
-    console.log(error);
-    res.status(500).json({ message: "Server error" });
-  }
-});
-
-// GET /api/users/me
-router.get("/me", protect, async (req, res) => {
-  try {
-    console.log("✅ /me route hit for user:", req.user._id);
-
-    res.status(200).json({
-      id: req.user._id,
-      username: req.user.username,
-      email: req.user.email,
-      role: req.user.role,
-      firstName: req.user.firstName,
-      lastName: req.user.lastName,
-      phone: req.user.phone,
-      avatar: req.user.avatar,
-    });
-  } catch (error) {
-    console.error("❌ /me route error:", error);
+    console.error("Logout error:", error);
     res.status(500).json({
       success: false,
       message: "Server error",
@@ -102,39 +203,209 @@ router.get("/me", protect, async (req, res) => {
   }
 });
 
-// GET /api/users/profile - Get full user profile
+// @route   GET /api/auth/me
+// @desc    Get current user
+// @access  Private
+router.get("/me", protect, async (req, res) => {
+  try {
+    res.json({
+      success: true,
+      user: {
+        id: req.user._id,
+        username: req.user.username,
+        email: req.user.email,
+        phone: req.user.phone,
+        firstName: req.user.firstName,
+        lastName: req.user.lastName,
+        avatar: req.user.avatar,
+        role: req.user.role,
+        isEmailVerified: req.user.isEmailVerified,
+      },
+    });
+  } catch (error) {
+    console.error("Get user error:", error);
+    res.status(500).json({
+      success: false,
+      message: "Server error",
+    });
+  }
+});
+
+// ============================================
+// PASSWORD RESET ROUTES
+// ============================================
+
+// @route   POST /api/auth/forgot-password
+// @desc    Send password reset code
+// @access  Public
+router.post("/forgot-password", async (req, res) => {
+  const { email } = req.body;
+
+  try {
+    const User = getUserModel();
+    const user = await User.findOne({ email }).select(
+      "+resetPasswordCode +resetPasswordExpires"
+    );
+
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: "No account found with this email",
+      });
+    }
+
+    // Generate reset code
+    const resetCode = user.generatePasswordReset();
+    await user.save();
+
+    // TODO: Send email with code
+    // await sendResetEmail(email, resetCode);
+
+    console.log(`🔐 Reset code for ${email}: ${resetCode}`); // Remove in production
+
+    res.json({
+      success: true,
+      message: "Reset code sent to your email",
+    });
+  } catch (error) {
+    console.error("Forgot password error:", error);
+    res.status(500).json({
+      success: false,
+      message: "Error sending reset code",
+    });
+  }
+});
+
+// @route   POST /api/auth/verify-code
+// @desc    Verify reset code
+// @access  Public
+router.post("/verify-code", async (req, res) => {
+  const { email, code } = req.body;
+
+  try {
+    const User = getUserModel();
+    const user = await User.findOne({ email }).select(
+      "+resetPasswordCode +resetPasswordExpires"
+    );
+
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: "User not found",
+      });
+    }
+
+    if (user.resetPasswordCode !== code || !user.isPasswordResetValid()) {
+      return res.status(400).json({
+        success: false,
+        message: "Invalid or expired code",
+      });
+    }
+
+    res.json({
+      success: true,
+      message: "Code verified",
+    });
+  } catch (error) {
+    console.error("Verify code error:", error);
+    res.status(500).json({
+      success: false,
+      message: "Error verifying code",
+    });
+  }
+});
+
+// @route   POST /api/auth/reset-password
+// @desc    Reset password with code
+// @access  Public
+router.post("/reset-password", async (req, res) => {
+  const { email, code, newPassword } = req.body;
+
+  try {
+    const User = getUserModel();
+    const user = await User.findOne({ email }).select(
+      "+resetPasswordCode +resetPasswordExpires"
+    );
+
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: "User not found",
+      });
+    }
+
+    if (user.resetPasswordCode !== code || !user.isPasswordResetValid()) {
+      return res.status(400).json({
+        success: false,
+        message: "Invalid or expired code",
+      });
+    }
+
+    // Update password (will be hashed by pre-save hook)
+    user.password = newPassword;
+    user.clearPasswordReset();
+    await user.save();
+
+    res.json({
+      success: true,
+      message: "Password reset successful",
+    });
+  } catch (error) {
+    console.error("Reset password error:", error);
+    res.status(500).json({
+      success: false,
+      message: "Error resetting password",
+    });
+  }
+});
+
+// ============================================
+// PROFILE MANAGEMENT ROUTES
+// ============================================
+
+// @route   GET /api/auth/profile
+// @desc    Get full user profile
+// @access  Private
 router.get("/profile", protect, async (req, res) => {
   try {
     const User = getUserModel();
     const user = await User.findById(req.user._id).select(
-      "-password -activeToken",
+      "-password -activeToken"
     );
-    // .populate("wishlist");
 
     if (!user) {
-      return res
-        .status(404)
-        .json({ success: false, message: "User not found" });
+      return res.status(404).json({
+        success: false,
+        message: "User not found",
+      });
     }
 
-    res.status(200).json({
+    res.json({
       success: true,
       user: user,
     });
   } catch (error) {
-    console.log(error);
-    res.status(500).json({ message: "Server error" });
+    console.error("Get profile error:", error);
+    res.status(500).json({
+      success: false,
+      message: "Server error",
+    });
   }
 });
 
-// PUT /api/users/profile - Update user profile
+// @route   PUT /api/auth/profile
+// @desc    Update user profile
+// @access  Private
 router.put("/profile", protect, async (req, res) => {
   try {
     const User = getUserModel();
     const user = await User.findById(req.user._id);
 
     if (!user) {
-      return res.status(404).json({ message: "User not found" });
+      return res.status(404).json({
+        success: false,
+        message: "User not found",
+      });
     }
 
     // Update allowed fields
@@ -155,7 +426,7 @@ router.put("/profile", protect, async (req, res) => {
 
     await user.save();
 
-    res.status(200).json({
+    res.json({
       success: true,
       message: "Profile updated successfully",
       user: {
@@ -172,25 +443,32 @@ router.put("/profile", protect, async (req, res) => {
       },
     });
   } catch (error) {
-    console.log(error);
-    res.status(500).json({ message: "Server error" });
+    console.error("Update profile error:", error);
+    res.status(500).json({
+      success: false,
+      message: "Server error",
+    });
   }
 });
 
-// PUT /api/users/change-password - Change password
-router.put("/change-password", protect, async (req, res) => {
+// @route   POST /api/auth/change-password
+// @desc    Change password
+// @access  Private
+router.post("/change-password", protect, async (req, res) => {
   try {
     const User = getUserModel();
     const { currentPassword, newPassword } = req.body;
 
     if (!currentPassword || !newPassword) {
       return res.status(400).json({
+        success: false,
         message: "Please provide current and new password",
       });
     }
 
     if (newPassword.length < 6) {
       return res.status(400).json({
+        success: false,
         message: "New password must be at least 6 characters",
       });
     }
@@ -198,37 +476,103 @@ router.put("/change-password", protect, async (req, res) => {
     const user = await User.findById(req.user._id).select("+password");
 
     if (!user) {
-      return res.status(404).json({ message: "User not found" });
+      return res.status(404).json({
+        success: false,
+        message: "User not found",
+      });
     }
 
     // Check if current password is correct
     const isMatch = await user.matchPassword(currentPassword);
     if (!isMatch) {
-      return res.status(401).json({ message: "Current password is incorrect" });
+      return res.status(401).json({
+        success: false,
+        message: "Current password is incorrect",
+      });
     }
 
     // Update password
     user.password = newPassword;
     await user.save();
 
-    res.status(200).json({
+    res.json({
       success: true,
       message: "Password changed successfully",
     });
   } catch (error) {
-    console.log(error);
-    res.status(500).json({ message: "Server error" });
+    console.error("Change password error:", error);
+    res.status(500).json({
+      success: false,
+      message: "Server error",
+    });
   }
 });
 
-// POST /api/users/address - Add new address
+// @route   DELETE /api/auth/account
+// @desc    Delete user account
+// @access  Private
+router.delete("/account", protect, async (req, res) => {
+  try {
+    const User = getUserModel();
+    const { password } = req.body;
+
+    if (!password) {
+      return res.status(400).json({
+        success: false,
+        message: "Password confirmation required",
+      });
+    }
+
+    const user = await User.findById(req.user._id).select("+password");
+
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: "User not found",
+      });
+    }
+
+    // Verify password
+    const isMatch = await user.matchPassword(password);
+    if (!isMatch) {
+      return res.status(401).json({
+        success: false,
+        message: "Incorrect password",
+      });
+    }
+
+    await User.findByIdAndDelete(req.user._id);
+
+    res.json({
+      success: true,
+      message: "Account deleted successfully",
+    });
+  } catch (error) {
+    console.error("Delete account error:", error);
+    res.status(500).json({
+      success: false,
+      message: "Server error",
+    });
+  }
+});
+
+// ============================================
+// ADDRESS MANAGEMENT ROUTES
+// ============================================
+
+// @route   POST /api/auth/address
+// @desc    Add new address
+// @access  Private
 router.post("/address", protect, async (req, res) => {
   try {
     const User = getUserModel();
     const user = await User.findById(req.user._id);
 
     if (!user) {
-      return res.status(404).json({ message: "User not found" });
+      return res.status(404).json({
+        success: false,
+        message: "User not found",
+      });
     }
 
     const { type, street, city, state, zipCode, country, isDefault } = req.body;
@@ -258,25 +602,36 @@ router.post("/address", protect, async (req, res) => {
       addresses: user.addresses,
     });
   } catch (error) {
-    console.log(error);
-    res.status(500).json({ message: "Server error" });
+    console.error("Add address error:", error);
+    res.status(500).json({
+      success: false,
+      message: "Server error",
+    });
   }
 });
 
-// PUT /api/users/address/:addressId - Update address
+// @route   PUT /api/auth/address/:addressId
+// @desc    Update address
+// @access  Private
 router.put("/address/:addressId", protect, async (req, res) => {
   try {
     const User = getUserModel();
     const user = await User.findById(req.user._id);
 
     if (!user) {
-      return res.status(404).json({ message: "User not found" });
+      return res.status(404).json({
+        success: false,
+        message: "User not found",
+      });
     }
 
     const address = user.addresses.id(req.params.addressId);
 
     if (!address) {
-      return res.status(404).json({ message: "Address not found" });
+      return res.status(404).json({
+        success: false,
+        message: "Address not found",
+      });
     }
 
     // If setting as default, unset all others
@@ -293,200 +648,283 @@ router.put("/address/:addressId", protect, async (req, res) => {
 
     await user.save();
 
-    res.status(200).json({
+    res.json({
       success: true,
       message: "Address updated successfully",
       addresses: user.addresses,
     });
   } catch (error) {
-    console.log(error);
-    res.status(500).json({ message: "Server error" });
+    console.error("Update address error:", error);
+    res.status(500).json({
+      success: false,
+      message: "Server error",
+    });
   }
 });
 
-// DELETE /api/users/address/:addressId - Delete address
+// @route   DELETE /api/auth/address/:addressId
+// @desc    Delete address
+// @access  Private
 router.delete("/address/:addressId", protect, async (req, res) => {
   try {
     const User = getUserModel();
     const user = await User.findById(req.user._id);
 
     if (!user) {
-      return res.status(404).json({ message: "User not found" });
-    }
-
-    user.addresses.pull(req.params.addressId);
-    await user.save();
-
-    res.status(200).json({
-      success: true,
-      message: "Address deleted successfully",
-      addresses: user.addresses,
-    });
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({ message: "Server error" });
-  }
-});
-
-// GET /api/users/wishlist
-router.get("/wishlist", protect, async (req, res) => {
-  console.log("=== WISHLIST ROUTE START ===");
-
-  try {
-    console.log("1️⃣ Getting user model...");
-    const User = getUserModel();
-    console.log("✅ User model loaded");
-
-    console.log("2️⃣ Finding user by ID:", req.user._id);
-    const user = await User.findById(req.user._id).select("wishlist");
-    console.log("✅ User found:", !!user);
-
-    if (!user) {
-      console.log("❌ User not found");
       return res.status(404).json({
         success: false,
         message: "User not found",
       });
     }
 
-    console.log("3️⃣ User wishlist IDs:", user.wishlist);
+    user.addresses.pull(req.params.addressId);
+    await user.save();
+
+    res.json({
+      success: true,
+      message: "Address deleted successfully",
+      addresses: user.addresses,
+    });
+  } catch (error) {
+    console.error("Delete address error:", error);
+    res.status(500).json({
+      success: false,
+      message: "Server error",
+    });
+  }
+});
+
+// ============================================
+// WISHLIST ROUTES
+// ============================================
+
+// @route   GET /api/auth/wishlist
+// @desc    Get user's wishlist
+// @access  Private
+router.get("/wishlist", protect, async (req, res) => {
+  try {
+    const User = getUserModel();
+    const user = await User.findById(req.user._id).select("wishlist");
+
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: "User not found",
+      });
+    }
 
     if (!user.wishlist || user.wishlist.length === 0) {
-      console.log("ℹ️ Wishlist is empty");
-      return res.status(200).json({
+      return res.json({
         success: true,
         wishlist: [],
         count: 0,
       });
     }
 
-    console.log("4️⃣ Getting Product model...");
     const Product = getProductModel();
-    console.log("✅ Product model type:", typeof Product);
-    console.log("✅ Product.find type:", typeof Product.find);
-
-    console.log("5️⃣ Fetching products from DB...");
     const products = await Product.find({
       _id: { $in: user.wishlist },
       isActive: true,
     });
-    console.log("✅ Found products:", products.length);
 
-    res.status(200).json({
+    res.json({
       success: true,
       wishlist: products,
       count: products.length,
     });
-
-    console.log("=== WISHLIST ROUTE SUCCESS ===");
   } catch (error) {
-    console.error("=== WISHLIST ROUTE ERROR ===");
-    console.error("Error type:", error.constructor.name);
-    console.error("Error message:", error.message);
-    console.error("Error stack:", error.stack);
-
+    console.error("Get wishlist error:", error);
     res.status(500).json({
       success: false,
       message: "Server error",
-      error: error.message,
     });
   }
 });
 
-// POST /api/users/wishlist/:productId - Add to wishlist
+// @route   POST /api/auth/wishlist/:productId
+// @desc    Add to wishlist
+// @access  Private
 router.post("/wishlist/:productId", protect, async (req, res) => {
   try {
     const User = getUserModel();
     const user = await User.findById(req.user._id);
 
     if (!user) {
-      return res.status(404).json({ message: "User not found" });
+      return res.status(404).json({
+        success: false,
+        message: "User not found",
+      });
     }
 
     // Check if already in wishlist
     if (user.wishlist.includes(req.params.productId)) {
-      return res.status(400).json({ message: "Product already in wishlist" });
+      return res.status(400).json({
+        success: false,
+        message: "Product already in wishlist",
+      });
     }
 
     user.wishlist.push(req.params.productId);
     await user.save();
 
-    res.status(200).json({
+    res.json({
       success: true,
       message: "Added to wishlist",
       wishlist: user.wishlist,
     });
   } catch (error) {
-    console.log(error);
-    res.status(500).json({ message: "Server error" });
+    console.error("Add to wishlist error:", error);
+    res.status(500).json({
+      success: false,
+      message: "Server error",
+    });
   }
 });
 
-// DELETE /api/users/wishlist/:productId - Remove from wishlist
+// @route   DELETE /api/auth/wishlist/:productId
+// @desc    Remove from wishlist
+// @access  Private
 router.delete("/wishlist/:productId", protect, async (req, res) => {
   try {
     const User = getUserModel();
     const user = await User.findById(req.user._id);
 
     if (!user) {
-      return res.status(404).json({ message: "User not found" });
+      return res.status(404).json({
+        success: false,
+        message: "User not found",
+      });
     }
 
     user.wishlist.pull(req.params.productId);
     await user.save();
 
-    res.status(200).json({
+    res.json({
       success: true,
       message: "Removed from wishlist",
       wishlist: user.wishlist,
     });
   } catch (error) {
-    console.log(error);
-    res.status(500).json({ message: "Server error" });
+    console.error("Remove from wishlist error:", error);
+    res.status(500).json({
+      success: false,
+      message: "Server error",
+    });
   }
 });
 
+// ============================================
+// UTILITY ROUTES
+// ============================================
 
-// GET /api/users/all - Get all users (Admin only)
-router.get("/all", protect, async (req, res) => {
+// @route   POST /api/auth/check-email
+// @desc    Check if email exists
+// @access  Public
+router.post("/check-email", async (req, res) => {
+  try {
+    const User = getUserModel();
+    const exists = await User.findOne({ email: req.body.email });
+    res.json({
+      success: true,
+      exists: !!exists,
+    });
+  } catch (error) {
+    console.error("Check email error:", error);
+    res.status(500).json({
+      success: false,
+      message: "Error checking email",
+    });
+  }
+});
+
+// @route   POST /api/auth/check-username
+// @desc    Check if username exists
+// @access  Public
+router.post("/check-username", async (req, res) => {
+  try {
+    const User = getUserModel();
+    const exists = await User.findOne({ username: req.body.username });
+    res.json({
+      success: true,
+      exists: !!exists,
+    });
+  } catch (error) {
+    console.error("Check username error:", error);
+    res.status(500).json({
+      success: false,
+      message: "Error checking username",
+    });
+  }
+});
+
+// @route   POST /api/auth/check-phone
+// @desc    Check if phone exists
+// @access  Public
+router.post("/check-phone", async (req, res) => {
+  try {
+    const User = getUserModel();
+    const exists = await User.findOne({ phone: req.body.phone });
+    res.json({
+      success: true,
+      exists: !!exists,
+    });
+  } catch (error) {
+    console.error("Check phone error:", error);
+    res.status(500).json({
+      success: false,
+      message: "Error checking phone",
+    });
+  }
+});
+
+// ============================================
+// ADMIN ROUTES
+// ============================================
+
+// @route   GET /api/auth/users
+// @desc    Get all users (Admin only)
+// @access  Private/Admin
+router.get("/users", protect, async (req, res) => {
   try {
     // Check if user is admin
     if (req.user.role !== "admin") {
-      return res.status(403).json({ 
+      return res.status(403).json({
         success: false,
-        message: "Access denied. Admin only." 
+        message: "Access denied. Admin only.",
       });
     }
 
     const User = getUserModel();
-    
+
     // Get all users, exclude password and activeToken
     const users = await User.find({})
       .select("-password -activeToken")
       .sort({ createdAt: -1 }); // Newest first
 
-    res.status(200).json({
+    res.json({
       success: true,
       users: users,
       count: users.length,
     });
   } catch (error) {
-    console.error("Error fetching users:", error);
-    res.status(500).json({ 
+    console.error("Get users error:", error);
+    res.status(500).json({
       success: false,
-      message: "Server error" 
+      message: "Server error",
     });
   }
 });
 
-// PUT /api/users/:userId/role - Update user role (Admin only)
-router.put("/:userId/role", protect, async (req, res) => {
+// @route   PUT /api/auth/users/:userId/role
+// @desc    Update user role (Admin only)
+// @access  Private/Admin
+router.put("/users/:userId/role", protect, async (req, res) => {
   try {
     // Check if user is admin
     if (req.user.role !== "admin") {
-      return res.status(403).json({ 
+      return res.status(403).json({
         success: false,
-        message: "Access denied. Admin only." 
+        message: "Access denied. Admin only.",
       });
     }
 
@@ -494,25 +932,25 @@ router.put("/:userId/role", protect, async (req, res) => {
     const { role } = req.body;
 
     if (!role || !["user", "admin"].includes(role)) {
-      return res.status(400).json({ 
+      return res.status(400).json({
         success: false,
-        message: "Invalid role. Must be 'user' or 'admin'" 
+        message: "Invalid role. Must be 'user' or 'admin'",
       });
     }
 
     const user = await User.findById(req.params.userId);
 
     if (!user) {
-      return res.status(404).json({ 
+      return res.status(404).json({
         success: false,
-        message: "User not found" 
+        message: "User not found",
       });
     }
 
     user.role = role;
     await user.save();
 
-    res.status(200).json({
+    res.json({
       success: true,
       message: `User role updated to ${role}`,
       user: {
@@ -523,22 +961,24 @@ router.put("/:userId/role", protect, async (req, res) => {
       },
     });
   } catch (error) {
-    console.error("Error updating user role:", error);
-    res.status(500).json({ 
+    console.error("Update role error:", error);
+    res.status(500).json({
       success: false,
-      message: "Server error" 
+      message: "Server error",
     });
   }
 });
 
-// DELETE /api/users/:userId - Delete user (Admin only)
-router.delete("/:userId", protect, async (req, res) => {
+// @route   DELETE /api/auth/users/:userId
+// @desc    Delete user (Admin only)
+// @access  Private/Admin
+router.delete("/users/:userId", protect, async (req, res) => {
   try {
     // Check if user is admin
     if (req.user.role !== "admin") {
-      return res.status(403).json({ 
+      return res.status(403).json({
         success: false,
-        message: "Access denied. Admin only." 
+        message: "Access denied. Admin only.",
       });
     }
 
@@ -546,34 +986,33 @@ router.delete("/:userId", protect, async (req, res) => {
     const user = await User.findById(req.params.userId);
 
     if (!user) {
-      return res.status(404).json({ 
+      return res.status(404).json({
         success: false,
-        message: "User not found" 
+        message: "User not found",
       });
     }
 
     // Prevent admin from deleting themselves
     if (user._id.toString() === req.user._id.toString()) {
-      return res.status(400).json({ 
+      return res.status(400).json({
         success: false,
-        message: "You cannot delete your own account" 
+        message: "You cannot delete your own account",
       });
     }
 
     await User.findByIdAndDelete(req.params.userId);
 
-    res.status(200).json({
+    res.json({
       success: true,
       message: "User deleted successfully",
     });
   } catch (error) {
-    console.error("Error deleting user:", error);
-    res.status(500).json({ 
+    console.error("Delete user error:", error);
+    res.status(500).json({
       success: false,
-      message: "Server error" 
+      message: "Server error",
     });
   }
 });
-
 
 export default router;
