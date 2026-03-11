@@ -44,7 +44,7 @@ export const Header = () => {
       <p className={`slide-text ${"active"}`}>{texts[index]}</p>
 
   
-        <Link to="/For-Men">
+        <Link to="/products">
          <button className={`btn active`} >
             <span className="icon">
               <svg

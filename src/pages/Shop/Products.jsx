@@ -338,7 +338,6 @@ const Products = () => {
         <div className="products-video">
           <video src={adVideo} muted loop playsInline autoPlay></video>
           <div className="overlay"></div>
-          <div className="contact-here">Contact here: 665656555</div>
         </div>
 
         <div class="marquee">

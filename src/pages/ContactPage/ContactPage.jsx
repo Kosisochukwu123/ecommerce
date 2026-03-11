@@ -4,11 +4,13 @@ import Footer from "../../components/Footer/Footer.jsx";
 import Socials from "../../components/Socials/Socials.jsx";
 import ContactPageContent from "./ContactPageContent";
 import FAQ from '../../components/FAQ/FAQ.jsx'
+import QuickLinks from "../../components/QuickLink/QuickLinks.jsx";
 
 const ContactPage = () => {
   return (
     <>
       <Nav scrolledDesktopDistance={400} />
+      <QuickLinks />
       <ContactPageContent />
       <FAQ/>
       <Socials />

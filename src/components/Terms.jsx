@@ -2,11 +2,14 @@ import "./Legalpage.css";
 import Footer from "./Footer/Footer";
 import Nav from "./Nav/NavBar/Nav";
 import Socials from "./Socials/Socials";
+import QuickLinks from "./QuickLink/QuickLinks";
 
 export default function Terms() {
   return (
     <>
       <Nav alwaysScrolled={true}  />
+      <QuickLinks />
+     
 
       <div className="terms-container">
         <h1>Terms & Services</h1>

@@ -29,9 +29,11 @@ export default function FAQ() {
 
   return (
     <div className="faq-container">
+      
       <h2 className="faq-title" data-aos="fade-up-right">
         Frequently Asked Questions
       </h2>
+
       <div>
         {faqData.map((item, index) => (
           <div className="faq-item" key={item.id} data-aos="fade-up-left">
@@ -48,6 +50,7 @@ export default function FAQ() {
           </div>
         ))}
       </div>
+
     </div>
   );
 }

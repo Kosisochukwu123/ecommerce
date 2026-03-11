@@ -11,7 +11,7 @@ const QuickLinks = () => {
       <div className={`radial-menu ${open ? "open" : ""}`}>
         <Link to="/Products" className="item item-1">Shop</Link>
         <Link to="/ChatBot" className="item item-2">ChatBot </Link>
-        <Link to="/contact" className="item item-3">Favourite</Link>
+        <Link to="/wishlist" className="item item-3">Favourite</Link>
         <Link to="/profile" className="item item-4">Profile</Link>
       </div>
 

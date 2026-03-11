@@ -2,11 +2,14 @@ import "./Legalpage.css";
 import Footer from "./Footer/Footer.jsx";
 import Nav from "./Nav/NavBar/Nav.jsx";
 import Socials from "./Socials/Socials.jsx";
+import QuickLinks from "./QuickLink/QuickLinks.jsx";
 
 export default function PrivacyPolicy() {
   return (
     <div>
       <Nav alwaysScrolled={true} />
+      <QuickLinks />
+
       <div className="policy-container">
         <h1>Privacy Policy</h1>
 

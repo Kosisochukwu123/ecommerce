@@ -1,24 +1,27 @@
 import "./Nav.css";
 import { useState, useEffect } from "react";
-import { CheckoutPage } from "../Cart/CartItems.jsx";
+import { CheckoutPage } from "../Cart/CheckoutPage.jsx";  // ← Fixed import
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { useCart } from "../Cart/UseCart.jsx";
+import { useAuth } from "../../context/AuthContext";  // ← ADD THIS
 
 const Nav = ({ scrolledDesktopDistance = 440, alwaysScrolled = false }) => {
   const [open, setOpen] = useState(false);
   const [showCheckout, setShowCheckout] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [scrolledDesktop, setScrolledDesktop] = useState(false);
+  
   const location = useLocation();
   const { getTotalItems } = useCart();
+  const { user, logout } = useAuth();  // ← ADD THIS
 
   useEffect(() => {
     let scrollDistance;
 
     if (alwaysScrolled) {
-      setScrolled(true); // force scrolled state on this page
-      return; // skip scroll logic
+      setScrolled(true);
+      return;
     }
 
     // mobile screens
@@ -37,7 +40,6 @@ const Nav = ({ scrolledDesktopDistance = 440, alwaysScrolled = false }) => {
     } else if (window.innerWidth <= 820) {
       scrollDistance = 800;
     }
-
     // small laptops
     else if (window.innerWidth <= 1024) {
       scrollDistance = 500;
@@ -56,15 +58,13 @@ const Nav = ({ scrolledDesktopDistance = 440, alwaysScrolled = false }) => {
     };
 
     window.addEventListener("scroll", handleScroll);
-
-    // cleanup
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [alwaysScrolled, location.pathname]);
 
   useEffect(() => {
     if (alwaysScrolled) {
-      setScrolledDesktop(true); // force scrolled state on this page
-      return; // skip scroll logic
+      setScrolledDesktop(true);
+      return;
     }
 
     const handleScroll = () => {
@@ -76,10 +76,13 @@ const Nav = ({ scrolledDesktopDistance = 440, alwaysScrolled = false }) => {
     };
 
     window.addEventListener("scroll", handleScroll);
-
-    // cleanup
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [alwaysScrolled, scrolledDesktopDistance]);
+
+  const handleLogout = () => {
+    logout();
+    setOpen(false);  // Close mobile menu after logout
+  };
 
   return (
     <>
@@ -105,23 +108,66 @@ const Nav = ({ scrolledDesktopDistance = 440, alwaysScrolled = false }) => {
         </div>
 
         {/* MOBILE MENU */}
-        <div className={`mobile-menu ${open ? "show" : null}`}>
-          <Link to="/loginFace"> Men </Link>
-          <Link to="/For-Women"> Women </Link>
-          <Link to="/Our-Story"> Our story </Link>
-          <Link to="/Contact"> Contact </Link>
+        <div className={`mobile-menu ${open ? "show" : ""}`}>
+          <Link to="/" onClick={() => setOpen(false)}>Home</Link>
+          <Link to="/products" onClick={() => setOpen(false)}>Shop</Link>
+          <Link to="/Our-Story" onClick={() => setOpen(false)}>Our story</Link>
+          <Link to="/Contact" onClick={() => setOpen(false)}>Contact</Link>
+          
+          {/* ✅ CONDITIONAL MOBILE MENU ITEMS */}
+          {user ? (
+            <>
+              <Link to="/profile" onClick={() => setOpen(false)}>
+                Profile
+              </Link>
+              {user.role === "admin" && (
+                <Link to="/admin" onClick={() => setOpen(false)}>
+                  Admin
+                </Link>
+              )}
+              <button onClick={handleLogout} className="mobile-logout-btn">
+                Logout
+              </button>
+            </>
+          ) : (
+            <Link to="/login" onClick={() => setOpen(false)}>
+              Login
+            </Link>
+          )}
         </div>
-        
       </nav>
 
-      {/* desktop menu */}
-
-      <div className={`desktop-view ${scrolledDesktop ? "scrolled" : null}`}>
+      {/* DESKTOP MENU */}
+      <div className={`desktop-view ${scrolledDesktop ? "scrolled" : ""}`}>
         <div className="desktop-menu">
-          <Link to="/For-Men"> Men </Link>
-          <Link to="/For-Women"> Women </Link>
-          <Link to="/Our-Story"> Our story </Link>
-          <Link to="/Contact"> Contact </Link>
+          <Link to="/">Home</Link>
+          
+          {/* ✅ CONDITIONAL DESKTOP LINK: Show "Shop" when logged in, "Login" when not */}
+          {user ? (
+            <Link to="/products">Shop</Link>
+          ) : (
+            <Link to="/login">Login</Link>
+          )}
+          
+          <Link to="/Our-Story">Our story</Link>
+          <Link to="/Contact">Contact</Link>
+          
+          {/* ✅ SHOW USER MENU WHEN LOGGED IN */}
+          {user && (
+            <>
+              <Link to="/profile" className="desktop-profile-link">
+                <i className="fa-solid fa-user"></i> Profile
+              </Link>
+              {user.role === "admin" && (
+                <Link to="/admin" className="desktop-admin-link">
+                  <i className="fa-solid fa-gauge"></i> Admin
+                </Link>
+              )}
+              <button onClick={logout} className="desktop-logout-btn">
+                <i className="fa-solid fa-right-from-bracket"></i> Logout
+              </button>
+            </>
+          )}
         </div>
 
         <div className="header-logo-desktop">Brandi</div>
