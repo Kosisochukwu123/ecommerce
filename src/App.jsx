@@ -44,6 +44,8 @@ import ScrollRestoration from "./components/ScrollRestore.jsx";
 
 import { AuthProvider } from "./context/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute.jsx"; // ← ADD THIS
+import NotFound from "./pages/NotFound/NotFound";  // ← ADD THIS
+
 
 function App() {
   useEffect(() => {
@@ -80,7 +82,7 @@ function App() {
             <Route path="/wishlist" element={<Wishlist />} />
             <Route path="/sell" element={<SellProduct />} />
             <Route path="/my-submissions" element={<MySubmissions />} />
-
+            <Route path="*" element={<NotFound />} />  {/* ← ADD THIS */}
             <Route
               path="/admin"
               element={

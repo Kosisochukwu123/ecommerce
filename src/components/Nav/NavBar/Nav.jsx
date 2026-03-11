@@ -152,22 +152,6 @@ const Nav = ({ scrolledDesktopDistance = 440, alwaysScrolled = false }) => {
           <Link to="/Our-Story">Our story</Link>
           <Link to="/Contact">Contact</Link>
           
-          {/* ✅ SHOW USER MENU WHEN LOGGED IN */}
-          {user && (
-            <>
-              <Link to="/profile" className="desktop-profile-link">
-                <i className="fa-solid fa-user"></i> Profile
-              </Link>
-              {user.role === "admin" && (
-                <Link to="/admin" className="desktop-admin-link">
-                  <i className="fa-solid fa-gauge"></i> Admin
-                </Link>
-              )}
-              <button onClick={logout} className="desktop-logout-btn">
-                <i className="fa-solid fa-right-from-bracket"></i> Logout
-              </button>
-            </>
-          )}
         </div>
 
         <div className="header-logo-desktop">Brandi</div>

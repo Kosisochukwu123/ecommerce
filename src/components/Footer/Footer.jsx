@@ -1,6 +1,6 @@
 import React from "react";
 import "./Footer.css";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import mastercardImage from "../../../public/images/apple-pay_5968209.png";
 import card from "../../../public/images/card_16174534.png";
 import paypal from "../../../public/images/paypal_888870.png";
@@ -9,7 +9,6 @@ import visa from "../../../public/images/visa_217425.png";
 export const Footer = () => {
   return (
     <footer>
-        
       <div className="footer-top">
         <div className="box">
           <i className="fa-solid fa-box-open"></i>
@@ -42,25 +41,39 @@ export const Footer = () => {
           <h2>Navigation</h2>
           <div className="links">
             <Link to="/">Home</Link>
-            <Link to="/For-Men">Men</Link>
-            <Link to="/For-Women">Women</Link>
-            {/* <Link to="/kids">Kids</Link> */}
-            <Link to="/Our-Story">Our Story</Link>
+            <Link to="/products">Shop</Link>
+            <Link to="/Our-Story">About Us</Link>
+            <Link to="/Contact">Contact</Link>
           </div>
         </div>
+
+        <div className="content">
+          <h2>Account</h2>
+          <div className="links">
+            <Link to="/profile">My Profile</Link>
+            <Link to="/my-submissions">My Submissions</Link>
+            <Link to="/login">Login</Link>
+            <Link to="/register">Register</Link>
+          </div>
+        </div>
+
         <div className="content">
           <h2>Legal</h2>
           <div className="links">
             <Link to="/Privacy-Policy">Privacy Policy</Link>
-            <Link to="/Terms">Terms of services</Link>
+            <Link to="/Terms">Terms of Service</Link>
+            <Link to="/refund-policy">Refund Policy</Link>
+            <Link to="/shipping-policy">Shipping Policy</Link>
           </div>
         </div>
 
         <div className="content">
           <h2>Help</h2>
           <div className="links">
-            <Link to="/Contact">Contact</Link>
+            <Link to="/Contact">Contact Us</Link>
             <Link to="/Contact">FAQ</Link>
+            <Link to="/track-order">Track Order</Link>
+            <Link to="/size-guide">Size Guide</Link>
           </div>
         </div>
       </div>
@@ -75,10 +88,8 @@ export const Footer = () => {
           <img src={visa} alt="Visa" />
         </span>
       </div>
-
     </footer>
   );
 };
-
 
 export default Footer;
