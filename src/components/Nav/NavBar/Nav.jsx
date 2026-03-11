@@ -1,10 +1,10 @@
 import "./Nav.css";
 import { useState, useEffect } from "react";
-import { CheckoutPage } from "../Cart/CheckoutPage.jsx";  // ← Fixed import
+import { CheckoutPage } from "../Cart/CartItems.jsx";  // ← Fixed import
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { useCart } from "../Cart/UseCart.jsx";
-import { useAuth } from "../../context/AuthContext";  // ← ADD THIS
+import { useAuth } from "../../../context/AuthContext";  // ← ADD THIS
 
 const Nav = ({ scrolledDesktopDistance = 440, alwaysScrolled = false }) => {
   const [open, setOpen] = useState(false);

@@ -1,22 +1,16 @@
 import "./App.css";
 import Home from "./pages/Home.jsx";
-// import MenPage from "./pages/MensPage/Mens.jsx";
-// import WomenPage from "./pages/WomensPage/Womens.jsx";
 import OurStoryPage from "./pages/OurStoryPage/OurStoryPage.jsx";
 import ContactPage from "./pages/ContactPage/ContactPage.jsx";
 import { Routes, Route, BrowserRouter } from "react-router";
 import { CheckoutPage } from "./components/Nav/Cart/CartItems.jsx"; // Import the CartProvider
-
 import OpenPageAnimation from "./components/OpenPageAnimation/OpenPageAnimation";
-import ScrollToTop from "./components/ScrollToTop";
 import PrivacyPolicy from "./components/PrivacyPolicy";
 import Terms from "./components/Terms";
 import Login from "./pages/LoginPage/Login.jsx";
 import LoginFace from "./pages/LoginPage/LoginFace.jsx";
 import Register from "./pages/RegisterPage/Register.jsx";
 import ForgotPassword from './pages/LoginPage/ForgotPassword';
-
-// import MainPage from "./pages/MainPage/MainPage.Jsx";
 import Products from "./pages/Shop/Products.jsx";
 import AdminLayout from "./components/Admin/AdminLayout.jsx";
 import Dashboard from "./components/Admin/pages/Dashboard/Dashboard.jsx";
@@ -25,24 +19,15 @@ import UserManager from "./components/Admin/pages/UserManager.jsx";
 import OrderManager from "./components/Admin/pages/OrderManager.jsx";
 import Analytics from "./components/Admin/pages/Analytics.jsx";
 // import error from "./pages/404/404.jsx";
-// import Faq from "./components/Admin/pages/FAQ/faq.jsx";
-
 import AdminFAQ from "./components/Admin/pages/FAQ/AdminFAQ.jsx";
-// import AdminDashboard from "./pages/AdminDashboard.jsx";
 import UserProfile from "./pages/UserProfile/UserProfile.jsx";
 import ProfileSettings from "./pages/ProfileSettings/ProfileSettings.jsx";
 import Wishlist from "./pages/WishList/WishList.jsx";
-
-// import { CartProvider } from "./components/Cart/UseCart";
 import { CartProvider } from "./components/Nav/Cart/UseCart.jsx";
 import ProductManager from "./components/Admin/pages/ProductManager/ProductManager";
-
 import SellProduct from "./pages/SellProduct/SellProduct";
 import MySubmissions from "./pages/MySubmissions/MySubmissions";
 import SubmissionReview from "./components/Admin/pages/SubmissionReview/SubmissionReview";
-
-// import UpdateProduct from './components/Admin/pages/AdminProducts.jsx';
-
 // import ChatBot from "./components/ChatBot/Chat.jsx";
 
 import { ProductCheckout } from "./pages/ProductsCheckout/ProductCheckout.jsx";
