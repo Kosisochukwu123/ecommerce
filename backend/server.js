@@ -4,13 +4,14 @@ import cors from "cors";
 import { connectUsersDB, connectProductsDB } from "./config/db.js";
 import authRoutes from "./routes/auth.js";
 import productRoutes from "./routes/products.js";
-import faqRoutes from "./routes/faq.routes.js";
+// import faqRoutes from "./routes/faq.routes.js";
 import adminFaqRoutes from "./routes/adminFaqRoutes.js";
 import orderRoutes from "./routes/orders.js"; 
 import uploadRoutes from "./routes/upload.js"; 
 import reviewRoutes from "./routes/reviews.js"; 
 import sellerSubmissionRoutes from "./routes/sellerSubmissions.js"; // ← ADD THIS
 import settingsRoutes from "./routes/settings.js";
+import faqRoutes from "./routes/faqs.js";  // ← ADD THIS
 
 
 

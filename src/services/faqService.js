@@ -1,11 +1,10 @@
-// ✅ FIX: Use correct environment variable and endpoint
 const backendAddress = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
-const API_URL = `${backendAddress}/api/faqs`; // Changed from /api/admin
+const API_URL = `${backendAddress}/api/faqs`;
 
 class FAQService {
   // Get auth headers
   getAuthHeaders() {
-    const token = localStorage.getItem('token'); // Changed from 'adminToken'
+    const token = localStorage.getItem('token');
     return {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`
@@ -15,17 +14,19 @@ class FAQService {
   // Get FAQs for visitors (public - no auth needed)
   async getFAQs() {
     try {
-      const response = await fetch(`${API_URL}/public`); // Public endpoint
+      const response = await fetch(`${API_URL}/public`); // ← Changed endpoint
       
       if (!response.ok) {
         throw new Error(`HTTP ${response.status}: ${response.statusText}`);
       }
       
       const data = await response.json();
-      return data.faqs || data; // Handle different response formats
+      console.log('✅ FAQs loaded:', data);
+      return data.faqs || [];
     } catch (error) {
       console.error('❌ Failed to load FAQs:', error.message);
-      throw error; // Re-throw so component can handle it
+      // Return empty array instead of throwing
+      return [];
     }
   }
 
@@ -42,8 +43,8 @@ class FAQService {
       }
 
       const data = await response.json();
-      console.log('✅ FAQs loaded:', data);
-      return data.faqs || data;
+      console.log('✅ Admin FAQs loaded:', data);
+      return data.faqs || [];
     } catch (error) {
       console.error('❌ Failed to load admin FAQs:', error.message);
       throw error;
@@ -64,7 +65,9 @@ class FAQService {
         throw new Error(errorData.message || 'Failed to create FAQ');
       }
 
-      return response.json();
+      const data = await response.json();
+      console.log('✅ FAQ created:', data);
+      return data;
     } catch (error) {
       console.error('❌ Failed to create FAQ:', error.message);
       throw error;
@@ -85,7 +88,9 @@ class FAQService {
         throw new Error(errorData.message || 'Failed to update FAQ');
       }
 
-      return response.json();
+      const data = await response.json();
+      console.log('✅ FAQ updated:', data);
+      return data;
     } catch (error) {
       console.error('❌ Failed to update FAQ:', error.message);
       throw error;
@@ -105,7 +110,9 @@ class FAQService {
         throw new Error(errorData.message || 'Failed to delete FAQ');
       }
 
-      return response.json();
+      const data = await response.json();
+      console.log('✅ FAQ deleted:', data);
+      return data;
     } catch (error) {
       console.error('❌ Failed to delete FAQ:', error.message);
       throw error;
